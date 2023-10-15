@@ -2,10 +2,13 @@
 
 import { Layout } from "antd";
 import Link from 'next/link';
+import DropDown from "./DropDown";
+import { getUserInfo } from "@/services/auth.services";
 
 const { Header } = Layout;
 
-const PublicHeader = () => {
+const UserHeader = () => {
+    const { role } = getUserInfo() as any;
     return (
         <Header className="flex items-center justify-between"  >
             <Link href={`/`}> Travel Agency</Link>
@@ -14,14 +17,14 @@ const PublicHeader = () => {
                 <Link href={`/service`}>Service</Link>
                 <Link href={`/news`}>News</Link>
                 <Link href={`/faq`}>FAQ</Link>
+                <Link href={`/dashboard/profile`}>Dashboard</Link>
             </div>
             <div>
-            <Link href={'/login'} className='text-white font-semibold rounded uppercase px-4 py-2'>Login</Link>
-            <Link href={'/register'} className='text-white font-semibold rounded uppercase border border-white px-4 py-2'>Register</Link>
-          </div>
+                <span className="mr-2 capitalize">{role}</span>
+                <DropDown />
+            </div>
         </Header>
-
     );
 };
 
-export default PublicHeader;
+export default UserHeader;

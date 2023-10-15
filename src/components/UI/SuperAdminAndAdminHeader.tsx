@@ -8,11 +8,11 @@ import { getUserInfo } from "@/services/auth.services";
 
 const { Header:AntHeader } = Layout;
 
-const Header = () => {
+const SuperAdminAndAdminHeader = () => {
     const { role } = getUserInfo() as any;
 
     return (
-        <AntHeader className="flex items-center justify-between bg-white"  >
+        <AntHeader className="flex items-center justify-between"  >
             <Link href={`/`}> Travel Agency</Link>
             <div>
             <span className="mr-2 capitalize">{role}</span>
@@ -22,4 +22,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default SuperAdminAndAdminHeader;

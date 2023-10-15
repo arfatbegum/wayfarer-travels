@@ -17,11 +17,17 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    background-color: rgb(246, 244, 244) !important;
 }
+
+.ant-layout-header{
+background-color: #7c3aed !important;
+}
+
+.ant-layout-header a{
+  color: white !important;
+  }
+
+  .ant-input:focus{
+    border-color: #7c3aed !important;
+    }

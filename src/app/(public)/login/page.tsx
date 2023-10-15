@@ -4,8 +4,9 @@ import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import { SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { storeUserInfo } from "@/services/auth.services";
+import { getUserInfo, storeUserInfo } from "@/services/auth.services";
 import { useUserLoginMutation } from "@/redux/api/authApi";
+import Link from "next/link";
 
 type FormValues = {
     email: string;
@@ -15,18 +16,24 @@ type FormValues = {
 const Login = () => {
     const [userLogin] = useUserLoginMutation();
     const router = useRouter();
-
     const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
         try {
             const res = await userLogin({ ...data }).unwrap();
             if (res?.accessToken) {
-                router.push("/");
+                storeUserInfo({ accessToken: res?.accessToken });
+                const userInfo = getUserInfo() as any;
+                if (userInfo?.role) {
+                    router.push(`/${userInfo.role}/profile`);
+                }
+                if (userInfo?.role === 'user') {
+                    router.push(`/`);
+                }
             }
-            storeUserInfo({ accessToken: res?.accessToken });
         } catch (err: any) {
             message.error(err.message);
         }
     };
+
     return (
         <div>
             <Row
@@ -34,32 +41,31 @@ const Login = () => {
                 align="middle"
                 style={{
                     height: "100vh",
-                    backgroundColor: "#edf2f7",
                     color: "black"
                 }}
             >
                 <Form submitHandler={onSubmit}>
-                    <div className="p-12 bg-white mx-auto rounded-3xl w-96 ">
+                    <div className="p-12 bg-white mx-auto rounded-3xl w-96 shadow-md">
                         <div className="mb-7">
-                            <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
-                            <p className="text-gray-400">Dont have an account? <a href="#"
-                                className="text-sm text-violet-600 hover:text-violet-600">Sign Up</a></p>
+                            <h3 className="font-semibold text-2xl text-gray-800">Login </h3>
+                            <p className="text-gray-400">Dont have an account? <Link href={'/register'}
+                                className="text-sm text-violet-600 hover:text-violet-600">Register</Link></p>
                         </div>
                         <div className="space-y-6">
                             <div className="">
-                                <FormInput name="email" type="text" size="large" label="User Id" />
+                                <FormInput name="email" type="text" size="large" label="Enter Your Email" />
                             </div>
                             <div className="" >
                                 <FormInput
                                     name="password"
                                     type="password"
                                     size="large"
-                                    label="User Password"
+                                    label="Enter Your Password"
                                 />
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="w-full flex justify-center bg-violet-600 hover:bg-violet-600 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
+                            <button type="submit" className="w-full flex justify-center bg-violet-600 hover:bg-violet-600 text-gray-100 p-3  rounded-lg tracking-wide font-semibold my-7 cursor-pointer transition ease-in duration-500">
                                 Login
                             </button>
                         </div>

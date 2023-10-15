@@ -8,15 +8,11 @@ import {
   BookOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
-import { getUserInfo } from "@/services/auth.services";
-
-const userRole = getUserInfo() as string;
-console.log(userRole)
 
 export const sidebarItems = (userRole: string) => {
   const defaultSidebarItems: MenuProps["items"] = [
     {
-      label: "Profile",
+      label: <Link href={`/profile`}>Profile</Link>,
       key: "profile",
       icon: <ProfileOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
     },

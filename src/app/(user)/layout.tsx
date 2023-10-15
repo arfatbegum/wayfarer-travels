@@ -1,7 +1,7 @@
 "use client";
 import Contents from "@/components/UI/Contents";
+import Headers from "@/components/UI/Headers";
 import SideBar from "@/components/UI/Sidebar";
-import SuperAdminAndAdminHeader from "@/components/UI/SuperAdminAndAdminHeader";
 import { isLoggedIn } from "@/services/auth.services";
 import { Layout } from "antd";
 import { useRouter } from "next/navigation";
@@ -25,7 +25,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <Layout>
-            <SuperAdminAndAdminHeader/>
+            <Headers/>
             <Layout>
                 <SideBar />
                 <Layout style={{ padding: '0 24px 24px' }}>

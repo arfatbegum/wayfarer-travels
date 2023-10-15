@@ -1,9 +1,10 @@
-import Image from 'next/image'
+import PublicHeader from '@/components/UI/PublicHeader'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
-    </main>
+    <div>
+      <PublicHeader />
+      <div className="min-h-[calc(100vh-64px)]"> </div>
+    </div>
   )
 }
