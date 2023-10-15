@@ -13,23 +13,23 @@ const BreadCrumb = ({
     const breadCrumbItems = [
         {
             title: (
-                <Link href="/">
-                    <HomeOutlined />
-                </Link>
+              <Link href="/">
+                <HomeOutlined style={{ fontSize: '18px', color: '#4338ca',}}/>
+              </Link>
             ),
-        },
-        ...items.map((item) => {
+          },
+          ...items.map((item) => {
             return {
-                title: item.link ? (
-                    <Link href={item.link}>{item.label}</Link>
-                ) : (
-                    <span>{item.label}</span>
-                ),
+              title: item.link ? (
+                <Link href={item.link}>{item.label}</Link>
+              ) : (
+                <span className="px-5">{item.label}</span>
+              ),
             };
         }),
     ];
 
-    return <Breadcrumb items={breadCrumbItems}></Breadcrumb>;
+    return <Breadcrumb items={breadCrumbItems} className="mt-5"></Breadcrumb>;
 };
 
 export default BreadCrumb;

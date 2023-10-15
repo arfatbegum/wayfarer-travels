@@ -13,18 +13,6 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
         color: "black",
       }}
     >
-      <BreadCrumb
-        items={[
-          {
-            label: `${base}`,
-            link: `/${base}`,
-          },
-          {
-            label: "student",
-            link: `/${base}/student`,
-          },
-        ]}
-      />
       {children}
     </Content>
   );
