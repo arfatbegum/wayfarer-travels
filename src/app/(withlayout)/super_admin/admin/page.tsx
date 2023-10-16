@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, message } from "antd";
+import { Input, Select, message } from "antd";
 import Link from "next/link";
 import {
     DeleteOutlined,
@@ -11,11 +11,12 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
-import { useAdminsQuery, useDeleteAdminMutation } from "@/redux/api/adminApi";
+import { useAdminsQuery, useDeleteAdminMutation, useUpdateAdminMutation } from "@/redux/api/adminApi";
 import dayjs from "dayjs";
 import BreadCrumb from "@/components/UI/BreadCrumb";
 import ActionBar from "@/components/UI/ActionBar";
 import DataTable from "@/components/UI/DataTable";
+import { getUserInfo } from "@/services/auth.services";
 
 const AdminPage = () => {
     const query: Record<string, any> = {};
@@ -26,6 +27,7 @@ const AdminPage = () => {
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [deleteAdmin] = useDeleteAdminMutation();
+    const [updateAdmin] = useUpdateAdminMutation();
 
     query["limit"] = size;
     query["page"] = page;
@@ -40,6 +42,7 @@ const AdminPage = () => {
     if (!!debouncedSearchTerm) {
         query["searchTerm"] = debouncedSearchTerm;
     }
+
     const { data, isLoading } = useAdminsQuery({ ...query });
     const admins = data?.admins;
     const meta = data?.meta;
@@ -54,6 +57,20 @@ const AdminPage = () => {
         }
     };
 
+    const updateAdminRole = async (id: string, newRole: string) => {
+        message.loading("Updating.....");
+        try {
+            await updateAdmin({ id, body: { role: newRole } });
+            message.success("Admin Role Updated successfully");
+        } catch (err: any) {
+            message.error(err.message);
+        }
+    };
+
+    const role = [
+        { label: 'admin', value: 'admin' },
+        { label: 'user', value: 'user' },
+    ];
 
     const columns = [
         {
@@ -70,7 +87,17 @@ const AdminPage = () => {
         },
         {
             title: "Role",
-            dataIndex: "role",
+            render: function (data: any) {
+                return (
+                    <Select
+                        defaultValue={data?.role}
+                        style={{ width: 120 }}
+                        options={role}
+                        onChange={(newRole) => updateAdminRole(data?.id, newRole)}
+
+                    />
+                )
+            }
         },
         {
             title: "Created at",
