@@ -51,8 +51,23 @@ export const adminApi = baseApi.injectEndpoints({
           method: "DELETE",
         }),
         invalidatesTags: [tagTypes.admin],
+    }),
+    getProfile: build.query({
+      query: () => ({
+        url: `${ADMIN_URL }/profile`,
+        method: "GET",
       }),
+      providesTags: [tagTypes.superAdmin],
+    }),
+    updateProfile: build.mutation({
+      query: (data) => ({
+        url: `${ADMIN_URL }/profile`,
+        method: "PATCH",
+        data: data.body,
+      }),
+      invalidatesTags: [tagTypes.superAdmin],
+    }),
   }),
 });
 
-export const { useAdminsQuery, useAddAdminMutation, useDeleteAdminMutation, useUpdateAdminMutation, useAdminQuery } = adminApi;
+export const { useAdminsQuery, useAddAdminMutation, useDeleteAdminMutation, useUpdateAdminMutation, useAdminQuery, useGetProfileQuery, useUpdateProfileMutation } = adminApi;

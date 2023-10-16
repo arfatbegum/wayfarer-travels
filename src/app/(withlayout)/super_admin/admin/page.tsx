@@ -16,7 +16,6 @@ import dayjs from "dayjs";
 import BreadCrumb from "@/components/UI/BreadCrumb";
 import ActionBar from "@/components/UI/ActionBar";
 import DataTable from "@/components/UI/DataTable";
-import { getUserInfo } from "@/services/auth.services";
 
 const AdminPage = () => {
     const query: Record<string, any> = {};

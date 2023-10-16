@@ -1,11 +1,7 @@
-
+import { redirect } from "next/navigation";
 
 const Admin = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return redirect("/admin/profile");
 };
 
 export default Admin;
