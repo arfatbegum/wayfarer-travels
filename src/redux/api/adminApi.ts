@@ -57,7 +57,7 @@ export const adminApi = baseApi.injectEndpoints({
         url: `${ADMIN_URL }/profile`,
         method: "GET",
       }),
-      providesTags: [tagTypes.superAdmin],
+      providesTags: [tagTypes.admin],
     }),
     updateProfile: build.mutation({
       query: (data) => ({
@@ -65,7 +65,7 @@ export const adminApi = baseApi.injectEndpoints({
         method: "PATCH",
         data: data.body,
       }),
-      invalidatesTags: [tagTypes.superAdmin],
+      invalidatesTags: [tagTypes.admin],
     }),
   }),
 });

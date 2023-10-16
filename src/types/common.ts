@@ -25,6 +25,19 @@ export type IDProps = {
   params: any;
 };
 
+export interface IUser {
+  id: string;
+  name: string;
+  email: string;
+  contactNo: string;
+  address: string;
+  profileImg: string;
+  permanentAddress: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
 export interface IAdmin {
   id: string;
   name: string;
