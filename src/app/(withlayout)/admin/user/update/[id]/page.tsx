@@ -7,7 +7,7 @@ import { useUpdateUserMutation, useUserQuery } from "@/redux/api/userApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
 
-const UpdateAdmin = ({ params }: IDProps) => {
+const UpdateUser = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useUserQuery(id);
     const [updateUser] = useUpdateUserMutation();
@@ -45,7 +45,7 @@ const UpdateAdmin = ({ params }: IDProps) => {
                     },
                 ]}
             />
-            <h1 className="py-5 text-lg font-bold">Create User</h1>
+            <h1 className="py-5 text-lg font-bold">Update User</h1>
             <div>
                 <Form submitHandler={onSubmit} defaultValues={defaultValues}>
                     <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -126,4 +126,4 @@ const UpdateAdmin = ({ params }: IDProps) => {
     );
 };
 
-export default UpdateAdmin;
+export default UpdateUser;

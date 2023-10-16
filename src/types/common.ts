@@ -50,3 +50,12 @@ export interface IAdmin {
   updatedAt: string;
   __v: number;
 }
+
+export interface IFAQ {
+  id: string;
+  question: string;
+  answer: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
