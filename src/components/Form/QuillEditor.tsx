@@ -1,28 +1,34 @@
 import dynamic from "next/dynamic";
-import { useRef } from "react";
-import "react-quill/dist/quill.snow.css"; 
+import { useFormContext, Controller } from "react-hook-form";
+import "react-quill/dist/quill.snow.css";
 
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
 });
 
 interface QuillEditorProps {
-  value: string;
-  name: string;
-  onChange: (value: string) => void;
+  name: string; 
   label: string;
 }
 
-const QuillEditor: React.FC<QuillEditorProps> = ({ value, name, onChange, label }) => {
-  
-  const handleChange = (html: string) => {
-    onChange(html);
-  };
+const QuillEditor: React.FC<QuillEditorProps> = ({ name, label }) => {
+  const { control } = useFormContext();
 
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
-      <ReactQuill theme="snow" value={value} onChange={handleChange} />
+      {label ? label : null}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => ( 
+          <ReactQuill
+            theme="snow"
+            value={field.value} 
+            defaultValue={field.value} 
+            onChange={field.onChange} 
+          />
+        )}
+      />
     </div>
   );
 };

@@ -21,13 +21,18 @@ body {
 }
 
 .ant-layout-header{
-background-color: #7c3aed !important;
+ background-color: #7c3aed !important;
 }
 
 .ant-layout-header a{
-  color: white !important;
-  }
+ color: white !important;
+}
 
-  .ant-input:focus{
-    border-color: #7c3aed !important;
-    }
+.ant-input:focus{
+  border-color: #7c3aed !important;
+}
+
+.ant-select  .ant-select-selector{
+ background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+ border: none !important;
+}

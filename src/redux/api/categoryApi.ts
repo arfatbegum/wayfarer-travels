@@ -2,7 +2,7 @@ import { ICategory, IMeta } from "@/types";
 import { tagTypes } from "../tagTypes";
 import { baseApi } from "./baseApi";
 
-const Category_URL = "/Category";
+const Category_URL = "/category";
 
 export const categoryApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -12,7 +12,7 @@ export const categoryApi = baseApi.injectEndpoints({
         method: "GET",
         params: arg,
       }),
-      transformResponse: (response: ICategory, meta: IMeta) => {
+      transformResponse: (response: ICategory[], meta: IMeta) => {
         return {
           categories: response,
           meta,

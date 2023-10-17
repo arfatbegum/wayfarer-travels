@@ -59,6 +59,24 @@ export interface ICategory {
   __v: number;
 }
 
+export interface IService {
+  id: string;
+  name: string;
+  validFrom: string;
+  validTill: string;
+  location: string;
+  price: number;
+  person: number;
+  availableQunatity:number
+  duration: string;
+  description: string;
+  facilities: string;
+  whyChooseUs: string;
+  image: string;
+  updatedAt: string;
+  __v: number;
+}
+
 export interface INews {
   id: string;
   userId: string;

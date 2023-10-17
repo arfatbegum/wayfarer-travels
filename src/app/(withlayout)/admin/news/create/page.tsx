@@ -14,13 +14,12 @@ import { newsSchema } from "@/schema/news";
 
 
 const CreateNews = () => {
-    const [content, setContent] = useState("");
     const [addNews] = useAddNewsMutation();
+    
     const onSubmit = async (data: any) => {
         const userInfo = getUserInfo() as any;
         const userId = userInfo?.userId;
         data.userId = userId;
-        data.content = content;
         message.loading("Creating...");
         try {
             await addNews(data);
@@ -101,8 +100,6 @@ const CreateNews = () => {
                                 <QuillEditor
                                     name="content"
                                     label="Content"
-                                    value={content}
-                                    onChange={(newContent) => setContent(newContent)}
                                 />
                             </Col>
                         </Row>

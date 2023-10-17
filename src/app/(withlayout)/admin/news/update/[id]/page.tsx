@@ -14,7 +14,6 @@ import { useState } from "react";
 const UpdateNews = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useNewsQuery(id);
-    const [content, setContent] = useState("");
     const [updateNews] = useUpdateNewsMutation();
 
     
@@ -22,8 +21,7 @@ const UpdateNews = ({ params }: IDProps) => {
         message.loading("Updating...");
         const userInfo = getUserInfo() as any;
         const userId = userInfo?.userId;
-        values.userId = userId;
-        values.content = content;      
+        values.userId = userId;   
         try {
             await updateNews({ id, body: values });
             message.success("News updated successfully!");
@@ -111,9 +109,7 @@ const UpdateNews = ({ params }: IDProps) => {
                                 <QuillEditor
                                     name="content"
                                     label="Content"
-                                    onChange={(newContent) => setContent(newContent)}
-                                    value={content || data?.content}
-                                />
+                                   />
                             </Col>
                         </Row>
                     </div>
