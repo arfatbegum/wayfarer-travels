@@ -2,21 +2,20 @@
 
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
-import FormTextArea from "@/components/Form/FormTextArea";
 import BreadCrumb from "@/components/UI/BreadCrumb";
-import { useAddFaqMutation } from "@/redux/api/faqApi";
-import { faqSchema } from "@/schema/faq";
+import { useAddCategoryMutation } from "@/redux/api/categoryApi";
+import { categorySchema } from "@/schema/category";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Col, Row, message } from "antd";
 
-const CreateFAQ = () => {
-    const [addFaq] = useAddFaqMutation();
+const CreateCategory = () => {
+    const [addCategory] = useAddCategoryMutation();
 
     const onSubmit = async (data: any) => {
         message.loading("Creating...");
         try {
-            await addFaq(data);
-            message.success("Faq created successfully!");
+            await addCategory(data);
+            message.success("Category created successfully!");
         } catch (err: any) {
             message.error(err.message);
         }
@@ -31,16 +30,16 @@ const CreateFAQ = () => {
                         link: "/admin",
                     },
                     {
-                        label: "Faq",
-                        link: "/admin/faq",
+                        label: "Category",
+                        link: "/admin/category",
                     },
                 ]}
             />
-            <h1 className="py-5 text-lg font-bold">Create Faq</h1>
+            <h1 className="py-5 text-lg font-bold">Create Category</h1>
             <div>
-                <Form submitHandler={onSubmit} resolver={yupResolver(faqSchema)}>
+                <Form submitHandler={onSubmit} resolver={yupResolver(categorySchema)}>
                     <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                        <h1 className="text-lg font-bold mb-5">  FAQ Information</h1>
+                        <h1 className="text-lg font-bold mb-5">  Category Information</h1>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col
                                 className="gutter-row mb-4"
@@ -48,28 +47,18 @@ const CreateFAQ = () => {
                             >
                                 <FormInput
                                     type="text"
-                                    name="question"
+                                    name="name"
                                     size="large"
-                                    label="Question"
-                                />
-                            </Col>
-                            <Col
-                                className="gutter-row mb-4"
-                                span={24}
-                            >
-                                <FormTextArea
-                                    name="answer"
-                                    label="Answer"
-                                    rows={5}
+                                    label="Title"
                                 />
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create FAQ</button>
+                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Category</button>
                 </Form>
             </div>
         </div>
     );
 };
 
-export default CreateFAQ;
+export default CreateCategory;

@@ -6,6 +6,7 @@ import {
   ContactsOutlined,
   SlackOutlined,
   BookOutlined,
+  AppstoreOutlined
 } from "@ant-design/icons";
 import Link from "next/link";
 
@@ -24,6 +25,11 @@ export const sidebarItems = (userRole: string) => {
       label: <Link href={`/${userRole}/user`}>User</Link>,
       key: "user",
       icon: <ContactsOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+    },
+    {
+      label: <Link href={`/${userRole}/category`}>Category</Link>,
+      key: "category",
+      icon: <AppstoreOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
     },
     {
       label: <Link href={`/${userRole}/service`}>Service</Link>,

@@ -4,20 +4,20 @@ import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import FormTextArea from "@/components/Form/FormTextArea";
 import BreadCrumb from "@/components/UI/BreadCrumb";
-import { useFaqQuery, useUpdateFaqMutation } from "@/redux/api/faqApi";
+import { useCategoryQuery, useUpdateCategoryMutation } from "@/redux/api/categoryApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
 
-const UpdateFAQ = ({ params }: IDProps) => {
+const UpdateCategory = ({ params }: IDProps) => {
     const { id } = params;
-    const { data, isLoading } = useFaqQuery(id);
-    const [updateFaq] = useUpdateFaqMutation();
+    const { data, isLoading } = useCategoryQuery(id);
+    const [updateCategory] = useUpdateCategoryMutation();
 
     const onSubmit = async (values: any) => {
         message.loading("Updating...");
         try {
-            await updateFaq({ id, body: values });
-            message.success("Faq updated successfully!");
+            await updateCategory({ id, body: values });
+            message.success("Category updated successfully!");
         } catch (err: any) {
             message.error(err.message);
         }
@@ -25,8 +25,7 @@ const UpdateFAQ = ({ params }: IDProps) => {
 
     // @ts-ignore
     const defaultValues = {
-        question: data?.question || "",
-        answer: data?.answer || "",
+        name: data?.name || "",
     };
 
     return (
@@ -38,16 +37,16 @@ const UpdateFAQ = ({ params }: IDProps) => {
                         link: "/admin",
                     },
                     {
-                        label: "FAQ",
-                        link: "/admin/faq",
+                        label: "Category",
+                        link: "/admin/category",
                     },
                 ]}
             />
-            <h1 className="py-5 text-lg font-bold">Update FAQ</h1>
+            <h1 className="py-5 text-lg font-bold">Update Category</h1>
             <div>
                 <Form submitHandler={onSubmit} defaultValues={defaultValues}>
                     <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                        <h1 className="text-lg font-bold mb-5">Update FAQ Information</h1>
+                        <h1 className="text-lg font-bold mb-5">Update Category Information</h1>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col
                                 className="gutter-row mb-4"
@@ -55,28 +54,18 @@ const UpdateFAQ = ({ params }: IDProps) => {
                             >
                                 <FormInput
                                     type="text"
-                                    name="question"
+                                    name="name"
                                     size="large"
-                                    label="Question"
-                                />
-                            </Col>
-                            <Col
-                                className="gutter-row mb-4"
-                                span={24}
-                            >
-                                <FormTextArea
-                                    name="answer"
-                                    label="Answer"
-                                    rows={5}
+                                    label="Title"
                                 />
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Update FAQ</button>
+                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Update Category</button>
                 </Form>
             </div>
         </div>
     );
 };
 
-export default UpdateFAQ;
+export default UpdateCategory;

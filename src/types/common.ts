@@ -51,6 +51,14 @@ export interface IAdmin {
   __v: number;
 }
 
+export interface ICategory {
+  id: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
 export interface INews {
   id: string;
   userId: string;
