@@ -51,6 +51,18 @@ export interface IAdmin {
   __v: number;
 }
 
+export interface INews {
+  id: string;
+  userId: string;
+  contentType: string;
+  title: string;
+  content: string;
+  date: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
 export interface IFAQ {
   id: string;
   question: string;
