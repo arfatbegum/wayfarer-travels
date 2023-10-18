@@ -60,6 +60,7 @@ export interface ICategory {
 }
 
 export interface IService {
+  [x: string]: any;
   id: string;
   name: string;
   validFrom: string;
