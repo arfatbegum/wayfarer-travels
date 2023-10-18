@@ -9,7 +9,6 @@ import BreadCrumb from "@/components/UI/BreadCrumb";
 import { useServiceQuery, useUpdateServiceMutation } from "@/redux/api/serviceApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
-import { useState } from "react";
 
 const UpdateService = ({ params }: IDProps) => {
     const { id } = params;
