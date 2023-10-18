@@ -9,7 +9,6 @@ const AvailableService = () => {
     const query: Record<string, any> = {};
     const { data, isLoading } = useServicesQuery({ ...query });
     const services = data?.services;
-    console.log(services)
     const currentDate = new Date(); 
 
     // Filter services based on valid_from and valid_to
