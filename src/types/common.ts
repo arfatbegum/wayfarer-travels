@@ -68,12 +68,24 @@ export interface IService {
   location: string;
   price: number;
   person: number;
-  availableQunatity:number
+  availableQunatity: number;
   duration: string;
   description: string;
   facilities: string;
   whyChooseUs: string;
   image: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface IBooking {
+  id: string;
+  userId: string;
+  serviceId: string;
+  paymentInfoId: string;
+  status: string;
+  date: string;
+  createdAt: string;
   updatedAt: string;
   __v: number;
 }

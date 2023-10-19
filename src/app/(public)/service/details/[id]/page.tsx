@@ -6,12 +6,24 @@ import PublicHeader from "@/components/UI/PublicHeader";
 import { useServiceQuery } from "@/redux/api/serviceApi";
 import { IDProps } from "@/types";
 import Image from "next/image";
+import { useState } from "react";
+import BookingDrawer from "@/components/UI/Booking/BookingDrawer";
 
 
 const UpdateService = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useServiceQuery(id);
-    console.log(data)
+
+    const [open, setOpen] = useState(false);
+
+    const showDrawer = () => {
+        setOpen(true);
+    };
+
+    const onClose = () => {
+        setOpen(false);
+    };
+
 
     return (
         <>
@@ -94,11 +106,13 @@ const UpdateService = ({ params }: IDProps) => {
                                     <span> {data?.validTill.slice(0, 10)}</span>
                                 </div>
                             </div>
+                            <h1 className="text-gray-900 font-bold text-2xl mb-4">${data?.price}</h1>
                             <h1 className="pb-1 text-lg font-bold">Tour Facilities</h1>
                             <p>{data?.whyChooseUs}</p>
                             <h1 className="pb-1 text-lg font-bold mt-5">Why choose us</h1>
                             <p>{data?.facilities}</p>
-                            <button className="bg-violet-600 text-white py-2 rounded mt-8">Book Now</button>
+                            <button onClick={showDrawer} className="bg-violet-600 text-white py-2 rounded mt-8 text-semibold">Book Now</button>
+                            <BookingDrawer onClose={onClose} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
                         </div>
                     </div>
                 </div>
