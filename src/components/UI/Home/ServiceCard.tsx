@@ -31,7 +31,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const averageRating = totalReviews > 0 ? sumOfRatings / totalReviews : 0;
 
     return (
-        <div className="p-2 md:w-1/2 lg:w-1/4  flex flex-col">
+        <div className="p-2 md:w-1/2 lg:w-1/4  flex flex-col my-12">
             <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                 <div className="relative z-0 overflow-hidden rounded-xl rounded-b-none bg-blue-gray-500 bg-clip-border text-white shadow-md shadow-blue-gray-500/40">
                     <Image
