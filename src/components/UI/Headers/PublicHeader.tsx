@@ -5,13 +5,13 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import DropDown from './DropDown';
 import { useGetProfileQuery } from '@/redux/api/userApi';
-import Loader from '@/constants/Loader';
+import Loader from '@/components/UI/Shared/Loader';
 
 const PublicHeader = () => {
     const [isNavOpen, setNavOpen] = useState(false);
     const userLoggedIn = isLoggedIn();
     const { data, isLoading } = useGetProfileQuery({});
-   
+
     const toggleNav = () => {
         setNavOpen(!isNavOpen);
     };

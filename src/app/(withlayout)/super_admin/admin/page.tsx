@@ -13,9 +13,9 @@ import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
 import { useAdminsQuery, useDeleteAdminMutation, useUpdateAdminMutation } from "@/redux/api/adminApi";
 import dayjs from "dayjs";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import ActionBar from "@/components/UI/ActionBar";
-import DataTable from "@/components/UI/DataTable";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import ActionBar from "@/components/UI/Shared/ActionBar";
+import DataTable from "@/components/UI/Shared/DataTable";
 
 const AdminPage = () => {
     const query: Record<string, any> = {};

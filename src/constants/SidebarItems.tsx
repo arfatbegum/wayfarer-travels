@@ -51,6 +51,11 @@ export const sidebarItems = (userRole: string) => {
       key: "faq",
       icon: <QuestionCircleOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
     },
+    {
+      label: <Link href={`/${userRole}/feedback`}>Feedback</Link>,
+      key: "feedback",
+      icon: <QuestionCircleOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+    },
   ];
 
   const superAdminSidebarItems: MenuProps["items"] = [
@@ -68,6 +73,11 @@ export const sidebarItems = (userRole: string) => {
       label: <Link href={`/booking`}>Booking</Link>,
       icon: <SlackOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
       key: `/booking`,
+    },
+    {
+      label: <Link href={`/feedback`}>Feedback</Link>,
+      icon: <SlackOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      key: `/feedback`,
     },
   ];
 

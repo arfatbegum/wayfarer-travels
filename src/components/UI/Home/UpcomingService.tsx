@@ -3,7 +3,7 @@
 import dayjs from "dayjs";
 import UpcomingServiceCard from './UpcomingServiceCard';
 import { useServicesQuery } from "@/redux/api/serviceApi";
-import Loader from "@/constants/Loader";
+import Loader from "@/components/UI/Shared/Loader";
 
 const UpcomingService = () => {
     const query: Record<string, any> = {};

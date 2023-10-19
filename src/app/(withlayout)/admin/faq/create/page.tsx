@@ -3,7 +3,7 @@
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import FormTextArea from "@/components/Form/FormTextArea";
-import BreadCrumb from "@/components/UI/BreadCrumb";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import { useAddFaqMutation } from "@/redux/api/faqApi";
 import { faqSchema } from "@/schema/faq";
 import { yupResolver } from "@hookform/resolvers/yup";

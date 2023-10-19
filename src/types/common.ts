@@ -121,3 +121,13 @@ export interface IReview {
   updatedAt: string;
   __v: number;
 }
+
+export interface IFeedback {
+  id: string;
+  userId: string;
+  suggestions: string;
+  comment: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

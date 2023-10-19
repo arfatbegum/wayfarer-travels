@@ -6,7 +6,7 @@ import DropDown from "./DropDown";
 import { getUserInfo } from "@/services/auth.services";
 
 
-const { Header:AntHeader } = Layout;
+const { Header: AntHeader } = Layout;
 
 const SuperAdminAndAdminHeader = () => {
     const { role } = getUserInfo() as any;
@@ -15,9 +15,9 @@ const SuperAdminAndAdminHeader = () => {
         <AntHeader className="flex items-center justify-between"  >
             <Link href={`/`}> Travel Agency</Link>
             <div>
-            <span className="mr-2 capitalize">{role}</span>
-            <DropDown/>
-           </div>
+                <span className="mr-2 capitalize">{role}</span>
+                <DropDown />
+            </div>
         </AntHeader>
     );
 };

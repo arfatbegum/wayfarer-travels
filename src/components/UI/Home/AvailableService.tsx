@@ -1,16 +1,15 @@
 'use client'
 
-import React from 'react';
 import ServiceCard from './ServiceCard';
 import { useServicesQuery } from '@/redux/api/serviceApi';
 import dayjs from "dayjs";
-import Loader from '@/constants/Loader';
+import Loader from '@/components/UI/Shared/Loader';
 
 const AvailableService = () => {
     const query: Record<string, any> = {};
     const { data, isLoading } = useServicesQuery({ ...query });
     const services = data?.services;
-    const currentDate = new Date(); 
+    const currentDate = new Date();
 
     if (isLoading) {
         return <Loader />
@@ -27,7 +26,7 @@ const AvailableService = () => {
     });
 
     return (
-        <section className="text-gray-600 body-font">
+        <div className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <div className="text-center mb-14">
                     <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Explore Our Available Tour Services</h1>
@@ -37,13 +36,13 @@ const AvailableService = () => {
                     </div>
                 </div>
                 <div className="flex flex-wrap sm:-m-4 -mx-4 lg:px-16 px-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-                    {validServices && validServices?.map((service:any) => (
+                    {validServices && validServices?.map((service: any) => (
                         <ServiceCard key={service.id} service={service} />
                     ))}
                 </div>
                 <button className="flex mx-auto mt-16 text-white bg-violet-600 border-0 py-2 px-8 focus:outline-none hover:bg-violet-800 rounded text-lg">EXPLORE ALL SERVICES</button>
             </div>
-        </section>
+        </div>
     );
 };
 

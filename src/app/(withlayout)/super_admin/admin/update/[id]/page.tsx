@@ -2,8 +2,8 @@
 
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import Loader from "@/constants/Loader";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import Loader from "@/components/UI/Shared/Loader";
 import { useAdminQuery, useUpdateAdminMutation } from "@/redux/api/adminApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";

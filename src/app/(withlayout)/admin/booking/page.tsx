@@ -10,9 +10,9 @@ import {
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
 import dayjs from "dayjs";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import ActionBar from "@/components/UI/ActionBar";
-import DataTable from "@/components/UI/DataTable";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import ActionBar from "@/components/UI/Shared/ActionBar";
+import DataTable from "@/components/UI/Shared/DataTable";
 import { useBookingsQuery, useDeleteBookingMutation, useUpdateBookingMutation } from "@/redux/api/bookingApi";
 
 const Booking = () => {

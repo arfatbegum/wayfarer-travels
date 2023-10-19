@@ -4,8 +4,8 @@ import Form from "@/components/Form/Form";
 import FormDatePicker from "@/components/Form/FormDatePicker";
 import FormInput from "@/components/Form/FormInput";
 import QuillEditor from "@/components/Form/QuillEditor";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import Loader from "@/constants/Loader";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import Loader from "@/components/UI/Shared/Loader";
 import { useNewsQuery, useUpdateNewsMutation } from "@/redux/api/newsApi";
 import { getUserInfo } from "@/services/auth.services";
 import { IDProps } from "@/types";
@@ -20,12 +20,12 @@ const UpdateNews = ({ params }: IDProps) => {
     if (isLoading) {
         return <Loader />
     }
-    
+
     const onSubmit = async (values: any) => {
         message.loading("Updating...");
         const userInfo = getUserInfo() as any;
         const userId = userInfo?.userId;
-        values.userId = userId;   
+        values.userId = userId;
         try {
             await updateNews({ id, body: values });
             message.success("News updated successfully!");
@@ -113,7 +113,7 @@ const UpdateNews = ({ params }: IDProps) => {
                                 <QuillEditor
                                     name="content"
                                     label="Content"
-                                   />
+                                />
                             </Col>
                         </Row>
                     </div>

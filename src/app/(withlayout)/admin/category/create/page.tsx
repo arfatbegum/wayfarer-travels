@@ -2,7 +2,7 @@
 
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
-import BreadCrumb from "@/components/UI/BreadCrumb";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import { useAddCategoryMutation } from "@/redux/api/categoryApi";
 import { categorySchema } from "@/schema/category";
 import { yupResolver } from "@hookform/resolvers/yup";

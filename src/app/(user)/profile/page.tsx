@@ -1,8 +1,8 @@
 "use client";
 
-import ActionBar from "@/components/UI/ActionBar";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import Loader from "@/constants/Loader";
+import ActionBar from "@/components/UI/Shared/ActionBar";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import Loader from "@/components/UI/Shared/Loader";
 import { useGetProfileQuery } from "@/redux/api/userApi";
 import { EditOutlined } from "@ant-design/icons";
 import Image from "next/image";
@@ -28,7 +28,7 @@ const Profile = () => {
             <div className="flex gap-5">
                 <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                     <div className="relative mx-4 mt-4 h-80 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-                        <Image width={350} height={350} src={data?.profileImg|| 'https://i.ibb.co/rGZtkFD/950-9501518-our-terms-working-with-you-professional-boy-image.jpg'} alt="profile-picture" />
+                        <Image width={350} height={350} src={data?.profileImg || 'https://i.ibb.co/rGZtkFD/950-9501518-our-terms-working-with-you-professional-boy-image.jpg'} alt="profile-picture" />
                     </div>
                     <div className="p-6 text-center">
                         <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -38,14 +38,14 @@ const Profile = () => {
                 </div>
                 <div className="py-10 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                     <div className="flex justify-between items-center px-8 mb-5">
-                    <h1 className="text-lg font-bold">Profile information</h1>
-                    <Link href={`/profile/update`}>
+                        <h1 className="text-lg font-bold">Profile information</h1>
+                        <Link href={`/profile/update`}>
                             <button className="flex items-center gap-2 bg-violet-700 text-white font-bold py-1 px-2 rounded mr-2">
                                 Edit
-                            <EditOutlined />
-                        </button>
-                    </Link>
-                  </div>
+                                <EditOutlined />
+                            </button>
+                        </Link>
+                    </div>
                     <table className="text-sm">
                         <tbody>
                             <div>

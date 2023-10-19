@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Dropdown, Space } from "antd";
+import { Avatar, Button, Dropdown, Space } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
@@ -34,11 +34,19 @@ const DropDown = () => {
             ),
         },
         {
+            key: "1",
+            label: (
+                <Link href="/feedback" >
+                    Feedback
+                </Link>
+            ),
+        },
+        {
             key: "2",
             label: (
-                <button onClick={logOut}>
+                <Button className="bg-violet-600 text-white w-36"  onClick={logOut} >
                     Logout
-                </button>
+                </Button>
             ),
         },
     ];

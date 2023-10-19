@@ -12,9 +12,9 @@ import {
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
 import dayjs from "dayjs";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import ActionBar from "@/components/UI/ActionBar";
-import DataTable from "@/components/UI/DataTable";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import ActionBar from "@/components/UI/Shared/ActionBar";
+import DataTable from "@/components/UI/Shared/DataTable";
 import { useDeleteNewsMutation, useNewsesQuery } from "@/redux/api/newsApi";
 
 const NewsPage = () => {
@@ -44,7 +44,7 @@ const NewsPage = () => {
     const { data, isLoading } = useNewsesQuery({ ...query });
     const newses = data?.newses;
     const meta = data?.meta;
-console.log(newses)
+    console.log(newses)
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {

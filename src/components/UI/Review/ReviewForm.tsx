@@ -1,10 +1,10 @@
 'use client'
 
-import Form from '../Form/Form';
+import Form from '../../Form/Form';
 import { Col, Row, message } from 'antd';
 //@ts-ignore
 import ReactStars from 'react-rating-stars-component';
-import FormTextArea from '../Form/FormTextArea';
+import FormTextArea from '../../Form/FormTextArea';
 import { useAddReviewMutation } from '@/redux/api/reviewApi';
 import { getUserInfo, isLoggedIn } from '@/services/auth.services';
 import { useState } from 'react';
@@ -26,7 +26,7 @@ const ReviewForm: React.FC<ReviewProps> = ({ serviceId }) => {
         data.serviceId = serviceId;
         data.rating = star
         try {
-           const res= await addReview(data);
+            const res = await addReview(data);
             if (res) {
                 message.success("Review Sent Successfully!");
             }
@@ -48,13 +48,13 @@ const ReviewForm: React.FC<ReviewProps> = ({ serviceId }) => {
                             className="gutter-row mb-4"
                             span={24}
                         >
-                          <ReactStars
-                            count={5}
-                            size={24}
-                            value={star}
-                            onChange={(newRating: number) => setStar(newRating)}
-                            activeColor="#ffd700"
-                        />
+                            <ReactStars
+                                count={5}
+                                size={24}
+                                value={star}
+                                onChange={(newRating: number) => setStar(newRating)}
+                                activeColor="#ffd700"
+                            />
                         </Col>
                         <Col
                             className="gutter-row mb-4"
@@ -76,6 +76,3 @@ const ReviewForm: React.FC<ReviewProps> = ({ serviceId }) => {
 
 export default ReviewForm;
 
-function Number(rating: any): any {
-    throw new Error('Function not implemented.');
-}

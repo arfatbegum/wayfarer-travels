@@ -3,7 +3,7 @@
 import Form from "@/components/Form/Form";
 import FormDatePicker from "@/components/Form/FormDatePicker";
 import FormInput from "@/components/Form/FormInput";
-import BreadCrumb from "@/components/UI/BreadCrumb";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import QuillEditor from "@/components/Form/QuillEditor";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Col, Row, message } from "antd";

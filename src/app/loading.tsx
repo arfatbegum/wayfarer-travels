@@ -1,9 +1,9 @@
-import Loader from '@/constants/Loader';
+import Loader from '@/components/UI/Shared/Loader';
 
 const Loading = () => {
-    return (
-      <Loader/>
-    );
+  return (
+    <Loader />
+  );
 };
 
 export default Loading;

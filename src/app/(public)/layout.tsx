@@ -1,4 +1,4 @@
-import Headers from "@/components/UI/Headers";
+import Headers from "@/components/UI/Headers/Headers";
 
 
 export default function PublicLayout({

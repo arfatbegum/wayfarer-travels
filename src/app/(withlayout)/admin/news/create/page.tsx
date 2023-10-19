@@ -3,7 +3,7 @@
 import Form from "@/components/Form/Form";
 import FormDatePicker from "@/components/Form/FormDatePicker";
 import FormInput from "@/components/Form/FormInput";
-import BreadCrumb from "@/components/UI/BreadCrumb";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import QuillEditor from "@/components/Form/QuillEditor";
 import { useAddNewsMutation } from "@/redux/api/newsApi";
 import { getUserInfo } from "@/services/auth.services";
@@ -15,7 +15,7 @@ import { newsSchema } from "@/schema/news";
 
 const CreateNews = () => {
     const [addNews] = useAddNewsMutation();
-    
+
     const onSubmit = async (data: any) => {
         const userInfo = getUserInfo() as any;
         const userId = userInfo?.userId;

@@ -1,15 +1,14 @@
 "use client";
 //@ts-ignore
 import ReactStars from "react-rating-stars-component";
-import BreadCrumb from "@/components/UI/BreadCrumb";
 import { useServiceQuery } from "@/redux/api/serviceApi";
 import { IDProps } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
 import BookingDrawer from "@/components/UI/Booking/BookingDrawer";
-import Loader from "@/constants/Loader";
-import ReviewForm from "@/components/UI/ReviewForm";
-import Reviews from "@/components/UI/Reviews";
+import Loader from "@/components/UI/Shared/Loader";
+import ReviewForm from "@/components/UI/Review/ReviewForm";
+import Reviews from "@/components/UI/Review/Reviews";
 
 
 const ServiceDetails = ({ params }: IDProps) => {
@@ -44,18 +43,10 @@ const ServiceDetails = ({ params }: IDProps) => {
 
     return (
         <>
-            <div className="my-28 px-12">
-                <BreadCrumb
-                    items={[
-                        {
-                            label: "Service",
-                            link: "/service",
-                        },
-                    ]}
-                />
+            <div className="my-12 px-12">
                 <div className="text-gray-900 body-font relative">
                     <div className="container pt-5 mx-auto flex sm:flex-nowrap flex-wrap gap-6 ">
-                        <div className="lg:w-2/3 md:w-1/2 p-8 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                        <div className="lg:w-2/3 md:w-1/2 p-8 h-min height:min-content flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                             <div className="flex flex-wrap sm:flex-row flex-col justify-between">
                                 <div>
                                     <h1 className="text-gray-900 font-bold title-font text-2xl mb-2 sm:mb-0">{data?.name}</h1>
@@ -110,7 +101,7 @@ const ServiceDetails = ({ params }: IDProps) => {
                             </div>
                         </div>
                         <div className="lg:w-1/3 md:w-1/2">
-                            <div className="height: min-content p-8 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                            <div className="height:min-content p-8 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                                 <h1 className="pb-1 text-lg font-bold">Tour Details</h1>
                                 <div className="w-20 h-1 rounded-full bg-violet-600 inline-flex mb-6"></div>
                                 <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-5">

@@ -1,7 +1,7 @@
 'use client'
 
-import ActionBar from '@/components/UI/ActionBar';
-import FAQSection from '@/components/UI/FAQSection';
+import ActionBar from '@/components/UI/Shared/ActionBar';
+import FAQSection from '@/components/UI/FAQ/FAQSection';
 import { useFaqsQuery } from '@/redux/api/faqApi';
 import { useDebounced } from '@/redux/hooks';
 import { Input } from 'antd';
@@ -11,7 +11,7 @@ import {
     ReloadOutlined,
 } from "@ant-design/icons";
 import React, { useState } from 'react';
-import Loader from '@/constants/Loader';
+import Loader from '@/components/UI/Shared/Loader';
 
 
 const FAQ: React.FC = () => {

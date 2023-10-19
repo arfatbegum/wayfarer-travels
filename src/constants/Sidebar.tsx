@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Layout, Menu } from "antd";
-import { sidebarItems } from "../../constants/SidebarItems";;
+import { sidebarItems } from "./SidebarItems";;
 import { getUserInfo } from "@/services/auth.services";
 
 const { Sider } = Layout;
@@ -14,8 +14,8 @@ const SideBar = () => {
 
   return (
     <Sider
-          collapsible
-          theme="light"
+      collapsible
+      theme="light"
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       width={280}

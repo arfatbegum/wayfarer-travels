@@ -2,7 +2,7 @@
 
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
-import BreadCrumb from "@/components/UI/BreadCrumb";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import { useAddAdminMutation } from "@/redux/api/adminApi";
 import { adminSchema } from "@/schema/admin";
 import { yupResolver } from "@hookform/resolvers/yup";

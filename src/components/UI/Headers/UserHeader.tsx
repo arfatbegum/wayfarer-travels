@@ -19,7 +19,7 @@ const UserHeader = () => {
                 <Link href={`/faq`}>FAQ</Link>
             </div>
             <div>
-            <span className="mr-2 capitalize text-white font-bold">{data?.name}</span>
+                <span className="mr-2 capitalize text-white font-bold">{data?.name}</span>
                 <DropDown />
             </div>
         </Header>

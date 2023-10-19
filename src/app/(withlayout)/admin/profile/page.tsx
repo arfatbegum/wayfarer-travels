@@ -1,8 +1,8 @@
 "use client";
 
-import ActionBar from "@/components/UI/ActionBar";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import Loader from "@/constants/Loader";
+import ActionBar from "@/components/UI/Shared/ActionBar";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import Loader from "@/components/UI/Shared/Loader";
 import { useGetProfileQuery } from "@/redux/api/adminApi";
 import { EditOutlined } from "@ant-design/icons";
 import Image from "next/image";
@@ -45,14 +45,14 @@ const Profile = () => {
                 </div>
                 <div className="py-10 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                     <div className="flex justify-between items-center px-8 mb-5">
-                    <h1 className="text-lg font-bold">Profile information</h1>
-                    <Link href={`/super_admin/profile/update`}>
+                        <h1 className="text-lg font-bold">Profile information</h1>
+                        <Link href={`/super_admin/profile/update`}>
                             <button className="flex items-center gap-2 bg-violet-700 text-white font-bold py-1 px-2 rounded mr-2">
                                 Edit
-                            <EditOutlined />
-                        </button>
-                    </Link>
-                  </div>
+                                <EditOutlined />
+                            </button>
+                        </Link>
+                    </div>
                     <table className="text-sm">
                         <tbody>
                             <div>

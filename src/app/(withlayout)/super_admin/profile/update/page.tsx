@@ -3,9 +3,9 @@
 
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
-import ActionBar from "@/components/UI/ActionBar";
-import BreadCrumb from "@/components/UI/BreadCrumb";
-import Loader from "@/constants/Loader";
+import ActionBar from "@/components/UI/Shared/ActionBar";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import Loader from "@/components/UI/Shared/Loader";
 import { useGetProfileQuery, useUpdateProfileMutation } from "@/redux/api/superAdminApi";
 import { Col, Row, message } from "antd";
 

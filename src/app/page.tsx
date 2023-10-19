@@ -1,3 +1,4 @@
+import Feedback from '@/components/Feedback/Feedback'
 import AvailableService from '@/components/UI/Home/AvailableService'
 import Header from '@/components/UI/Home/Header'
 import UpcomingService from '@/components/UI/Home/UpcomingService'
@@ -9,6 +10,7 @@ export default function Home() {
         <Header />
         <AvailableService />
         <UpcomingService/>
+        <Feedback/>
       </div>
     </div>
   )
