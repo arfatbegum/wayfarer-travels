@@ -43,7 +43,7 @@ const PublicHeader = () => {
     }, []);
 
     return (
-        <header className="absolute inset-x-0 top-0 z-50 py-6">
+        <div className="absolute inset-x-0 top-0 z-50 py-6 lg:mb-20">
             <div className="mx-auto l w-full px-5 sm:px-10 md:px-10 lg:px-12">
                 <nav className="w-full flex justify-between gap-6 relative">
                     <div className="min-w-max inline-flex relative">
@@ -70,7 +70,7 @@ const PublicHeader = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#/service" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
+                                <Link href="/service" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
                                     Services
                                 </Link>
                             </li>
@@ -80,7 +80,7 @@ const PublicHeader = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="" className="duration-100 font-medium ease-linear hover:text-violet-600 py-3">
+                                <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-violet-600 py-3">
                                     FAQ
                                 </Link>
                             </li>
@@ -108,7 +108,7 @@ const PublicHeader = () => {
                     </div>
                 </nav>
             </div>
-        </header>
+        </div>
     );
 };
 

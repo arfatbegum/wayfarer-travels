@@ -31,7 +31,6 @@ const UpdateService = ({ params }: IDProps) => {
 
     return (
         <>
-            <PublicHeader />
             <div className="my-28 px-12 ">
                 <BreadCrumb
                     items={[
