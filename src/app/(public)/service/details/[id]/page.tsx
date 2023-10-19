@@ -130,7 +130,7 @@ const ServiceDetails = ({ params }: IDProps) => {
                                     <h1 className="pb-1 text-lg font-bold mt-5">Why choose us</h1>
                                     <p>{data?.facilities}</p>
                                     <button onClick={showDrawer} className="bg-violet-600 text-white py-2 rounded mt-8 font-semibold w-full">Book Now</button>
-                                    <BookingDrawer onClose={onClose} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
+                                    <BookingDrawer onClose={onClose} availableQunatity={data?.availableQunatity} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
                                 </div>
                             </div>
                             <Reviews reviews={data?.reviews} />

@@ -16,10 +16,11 @@ interface BookingFormProps {
     validFrom: string
     validTill: string
     price: number
+    availableQunatity:number
 }
 
 
-const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, myserviceId, validFrom, validTill, price }) => {
+const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, myserviceId, validFrom, validTill, price, availableQunatity }) => {
     const router = useRouter();
     const [selectedDate, setSelectedDate] = useState('');
     const [serviceId, setServiceId] = useState('');
@@ -32,6 +33,11 @@ const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, myserviceId,
         // For example, you can validate the selectedDate:
         if (!selectedDate) {
             message.error('Please select a date.');
+            return;
+        }
+
+        if (availableQunatity === 0) {
+            message.error('This service is fully booked.');
             return;
         }
 
@@ -81,7 +87,7 @@ const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, myserviceId,
             if (!userLoggedIn) {
                 message.error("You are not Authorized! Please Login");
             }
-            router.push('/')
+            router.push('/booking-confirmation')
         } catch (err) {
             message.error('An error occurred while creating the booking.');
         }
