@@ -67,7 +67,7 @@ export const sidebarItems = (userRole: string) => {
     {
       label: <Link href={`/${userRole}/booking`}>Booking</Link>,
       icon: <SlackOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
-      key: `/${userRole}/booking`,
+      key: `/booking`,
     },
   ];
 
