@@ -111,3 +111,13 @@ export interface IFAQ {
   updatedAt: string;
   __v: number;
 }
+
+export interface IReview {
+  id: string;
+  userId: string;
+  rating: number;
+  comment: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

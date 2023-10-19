@@ -8,11 +8,13 @@ import Image from "next/image";
 import { useState } from "react";
 import BookingDrawer from "@/components/UI/Booking/BookingDrawer";
 import Loader from "@/constants/Loader";
+import ReviewForm from "@/components/UI/ReviewForm";
 
 
-const UpdateService = ({ params }: IDProps) => {
+const ServiceDetails = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useServiceQuery(id);
+    console.log(data)
 
     const [open, setOpen] = useState(false);
 
@@ -20,6 +22,17 @@ const UpdateService = ({ params }: IDProps) => {
         return <Loader />
     }
 
+    const totalReviews = Array.isArray(data?.reviews) ? data?.reviews.length : 0;
+
+    // Calculate the sum of ratings
+    const sumOfRatings = Array.isArray(data?.reviews)
+      ? data?.reviews.reduce((total:any, review:any) => total + review.rating, 0)
+      : 0;
+    
+    // Calculate the average rating
+    const averageRating = totalReviews > 0 ? sumOfRatings / totalReviews : 0;
+
+    
     const showDrawer = () => {
         setOpen(true);
     };
@@ -30,7 +43,7 @@ const UpdateService = ({ params }: IDProps) => {
 
     return (
         <>
-            <div className="my-28 px-12 ">
+            <div className="my-28 px-12">
                 <BreadCrumb
                     items={[
                         {
@@ -51,11 +64,11 @@ const UpdateService = ({ params }: IDProps) => {
                                     <ReactStars
                                         count={5}
                                         size={22}
-                                        value={data?.rating}
+                                        value={averageRating}
                                         edit={false}
                                         activeColor="#e6bd00"
                                     />
-                                    <span className="text-violet-600">{data?.reviews?.length} Reviews</span>
+                                    <span className="text-violet-600">{totalReviews} Reviews</span>
                                 </div>
                             </div>
                             <div className="text-gray-900 body-font ">
@@ -95,33 +108,40 @@ const UpdateService = ({ params }: IDProps) => {
                                 <p>{data?.description}</p>
                             </div>
                         </div>
-                        <div className="lg:w-1/3 md:w-1/2 h-min height: min-content p-8 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                            <h1 className="pb-1 text-lg font-bold">Tour Details</h1>
-                            <div className="w-20 h-1 rounded-full bg-violet-600 inline-flex mb-6"></div>
-                            <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-5">
-                                <div>
-                                    <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid From</h1>
-                                    <span> {data?.validFrom.slice(0, 10)}</span>
+                        <div className="lg:w-1/3 md:w-1/2">
+                            <div className="height: min-content p-8 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                                <h1 className="pb-1 text-lg font-bold">Tour Details</h1>
+                                <div className="w-20 h-1 rounded-full bg-violet-600 inline-flex mb-6"></div>
+                                <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-5">
+                                    <div>
+                                        <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid From</h1>
+                                        <span> {data?.validFrom.slice(0, 10)}</span>
+                                    </div>
+                                    <div>
+                                        <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid Till</h1>
+                                        <span> {data?.validTill.slice(0, 10)}</span>
+                                    </div>
                                 </div>
                                 <div>
-                                    <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid Till</h1>
-                                    <span> {data?.validTill.slice(0, 10)}</span>
+                                    <h1 className="text-gray-900 font-bold text-2xl mb-4">${data?.price}</h1>
+                                    <h1 className="pb-1 text-lg font-bold">Tour Facilities</h1>
+                                    <p>{data?.whyChooseUs}</p>
+                                    <h1 className="pb-1 text-lg font-bold mt-5">Why choose us</h1>
+                                    <p>{data?.facilities}</p>
+                                    <button onClick={showDrawer} className="bg-violet-600 text-white py-2 rounded mt-8 text-semibold">Book Now</button>
+                                    <BookingDrawer onClose={onClose} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
                                 </div>
                             </div>
-                            <h1 className="text-gray-900 font-bold text-2xl mb-4">${data?.price}</h1>
-                            <h1 className="pb-1 text-lg font-bold">Tour Facilities</h1>
-                            <p>{data?.whyChooseUs}</p>
-                            <h1 className="pb-1 text-lg font-bold mt-5">Why choose us</h1>
-                            <p>{data?.facilities}</p>
-                            <button onClick={showDrawer} className="bg-violet-600 text-white py-2 rounded mt-8 text-semibold">Book Now</button>
-                            <BookingDrawer onClose={onClose} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
+                            <ReviewForm serviceId={data?.id} />
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </>
 
     );
 };
 
-export default UpdateService;
+export default ServiceDetails;

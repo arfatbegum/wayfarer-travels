@@ -12,7 +12,7 @@ export const faqApi = baseApi.injectEndpoints({
         method: "GET",
         params: arg,
       }),
-      transformResponse: (response: IFAQ, meta: IMeta) => {
+      transformResponse: (response: IFAQ[], meta: IMeta) => {
         return {
           faqs: response,
           meta,
