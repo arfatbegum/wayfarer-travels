@@ -1,7 +1,8 @@
-import Feedback from '@/components/Feedback/Feedback'
+import Feedback from '@/components/UI/Feedback/Feedback'
 import AvailableService from '@/components/UI/Home/AvailableService'
 import Header from '@/components/UI/Home/Header'
 import UpcomingService from '@/components/UI/Home/UpcomingService'
+import News from '@/components/UI/News/News'
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
         <Header />
         <AvailableService />
         <UpcomingService/>
-        <Feedback/>
+        <Feedback />
+        <News/>
       </div>
     </div>
   )

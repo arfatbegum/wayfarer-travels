@@ -91,6 +91,7 @@ export interface IBooking {
 }
 
 export interface INews {
+  [x: string]: any;
   id: string;
   userId: string;
   contentType: string;
