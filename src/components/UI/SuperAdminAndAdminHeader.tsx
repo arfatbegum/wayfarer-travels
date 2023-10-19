@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { Layout } from "antd";
 import Link from 'next/link';

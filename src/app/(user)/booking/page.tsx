@@ -162,7 +162,7 @@ const Booking = () => {
                     },
                 ]}
             />
-            <ActionBar title="Tour Booking List">
+            <ActionBar title="My Booking List">
                 <Input
                     addonBefore={<SearchOutlined style={{ fontSize: '18px', color: "#4338ca" }} />}
                     placeholder="Search Booking ......"

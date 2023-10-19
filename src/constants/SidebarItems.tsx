@@ -65,7 +65,7 @@ export const sidebarItems = (userRole: string) => {
   const userSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
     {
-      label: <Link href={`/${userRole}/booking`}>Booking</Link>,
+      label: <Link href={`/booking`}>Booking</Link>,
       icon: <SlackOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
       key: `/booking`,
     },

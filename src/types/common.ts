@@ -103,6 +103,7 @@ export interface INews {
 }
 
 export interface IFAQ {
+  [x: string]: any;
   id: string;
   question: string;
   answer: string;
