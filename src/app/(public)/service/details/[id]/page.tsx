@@ -9,6 +9,7 @@ import { useState } from "react";
 import BookingDrawer from "@/components/UI/Booking/BookingDrawer";
 import Loader from "@/constants/Loader";
 import ReviewForm from "@/components/UI/ReviewForm";
+import Reviews from "@/components/UI/Reviews";
 
 
 const ServiceDetails = ({ params }: IDProps) => {
@@ -26,13 +27,13 @@ const ServiceDetails = ({ params }: IDProps) => {
 
     // Calculate the sum of ratings
     const sumOfRatings = Array.isArray(data?.reviews)
-      ? data?.reviews.reduce((total:any, review:any) => total + review.rating, 0)
-      : 0;
-    
+        ? data?.reviews.reduce((total: any, review: any) => total + review.rating, 0)
+        : 0;
+
     // Calculate the average rating
     const averageRating = totalReviews > 0 ? sumOfRatings / totalReviews : 0;
 
-    
+
     const showDrawer = () => {
         setOpen(true);
     };
@@ -128,10 +129,11 @@ const ServiceDetails = ({ params }: IDProps) => {
                                     <p>{data?.whyChooseUs}</p>
                                     <h1 className="pb-1 text-lg font-bold mt-5">Why choose us</h1>
                                     <p>{data?.facilities}</p>
-                                    <button onClick={showDrawer} className="bg-violet-600 text-white py-2 rounded mt-8 text-semibold">Book Now</button>
+                                    <button onClick={showDrawer} className="bg-violet-600 text-white py-2 rounded mt-8 font-semibold w-full">Book Now</button>
                                     <BookingDrawer onClose={onClose} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
                                 </div>
                             </div>
+                            <Reviews reviews={data?.reviews} />
                             <ReviewForm serviceId={data?.id} />
                         </div>
                     </div>

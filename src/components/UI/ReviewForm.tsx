@@ -6,7 +6,7 @@ import { Col, Row, message } from 'antd';
 import ReactStars from 'react-rating-stars-component';
 import FormTextArea from '../Form/FormTextArea';
 import { useAddReviewMutation } from '@/redux/api/reviewApi';
-import { getUserInfo } from '@/services/auth.services';
+import { getUserInfo, isLoggedIn } from '@/services/auth.services';
 import { useState } from 'react';
 
 interface ReviewProps {
@@ -16,7 +16,7 @@ interface ReviewProps {
 const ReviewForm: React.FC<ReviewProps> = ({ serviceId }) => {
     const [star, setStar] = useState(0);
     const [addReview] = useAddReviewMutation();
-
+    const userLoggedIn = isLoggedIn();
 
     const onSubmit = async (data: any) => {
         message.loading("Creating...");
@@ -26,8 +26,13 @@ const ReviewForm: React.FC<ReviewProps> = ({ serviceId }) => {
         data.serviceId = serviceId;
         data.rating = star
         try {
-            await addReview(data);
-            message.success("Review Sent Successfully!");
+           const res= await addReview(data);
+            if (res) {
+                message.success("Review Sent Successfully!");
+            }
+            if (!userLoggedIn) {
+                message.error("You are not Authorized! Please Login");
+            }
         } catch (err: any) {
             message.error(err.message);
         }

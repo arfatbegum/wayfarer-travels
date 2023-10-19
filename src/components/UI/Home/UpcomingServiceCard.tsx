@@ -20,11 +20,11 @@ const UpcomingServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const formattedValidDate = dayjs(validFrom).format("MMM D,");
     const formattedValidYear = dayjs(validFrom).format("YYYY");
 
-    const totalReviews = Array.isArray(service?.reviews) ? service?.reviews?.length : 0;
+    const totalReviews = Array.isArray(service?.reviews) ? service?.reviews.length : 0;
 
     // Calculate the sum of ratings
     const sumOfRatings = Array.isArray(service?.reviews)
-        ? service.reviews.reduce((total, rating) => total + rating, 0)
+        ? service?.reviews.reduce((total: any, review: any) => total + review.rating, 0)
         : 0;
 
     // Calculate the average rating

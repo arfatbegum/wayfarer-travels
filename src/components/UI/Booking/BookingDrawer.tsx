@@ -5,7 +5,7 @@ import BookingForm from './BookingForm';
 import PayPalButton from './PayPalButtons';
 import { useAddBookingMutation } from '@/redux/api/bookingApi';
 import { Drawer, message } from 'antd';
-import { getUserInfo } from '@/services/auth.services';
+import { getUserInfo, isLoggedIn } from '@/services/auth.services';
 import { useRouter } from 'next/navigation';
 
 
@@ -20,12 +20,13 @@ interface BookingFormProps {
 
 
 const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, myserviceId, validFrom, validTill, price }) => {
-    const router = useRouter;
+    const router = useRouter();
     const [selectedDate, setSelectedDate] = useState('');
     const [serviceId, setServiceId] = useState('');
     const [bookingSubmitted, setBookingSubmitted] = useState(false);
 
     const [addBooking] = useAddBookingMutation();
+    const userLoggedIn = isLoggedIn();
 
     const handleFormSubmit = async () => {
         // For example, you can validate the selectedDate:
@@ -77,6 +78,10 @@ const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, myserviceId,
             if (response) {
                 message.success('Booking created successfully!');
             }
+            if (!userLoggedIn) {
+                message.error("You are not Authorized! Please Login");
+            }
+            router.push('/')
         } catch (err) {
             message.error('An error occurred while creating the booking.');
         }
