@@ -6,6 +6,7 @@ import FormDatePicker from "@/components/Form/FormDatePicker";
 import FormInput from "@/components/Form/FormInput";
 import QuillEditor from "@/components/Form/QuillEditor";
 import BreadCrumb from "@/components/UI/BreadCrumb";
+import Loader from "@/constants/Loader";
 import { useServiceQuery, useUpdateServiceMutation } from "@/redux/api/serviceApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
@@ -15,6 +16,9 @@ const UpdateService = ({ params }: IDProps) => {
     const { data, isLoading } = useServiceQuery(id);
     const [updateService] = useUpdateServiceMutation();
 
+    if (isLoading) {
+        return <Loader />
+    }
 
     const onSubmit = async (values: any) => {
         message.loading("Updating...");

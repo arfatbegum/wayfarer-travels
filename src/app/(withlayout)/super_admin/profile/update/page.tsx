@@ -13,6 +13,10 @@ const updateProfile = () => {
     const { data, isLoading } = useGetProfileQuery({});
     const [updateProfile] = useUpdateProfileMutation();
 
+    if (isLoading) {
+        return <Loader />
+    }
+
     const onSubmit = async (values: any) => {
         message.loading("Updating.....");
         try {

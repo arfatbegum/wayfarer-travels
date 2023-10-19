@@ -4,6 +4,7 @@ import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import FormTextArea from "@/components/Form/FormTextArea";
 import BreadCrumb from "@/components/UI/BreadCrumb";
+import Loader from "@/constants/Loader";
 import { useCategoryQuery, useUpdateCategoryMutation } from "@/redux/api/categoryApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
@@ -12,6 +13,10 @@ const UpdateCategory = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useCategoryQuery(id);
     const [updateCategory] = useUpdateCategoryMutation();
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     const onSubmit = async (values: any) => {
         message.loading("Updating...");

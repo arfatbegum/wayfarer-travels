@@ -11,6 +11,7 @@ import {
     ReloadOutlined,
 } from "@ant-design/icons";
 import React, { useState } from 'react';
+import Loader from '@/constants/Loader';
 
 
 const FAQ: React.FC = () => {
@@ -34,6 +35,10 @@ const FAQ: React.FC = () => {
 
     const { data, isLoading } = useFaqsQuery({ ...query });
     const faqs = data?.faqs;
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     const toggleSection = (index: number) => {
         if (openSections.includes(index)) {

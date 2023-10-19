@@ -5,12 +5,17 @@ import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import ActionBar from "@/components/UI/ActionBar";
 import BreadCrumb from "@/components/UI/BreadCrumb";
+import Loader from "@/constants/Loader";
 import { useGetProfileQuery, useUpdateProfileMutation } from "@/redux/api/userApi";
 import { Col, Row, message } from "antd";
 
 const updateProfile = () => {
     const { data, isLoading } = useGetProfileQuery({});
     const [updateProfile] = useUpdateProfileMutation();
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     const onSubmit = async (values: any) => {
         message.loading("Updating.....");

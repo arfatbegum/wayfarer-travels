@@ -3,6 +3,7 @@
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import BreadCrumb from "@/components/UI/BreadCrumb";
+import Loader from "@/constants/Loader";
 import { useUpdateUserMutation, useUserQuery } from "@/redux/api/userApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
@@ -11,6 +12,10 @@ const UpdateUser = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useUserQuery(id);
     const [updateUser] = useUpdateUserMutation();
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     const onSubmit = async (values: any) => {
         message.loading("Updating...");

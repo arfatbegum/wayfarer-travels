@@ -4,12 +4,17 @@ import React from 'react';
 import ServiceCard from './ServiceCard';
 import { useServicesQuery } from '@/redux/api/serviceApi';
 import dayjs from "dayjs";
+import Loader from '@/constants/Loader';
 
 const AvailableService = () => {
     const query: Record<string, any> = {};
     const { data, isLoading } = useServicesQuery({ ...query });
     const services = data?.services;
     const currentDate = new Date(); 
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     // Filter services based on valid_from and valid_to
     const validServices = services?.filter((service: any) => {

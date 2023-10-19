@@ -2,6 +2,7 @@
 import Contents from "@/components/UI/Contents";
 import Headers from "@/components/UI/Headers";
 import SideBar from "@/components/UI/Sidebar";
+import Loader from "@/constants/Loader";
 import { isLoggedIn } from "@/services/auth.services";
 import { Layout } from "antd";
 import { useRouter } from "next/navigation";
@@ -20,8 +21,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     }, [router, isLoading, userLoggedIn]);
   
     if (!isLoading) {
-      return <p>Loading......</p>;
-    }
+      return <Loader />
+  }
 
     return (
         <Layout>

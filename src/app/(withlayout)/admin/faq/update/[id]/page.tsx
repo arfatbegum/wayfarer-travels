@@ -4,6 +4,7 @@ import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import FormTextArea from "@/components/Form/FormTextArea";
 import BreadCrumb from "@/components/UI/BreadCrumb";
+import Loader from "@/constants/Loader";
 import { useFaqQuery, useUpdateFaqMutation } from "@/redux/api/faqApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
@@ -12,6 +13,10 @@ const UpdateFAQ = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useFaqQuery(id);
     const [updateFaq] = useUpdateFaqMutation();
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     const onSubmit = async (values: any) => {
         message.loading("Updating...");

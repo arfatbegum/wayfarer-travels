@@ -3,6 +3,7 @@
 import dayjs from "dayjs";
 import UpcomingServiceCard from './UpcomingServiceCard';
 import { useServicesQuery } from "@/redux/api/serviceApi";
+import Loader from "@/constants/Loader";
 
 const UpcomingService = () => {
     const query: Record<string, any> = {};
@@ -10,6 +11,9 @@ const UpcomingService = () => {
     const services = data?.services;
     const currentDate = new Date();
 
+    if (isLoading) {
+        return <Loader />
+    }
     // Filter services based on valid_from and valid_to
     const upcomingServices = services?.filter((service: any) => {
         const validFrom = new Date(dayjs(service?.validFrom).format("MMM D, YYYY hh:mm A"));

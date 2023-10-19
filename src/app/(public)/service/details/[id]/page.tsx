@@ -8,6 +8,7 @@ import { IDProps } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
 import BookingDrawer from "@/components/UI/Booking/BookingDrawer";
+import Loader from "@/constants/Loader";
 
 
 const UpdateService = ({ params }: IDProps) => {
@@ -16,6 +17,10 @@ const UpdateService = ({ params }: IDProps) => {
 
     const [open, setOpen] = useState(false);
 
+    if (isLoading) {
+        return <Loader />
+    }
+
     const showDrawer = () => {
         setOpen(true);
     };
@@ -23,7 +28,6 @@ const UpdateService = ({ params }: IDProps) => {
     const onClose = () => {
         setOpen(false);
     };
-
 
     return (
         <>

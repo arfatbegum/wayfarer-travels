@@ -3,6 +3,7 @@
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import BreadCrumb from "@/components/UI/BreadCrumb";
+import Loader from "@/constants/Loader";
 import { useAdminQuery, useUpdateAdminMutation } from "@/redux/api/adminApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
@@ -11,6 +12,10 @@ const UpdateAdmin = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useAdminQuery(id);
     const [updateAdmin] = useUpdateAdminMutation();
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     const onSubmit = async (values: any) => {
         message.loading("Updating...");

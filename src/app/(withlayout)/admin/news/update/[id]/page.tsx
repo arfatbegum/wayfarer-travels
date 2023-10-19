@@ -5,6 +5,7 @@ import FormDatePicker from "@/components/Form/FormDatePicker";
 import FormInput from "@/components/Form/FormInput";
 import QuillEditor from "@/components/Form/QuillEditor";
 import BreadCrumb from "@/components/UI/BreadCrumb";
+import Loader from "@/constants/Loader";
 import { useNewsQuery, useUpdateNewsMutation } from "@/redux/api/newsApi";
 import { getUserInfo } from "@/services/auth.services";
 import { IDProps } from "@/types";
@@ -16,6 +17,9 @@ const UpdateNews = ({ params }: IDProps) => {
     const { data, isLoading } = useNewsQuery(id);
     const [updateNews] = useUpdateNewsMutation();
 
+    if (isLoading) {
+        return <Loader />
+    }
     
     const onSubmit = async (values: any) => {
         message.loading("Updating...");
