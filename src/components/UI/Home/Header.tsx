@@ -1,12 +1,12 @@
 'use client'
 
 import Image from "next/image";
-import PublicHeader from "../PublicHeader";
+import DynamicHeader from "../DynamicHeader";
 
 const Header = () => {
     return (
         <div>
-            <PublicHeader />
+            <DynamicHeader />
             {/* <!-- hero section --> */}
             <section className="relative py-32 lg:py-36 bg-white">
                 <div

@@ -41,12 +41,8 @@ const updateProfile = () => {
             <BreadCrumb
                 items={[
                     {
-                        label: "Admin",
-                        link: "/admin",
-                    },
-                    {
                         label: "Profile",
-                        link: "/admin/profile",
+                        link: "/profile",
                     },
                 ]}
             />

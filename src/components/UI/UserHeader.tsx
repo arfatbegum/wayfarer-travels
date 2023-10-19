@@ -3,12 +3,12 @@
 import { Layout } from "antd";
 import Link from 'next/link';
 import DropDown from "./DropDown";
-import { getUserInfo } from "@/services/auth.services";
+import { useGetProfileQuery } from "@/redux/api/userApi";
 
 const { Header } = Layout;
 
 const UserHeader = () => {
-    const { role } = getUserInfo() as any;
+    const { data, isLoading } = useGetProfileQuery({});
     return (
         <Header className="flex items-center justify-between"  >
             <Link href={`/`}> Travel Agency</Link>
@@ -17,10 +17,9 @@ const UserHeader = () => {
                 <Link href={`/service`}>Service</Link>
                 <Link href={`/news`}>News</Link>
                 <Link href={`/faq`}>FAQ</Link>
-                <Link href={`/dashboard/profile`}>Dashboard</Link>
             </div>
             <div>
-                <span className="mr-2 capitalize">{role}</span>
+            <span className="mr-2 capitalize text-white font-bold">{data?.name}</span>
                 <DropDown />
             </div>
         </Header>

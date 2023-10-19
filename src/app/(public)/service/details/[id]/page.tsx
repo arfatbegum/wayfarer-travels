@@ -2,7 +2,6 @@
 //@ts-ignore
 import ReactStars from "react-rating-stars-component";
 import BreadCrumb from "@/components/UI/BreadCrumb";
-import PublicHeader from "@/components/UI/PublicHeader";
 import { useServiceQuery } from "@/redux/api/serviceApi";
 import { IDProps } from "@/types";
 import Image from "next/image";

@@ -6,6 +6,7 @@ import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
 import { removeUserInfo } from "@/services/auth.services";
 import { authKey } from "@/constants/storageKey";
+import Link from 'next/link';
 
 const DropDown = () => {
     const router = useRouter();
@@ -19,6 +20,22 @@ const DropDown = () => {
         {
             key: "0",
             label: (
+                <Link href="/profile" >
+                    Profile
+                </Link>
+            ),
+        },
+        {
+            key: "1",
+            label: (
+                <Link href="/booking" >
+                    Booking
+                </Link>
+            ),
+        },
+        {
+            key: "2",
+            label: (
                 <button onClick={logOut}>
                     Logout
                 </button>
@@ -26,12 +43,10 @@ const DropDown = () => {
         },
     ];
     return (
-        <Dropdown menu={{ items }}>
-            <a>
+        <Dropdown menu={{ items }} >
                 <Space wrap size={16}>
                     <Avatar size="large" icon={<UserOutlined />} />
                 </Space>
-            </a>
         </Dropdown>
     );
 };

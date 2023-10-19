@@ -1,11 +1,17 @@
 'use client'
 
+import { isLoggedIn } from '@/services/auth.services';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import DropDown from './DropDown';
+import { useGetProfileQuery } from '@/redux/api/userApi';
+import Loader from '@/constants/Loader';
 
 const PublicHeader = () => {
     const [isNavOpen, setNavOpen] = useState(false);
-
+    const userLoggedIn = isLoggedIn();
+    const { data, isLoading } = useGetProfileQuery({});
+   
     const toggleNav = () => {
         setNavOpen(!isNavOpen);
     };
@@ -42,10 +48,14 @@ const PublicHeader = () => {
         }
     }, []);
 
+    if (isLoading) {
+        return <Loader />
+    }
+
     return (
         <div className="absolute inset-x-0 top-0 z-50 py-6 lg:mb-20">
             <div className="mx-auto l w-full px-5 sm:px-10 md:px-10 lg:px-12">
-                <nav className="w-full flex justify-between gap-6 relative">
+                <div className="w-full flex justify-between gap-6 relative">
                     <div className="min-w-max inline-flex relative">
                         <Link href="/" className="relative flex items-center gap-3">
                             <div className="relative w-7 h-7 overflow-hidden flex rounded-xl">
@@ -62,40 +72,39 @@ const PublicHeader = () => {
                     </div>
                     <div data-nav-overlay aria-hidden="true" className={`fixed ${isNavOpen ? 'block' : 'hidden'} inset-0 lg:!hidden bg-gray-800/60 bg-opacity-50 backdrop-filter backdrop-blur-xl`}></div>
                     <div data-navbar className={`flex ${isNavOpen ? '' : 'invisible opacity-0 translate-y-10'} lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0`}>
-                        <ul
-                            className="border-t border-gray-100  lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-gray-700 w-full lg:justify-center lg:items-center">
-                            <li>
-                                <Link href="/" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/service" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
-                                    Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/news" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
-                                    News
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-violet-600 py-3">
-                                    FAQ
-                                </Link>
-                            </li>
-                        </ul>
                         <div
-                            className="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-gray-100   lg:border-0 px-6 lg:px-0">
-                            <Link href={"/login"} className='mr-4 font-semibold'>Login</Link>
-                            <Link href="/register"
-                                className="flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear
-                    after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-[#172554] hover:after:opacity-100 hover:after:scale-[2.5] bg-violet-600 border-transparent hover:border-[#172554]">
-                                <span className="relative z-10 text-white font-bold">
-                                    REGISTER
-                                </span>
+                            className="border-t border-gray-100  lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-gray-700 w-full lg:justify-center lg:items-center">
+                            <Link href="/" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
+                                Home
+                            </Link>
+                            <Link href="/service" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
+                                Services
+                            </Link>
+                            <Link href="/news" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
+                                News
+                            </Link>
+                            <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-violet-600 py-3">
+                                FAQ
                             </Link>
                         </div>
+                        {
+                            userLoggedIn ? (
+                                <div className='flex mr-2 font-semibold items-center'>
+                                    <span className="mr-2 capitalize">{data?.name}</span>
+                                    <DropDown />
+                                </div>
+                            ) : (
+                                <div className="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-gray-100   lg:border-0 px-6 lg:px-0">
+                                    <Link href="/login" className='mr-4 font-semibold'>Login</Link>
+                                    <Link href="/register" className="flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-[#172554] hover:after:opacity-100 hover:after:scale-[2.5] bg-violet-600 border-transparent hover:border-[#172554]">
+                                        <span className="relative z-10 text-white font-bold">
+                                            REGISTER
+                                        </span>
+                                    </Link>
+                                </div>
+                            )
+                        }
+
                     </div>
 
                     <div className="min-w-max flex items-center gap-x-3">
@@ -106,9 +115,9 @@ const PublicHeader = () => {
                             <span className="sr-only">togglenav</span>
                         </button>
                     </div>
-                </nav>
-            </div>
-        </div>
+                </div >
+            </div >
+        </div >
     );
 };
 
