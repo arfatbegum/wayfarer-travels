@@ -15,7 +15,6 @@ const UserHeader = () => {
             <div className="flex gap-5 text-md font-semibold">
                 <Link href={`/`}>Home</Link>
                 <Link href={`/service`}>Service</Link>
-                <Link href={`/news`}>News</Link>
                 <Link href={`/faq`}>FAQ</Link>
             </div>
             <div>

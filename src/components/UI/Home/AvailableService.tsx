@@ -4,6 +4,7 @@ import ServiceCard from './ServiceCard';
 import { useServicesQuery } from '@/redux/api/serviceApi';
 import dayjs from "dayjs";
 import Loader from '@/components/UI/Shared/Loader';
+import Link from 'next/link';
 
 const AvailableService = () => {
     const query: Record<string, any> = {};
@@ -40,7 +41,9 @@ const AvailableService = () => {
                         <ServiceCard key={service.id} service={service} />
                     ))}
                 </div>
-                <button className="flex mx-auto mt-16 text-white bg-violet-600 border-0 py-2 px-8 focus:outline-none hover:bg-violet-800 rounded text-lg">EXPLORE ALL SERVICES</button>
+                <Link href={"/service"}>
+                <button  className="flex mx-auto mt-16 text-white bg-violet-600 border-0 py-2 px-8 focus:outline-none hover:bg-violet-800 rounded text-lg">EXPLORE ALL SERVICES</button>
+                </Link>
             </div>
         </div>
     );

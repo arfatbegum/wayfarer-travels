@@ -80,9 +80,6 @@ const PublicHeader = () => {
                             <Link href="/service" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
                                 Services
                             </Link>
-                            <Link href="/news" className="duration-300 font-medium ease-linear hover:text-violet-600 py-3">
-                                News
-                            </Link>
                             <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-violet-600 py-3">
                                 FAQ
                             </Link>

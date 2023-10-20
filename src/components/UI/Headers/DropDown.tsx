@@ -4,12 +4,15 @@ import { Avatar, Button, Dropdown, Space } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
-import { removeUserInfo } from "@/services/auth.services";
+import { getUserInfo, isLoggedIn, removeUserInfo } from "@/services/auth.services";
 import { authKey } from "@/constants/storageKey";
 import Link from 'next/link';
 
 const DropDown = () => {
     const router = useRouter();
+    const userLoggedIn = isLoggedIn()
+    const userInfo = getUserInfo() as any;
+    const userRole = userInfo?.role;
 
     const logOut = () => {
         removeUserInfo(authKey);
@@ -19,42 +22,37 @@ const DropDown = () => {
     const items: MenuProps["items"] = [
         {
             key: "0",
-            label: (
-                <Link href="/profile" >
-                    Profile
-                </Link>
-            ),
+            label: userLoggedIn && userRole === 'user' ? (
+                <Link href="/profile">Profile</Link>
+            ) : null,
         },
         {
             key: "1",
-            label: (
-                <Link href="/booking" >
-                    Booking
-                </Link>
-            ),
-        },
-        {
-            key: "1",
-            label: (
-                <Link href="/feedback" >
-                    Feedback
-                </Link>
-            ),
+            label: userLoggedIn && userRole === 'user' ? (
+                <Link href="/booking">Booking</Link>
+            ) : null,
         },
         {
             key: "2",
+            label: userLoggedIn && userRole === 'user' ? (
+                <Link href="/feedback">Feedback</Link>
+            ) : null,
+        },
+        {
+            key: "3",
             label: (
-                <Button className="bg-violet-600 text-white w-36"  onClick={logOut} >
+                <Button className="bg-violet-600 text-white w-36" onClick={logOut}>
                     Logout
                 </Button>
             ),
         },
     ];
+
     return (
         <Dropdown menu={{ items }} >
-                <Space wrap size={16}>
-                    <Avatar size="large" icon={<UserOutlined />} />
-                </Space>
+            <Space wrap size={16}>
+                <Avatar size="large" icon={<UserOutlined />} />
+            </Space>
         </Dropdown>
     );
 };

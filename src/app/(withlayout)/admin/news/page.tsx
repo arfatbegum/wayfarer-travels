@@ -44,7 +44,7 @@ const NewsPage = () => {
     const { data, isLoading } = useNewsesQuery({ ...query });
     const newses = data?.newses;
     const meta = data?.meta;
-    console.log(newses)
+
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {

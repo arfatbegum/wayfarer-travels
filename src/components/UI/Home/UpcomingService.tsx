@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import UpcomingServiceCard from './UpcomingServiceCard';
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import Loader from "@/components/UI/Shared/Loader";
+import Link from "next/link";
 
 const UpcomingService = () => {
     const query: Record<string, any> = {};
@@ -39,7 +40,9 @@ const UpcomingService = () => {
                         <UpcomingServiceCard key={service.id} service={service} />
                     ))}
                 </div>
-                <button className="flex mx-auto mt-16 text-white bg-violet-600 border-0 py-2 px-8 focus:outline-none hover:bg-violet-800 rounded text-lg">EXPLORE UPCOMING SERVICES</button>
+                <Link href={"/service"}>
+                <button  className="flex mx-auto mt-16 text-white bg-violet-600 border-0 py-2 px-8 focus:outline-none hover:bg-violet-800 rounded text-lg">EXPLORE ALL SERVICES</button>
+                </Link>
             </div>
         </section>
     );
