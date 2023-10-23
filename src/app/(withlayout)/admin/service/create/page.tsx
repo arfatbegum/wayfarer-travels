@@ -17,6 +17,8 @@ const CreateService = () => {
 
     const onSubmit = async (data: any) => {
         message.loading("Creating...");
+        data.price = parseInt(data.price)
+        console.log(data)
         try {
             const res = await addService(data);
             if (res) {
@@ -183,7 +185,7 @@ const CreateService = () => {
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Service</button>
+                    <button className="bg-[#13357b] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Service</button>
                 </Form>
             </div>
         </div>

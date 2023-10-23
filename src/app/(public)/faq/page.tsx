@@ -76,7 +76,7 @@ const FAQ: React.FC = () => {
                         {(!!sortBy || !!sortOrder || !!searchTerm) && (
                             <button
                                 onClick={resetFilters}
-                                className="bg-violet-600 px-4 py-2 ml-2 text-white rounded font-semibold float-right"
+                                className="bg-[#13357b] px-4 py-2 ml-2 text-white rounded font-semibold float-right"
                             >
                                 <ReloadOutlined />
                             </button>

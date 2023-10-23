@@ -11,7 +11,7 @@ const Footer = () => {
                         <div className="relative w-7 h-7 overflow-hidden flex rounded-xl">
                             <span className="absolute w-4 h-4 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
                             <span className="absolute w-4 h-4 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
-                            <span className="absolute w-4 h-4 -bottom-1 -left-1 bg-violet-600 rounded-md rotate-45"></span>
+                            <span className="absolute w-4 h-4 -bottom-1 -left-1 bg-[#13357b] rounded-md rotate-45"></span>
                             <span
                                 className="absolute w-2 h-2 rounded-full bg-gray-900 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>
                         </div>

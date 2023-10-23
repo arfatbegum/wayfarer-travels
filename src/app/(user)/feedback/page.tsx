@@ -16,7 +16,7 @@ const FeedbackForm = () => {
         const userId = userInfo?.userId;
         data.userId = userId;
         try {
-           const res= await addFeedback(data);
+            const res = await addFeedback(data);
             if (res) {
                 message.success("Feedback Sent Successfully!");
             }
@@ -35,7 +35,7 @@ const FeedbackForm = () => {
                             className="gutter-row mb-4"
                             span={24}
                         >
-                          <FormTextArea
+                            <FormTextArea
                                 name="comment"
                                 label="Comment"
                                 rows={5}
@@ -52,7 +52,7 @@ const FeedbackForm = () => {
                             />
                         </Col>
                     </Row>
-                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Submit Feedback</button>
+                    <button className="bg-[#13357b] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Submit Feedback</button>
                 </div>
             </Form>
         </div>

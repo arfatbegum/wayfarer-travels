@@ -41,7 +41,7 @@ const DropDown = () => {
         {
             key: "3",
             label: (
-                <Button className="bg-violet-600 text-white w-36" onClick={logOut}>
+                <Button className="bg-[#13357b] text-white w-36" onClick={logOut}>
                     Logout
                 </Button>
             ),

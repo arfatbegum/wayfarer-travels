@@ -1,7 +1,7 @@
 'use client'
 
-import Gallery from '@/components/Gallery/Gallery'
-import Overview from '@/components/Overview/Overview'
+import Gallery from '@/components/UI/Gallery/Gallery'
+import Overview from '@/components/UI/Overview/Overview'
 import About from '@/components/UI/About/About'
 import Feedback from '@/components/UI/Feedback/Feedback'
 import Footer from '@/components/UI/Footer/Footer'

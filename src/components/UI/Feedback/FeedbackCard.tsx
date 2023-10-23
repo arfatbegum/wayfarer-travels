@@ -17,7 +17,7 @@ const FeedbackCard: React.FC<FeedbackProps> = ({ feedback }) => {
                     />
                     <div className="flex w-full flex-col gap-0.5">
                         <div className="flex items-center justify-between">
-                            <h5 className="text-violet-600 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            <h5 className="text-[#13357b] block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                                 {feedback?.user?.name}
                             </h5>
                         </div>

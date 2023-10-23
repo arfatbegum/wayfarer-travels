@@ -9,13 +9,13 @@ interface NewsProps {
 const NewsCard: React.FC<NewsProps>  = ({news}) => {
     return (
         <div className="p-4 md:w-1/3">
-            <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+            <div className="h-full border-2 bg-white border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-sm">
                 <Image
                     width={500}
                     height={500}
                     src={typeof news?.image === 'string' ? news.image : 'https://i.ibb.co/ydNWgpK/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png'}
                     alt="ui/ux review check"
-                    className="rounded"
+                    className="rounded rounded-b-none"
                 />
                 <div className="p-6">
                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{ news?.contextType}</h2>

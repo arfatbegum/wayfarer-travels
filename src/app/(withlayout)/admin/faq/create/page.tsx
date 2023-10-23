@@ -65,7 +65,7 @@ const CreateFAQ = () => {
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create FAQ</button>
+                    <button className="bg-[#13357b] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create FAQ</button>
                 </Form>
             </div>
         </div>

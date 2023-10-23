@@ -109,7 +109,7 @@ const CreateAdmin = () => {
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-violet-600 text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Admin</button>
+                    <button className="bg-[#13357b] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Admin</button>
                 </Form>
             </div>
         </div>

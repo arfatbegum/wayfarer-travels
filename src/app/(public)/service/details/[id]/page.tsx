@@ -60,7 +60,7 @@ const ServiceDetails = ({ params }: IDProps) => {
                                         edit={false}
                                         activeColor="#e6bd00"
                                     />
-                                    <span className="text-violet-600">{totalReviews} Reviews</span>
+                                    <span className="text-[#13357b]">{totalReviews} Reviews</span>
                                 </div>
                             </div>
                             <div className="text-gray-900 body-font ">
@@ -96,14 +96,14 @@ const ServiceDetails = ({ params }: IDProps) => {
                             </div>
                             <div className="mt-6 ">
                                 <h2 className="text-lg font-bold pb-1">Description</h2>
-                                <div className="w-16 h-1 rounded-full bg-violet-600 inline-flex mb-6"></div>
+                                <div className="w-16 h-1 rounded-full bg-[#13357b] inline-flex mb-6"></div>
                                 <p>{data?.description}</p>
                             </div>
                         </div>
                         <div className="lg:w-1/3 md:w-1/2">
                             <div className="height:min-content p-8 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                                 <h1 className="pb-1 text-lg font-bold">Tour Details</h1>
-                                <div className="w-20 h-1 rounded-full bg-violet-600 inline-flex mb-6"></div>
+                                <div className="w-20 h-1 rounded-full bg-[#13357b] inline-flex mb-6"></div>
                                 <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-5">
                                     <div>
                                         <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid From</h1>
@@ -120,7 +120,7 @@ const ServiceDetails = ({ params }: IDProps) => {
                                     <p>{data?.whyChooseUs}</p>
                                     <h1 className="pb-1 text-lg font-bold mt-5">Why choose us</h1>
                                     <p>{data?.facilities}</p>
-                                    <button onClick={showDrawer} className="bg-violet-600 text-white py-2 rounded mt-8 font-semibold w-full">Book Now</button>
+                                    <button onClick={showDrawer} className="bg-[#13357b] text-white py-2 rounded mt-8 font-semibold w-full">Book Now</button>
                                     <BookingDrawer onClose={onClose} availableQunatity={data?.availableQunatity} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
                                 </div>
                             </div>

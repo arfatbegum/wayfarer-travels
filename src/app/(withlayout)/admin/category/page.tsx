@@ -73,7 +73,7 @@ const Category = () => {
                 return (
                     <div className="flex">
                         <Link href={`/admin/category/update/${data.id}`}>
-                            <button className="bg-violet-600 text-white font-bold py-1 px-2 rounded mr-2">
+                            <button className="bg-[#13357b] text-white font-bold py-1 px-2 rounded mr-2">
                                 <EditOutlined />
                             </button>
                         </Link>
@@ -121,13 +121,13 @@ const Category = () => {
                 {(!!sortBy || !!sortOrder || !!searchTerm) && (
                     <button
                         onClick={resetFilters}
-                        className="bg-violet-600 px-4 py-2 ml-2 text-white rounded font-semibold float-right"
+                        className="bg-[#13357b] px-4 py-2 ml-2 text-white rounded font-semibold float-right"
                     >
                         <ReloadOutlined />
                     </button>
                 )}
                 <Link href="/admin/category/create">
-                    <button className="bg-violet-600 px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
+                    <button className="bg-[#13357b] px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
                 </Link>
             </ActionBar>
             <DataTable

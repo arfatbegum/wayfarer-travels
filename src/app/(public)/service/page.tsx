@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import Loader from "@/components/UI/Shared/Loader";
 import ServiceCard from "@/components/UI/Home/ServiceCard";
@@ -10,6 +10,8 @@ import { Input, Pagination } from "antd";
 import { useDebounced } from "@/redux/hooks";
 import Footer from "@/components/UI/Footer/Footer";
 import { useCategoriesQuery } from "@/redux/api/categoryApi";
+
+
 const Service = () => {
     const [page, setPage] = useState<number>(1);
     const [size, setSize] = useState<number>(10);
@@ -41,7 +43,7 @@ const Service = () => {
 
     const { data: categoryData } = useCategoriesQuery({ ...query });
     const categories = categoryData?.categories;
-    
+
     const handleCategoryClick = (category: string) => {
         setSelectedCategory(category);
     };
@@ -74,7 +76,7 @@ const Service = () => {
                 {(!!sortBy || !!sortOrder || !!searchTerm) && (
                     <button
                         onClick={resetFilters}
-                        className="bg-violet-600 px-4 py-2 ml-2 text-white rounded font-semibold float-right"
+                        className="bg-[#13357b] px-4 py-2 ml-2 text-white rounded font-semibold float-right"
                     >
                         <ReloadOutlined />
                     </button>

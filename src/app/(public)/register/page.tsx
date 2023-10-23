@@ -41,7 +41,7 @@ const Register = () => {
                         <div className="mb-7">
                             <h3 className="font-semibold text-2xl text-gray-800">Register </h3>
                             <p className="text-gray-400">Already have an Account? <Link href={'/login'}
-                                className="text-sm text-violet-600 hover:text-violet-600">Login</Link></p>
+                                className="text-sm text-[#13357b] hover:text-[#13357b]">Login</Link></p>
                         </div>
                         <div className="space-y-6">
                             <div className="" >
@@ -73,7 +73,7 @@ const Register = () => {
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="w-full flex justify-center bg-violet-600 hover:bg-violet-600 text-gray-100 p-3  rounded-lg tracking-wide font-semibold my-7 cursor-pointer transition ease-in duration-500">
+                            <button type="submit" className="w-full flex justify-center bg-[#13357b] hover:bg-[#13357b] text-gray-100 p-3  rounded-lg tracking-wide font-semibold my-7 cursor-pointer transition ease-in duration-500">
                                 Login
                             </button>
                         </div>
