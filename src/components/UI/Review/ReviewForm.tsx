@@ -10,28 +10,28 @@ import { getUserInfo, isLoggedIn } from '@/services/auth.services';
 import { useState } from 'react';
 
 interface ReviewProps {
-    serviceId: string
+    newsId: string
 }
 
-const ReviewForm: React.FC<ReviewProps> = ({ serviceId }) => {
+const ReviewForm: React.FC<ReviewProps> = ({ newsId }) => {
     const [star, setStar] = useState(0);
     const [addReview] = useAddReviewMutation();
     const userLoggedIn = isLoggedIn();
 
     const onSubmit = async (data: any) => {
+        if (!userLoggedIn) {
+            return message.error("You are not Authorized! Please Login");
+        }
         message.loading("Creating...");
         const userInfo = getUserInfo() as any;
         const userId = userInfo?.userId;
         data.userId = userId;
-        data.serviceId = serviceId;
+        data.serviceId = newsId;
         data.rating = star
         try {
             const res = await addReview(data);
             if (res) {
-                message.success("Review Sent Successfully!");
-            }
-            if (!userLoggedIn) {
-                message.error("You are not Authorized! Please Login");
+                return message.success("Review Sent Successfully!");
             }
         } catch (err: any) {
             message.error(err.message);
@@ -41,7 +41,7 @@ const ReviewForm: React.FC<ReviewProps> = ({ serviceId }) => {
     return (
         <div className='mt-5'>
             <Form submitHandler={onSubmit} >
-                <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-sm">
                     <h1 className="text-lg font-bold mb-5">Write a Review</h1>
                     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                         <Col

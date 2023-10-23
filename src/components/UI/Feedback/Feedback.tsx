@@ -2,11 +2,17 @@
 
 import { useFeedbacksQuery } from "@/redux/FeedbackApi";
 import FeedbackCard from "./FeedbackCard";
+import Loader from "../Shared/Loader";
 
 const Feedback = () => {
   const query: Record<string, any> = {};
   const { data, isLoading } = useFeedbacksQuery({ ...query });
   const feedbacks = data?.feedbacks;
+
+  if (isLoading) {
+    return <Loader />
+  }
+  
   return (
     <div className="text-gray-600 body-font">
       <div className="container px-5 pt-24 mx-auto">

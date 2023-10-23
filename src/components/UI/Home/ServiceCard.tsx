@@ -105,7 +105,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                                 </svg>
                             </span>
                         </Link>
-
                     </div>
                 </div>
             </div>
