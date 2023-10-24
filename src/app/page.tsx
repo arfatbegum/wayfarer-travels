@@ -9,7 +9,7 @@ import AvailableService from '@/components/UI/Home/AvailableService'
 import Header from '@/components/UI/Home/Header'
 import UpcomingService from '@/components/UI/Home/UpcomingService'
 import News from '@/components/UI/News/News'
-import ServiceByCategory from '@/components/UI/ServiceByCategory/ServiceByCategory'
+import ServiceByCategory from '@/components/UI/Home/ServiceByCategory/ServiceByCategory'
 
 export default function Home() {
   return (
@@ -19,12 +19,12 @@ export default function Home() {
         <AvailableService />
         <UpcomingService />
         <About />
-        <ServiceByCategory/>
-        <Overview/>
+        <ServiceByCategory />
+        <Overview />
         <Feedback />
         <News />
-        <Gallery/>
-        <Footer/>
+        <Gallery />
+        <Footer />
       </div>
     </div>
   )

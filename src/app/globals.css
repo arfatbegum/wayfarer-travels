@@ -17,12 +17,12 @@
 }
 
 body {
-    background-color: rgb(244, 244, 244) !important;
+    background-color: #F9F9F7 !important;
     font-family: "Playfair Display", serif;
 }
 
 .ant-layout-header{
- background-color: #7c3aed !important;
+ background-color: #13357b !important;
 }
 
 .ant-layout-header a{
@@ -30,7 +30,7 @@ body {
 }
 
 .ant-input:focus{
-  border-color: #7c3aed !important;
+  border-color: #13357b !important;
 }
 
 .ant-select  .ant-select-selector{
@@ -49,4 +49,38 @@ button[data-toggle-navbar][data-is-open="true"] #line-2 {
 
 button[data-toggle-navbar][data-is-open="true"] #line-3 {
   transform: translateY(-0.375rem) rotate(-40deg);
+}
+
+.ant-tabs-nav-list{
+  background-color: #ffff !important;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  margin-bottom: 30px !important;
+}
+
+.ant-tabs .ant-tabs-tab-active {
+  color: #ffff !important;
+  background-color: #13357b !important;
+  text-shadow: 0 0 0.25px currentcolor;
+}
+.ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: #ffff !important;
+}
+
+.ant-tabs .ant-tabs-tab-btn{
+  color: #13357b !important;
+  border: 1px solid #13357b !important;
+  padding: 7px 25px !important;
+}
+
+.ant-tabs .ant-tabs-tab {
+  padding: 0px 0px !important;
+  margin: 0px 0px  !important;
+  border: 0.5px solid #13357b !important;
+  border-right: 0px !important;
+}
+
+.ant-tabs .ant-tabs-ink-bar {
+  position: absolute;
+  background: none !important;
+  pointer-events: none;
 }

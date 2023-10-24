@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import BookingForm from './BookingForm';
-import PayPalButton from './PayPalButtons';
+import PayPalButton from './PayPalButton';
 import { useAddBookingMutation } from '@/redux/api/bookingApi';
 import { Drawer, message } from 'antd';
 import { getUserInfo, isLoggedIn } from '@/services/auth.services';
@@ -103,9 +103,7 @@ const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, myserviceId,
             />
             <div className='mt-6'>
                 {bookingSubmitted ? (
-                    <PayPalButton
-                        selectedDate={selectedDate}
-                        serviceId={serviceId}
+                    <PayPalButton                     
                         onSuccess={handlePaymentSuccess}
                         amount={price}
                     />

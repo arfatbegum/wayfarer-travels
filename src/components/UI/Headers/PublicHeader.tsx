@@ -78,7 +78,10 @@ const PublicHeader = () => {
                                 Home
                             </Link>
                             <Link href="/service" className="duration-300 font-medium ease-linear hover:text-[#13357b] py-3">
-                                Services
+                                Packages
+                            </Link>
+                            <Link href="/news" className="duration-300 font-medium ease-linear hover:text-[#13357b] py-3">
+                                News
                             </Link>
                             <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-[#13357b] py-3">
                                 FAQ
