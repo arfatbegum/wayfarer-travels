@@ -36,5 +36,10 @@ The Tour Booking Website is a feature-rich platform that caters to users, admini
 
 
 
-## Admin Login: email: admin@gmail.com password:012345
-## Super Admin login: email: arfatakter39@gmail.com password:012345
+* Admin Credential: 
+Email: admin@gmail.com 
+Password:012345
+
+* Super Admin Credential: 
+Email: arfatakter39@gmail.com
+Password:012345
