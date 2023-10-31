@@ -35,7 +35,7 @@ const NewsCard: React.FC<NewsProps> = ({ news }) => {
                     className="rounded rounded-b-none"
                 />
                 <span
-                    className="!absolute top-4 left-4 bg-[#13357b] p-2 select-none rounded text-center align-middle font-sans text-xs font-medium uppercase text-white"
+                    className="!absolute top-4 left-4 bg-[#0f337a] p-2 select-none rounded text-center align-middle font-sans text-xs font-medium uppercase text-white"
                 ><span className="flex gap-1 items-center">
                         <BiTimeFive className='text-lg' />{formattedDate}</span>
                 </span>
@@ -43,7 +43,7 @@ const NewsCard: React.FC<NewsProps> = ({ news }) => {
                     <div className="flex justify-between items-center mb-2">
                         <div className="flex items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><BiCategoryAlt /></span>
-                            <span className="text-md text-[#13357b]"> {news?.contentType}</span>
+                            <span className="text-md text-[#0f337a]"> {news?.contentType}</span>
                         </div>
                         <p className="flex items-center gap-1 float-right text-base font-normal pb-2 text-blue-gray-900 antialiased">
                             <ReactStars
@@ -59,7 +59,7 @@ const NewsCard: React.FC<NewsProps> = ({ news }) => {
                     <h1 className="title-font text-lg font-bold text-gray-900 mb-3">{news?.title?.slice(0, 40)}...</h1>
                     <p className="leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: news?.content.slice(0, 100) + "..." }}></p>
                     <div className="flex items-center flex-wrap">
-                        <Link href={`/news/details/${news?.id}`} className="w-full flex justify-center items-center rounded py-1.5 outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#13357b] border-transparent hover:border-yellow-400">
+                        <Link href={`/news/details/${news?.id}`} className="w-full flex justify-center items-center rounded py-1.5 outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#0f337a] border-transparent hover:border-yellow-400">
                             <span className="relative z-10 text-white font-bold flex items-center">
                                 Read more
                                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">

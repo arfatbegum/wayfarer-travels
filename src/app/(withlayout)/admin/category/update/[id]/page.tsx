@@ -66,7 +66,7 @@ const UpdateCategory = ({ params }: IDProps) => {
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-[#13357b] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Update Category</button>
+                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Update Category</button>
                 </Form>
             </div>
         </div>

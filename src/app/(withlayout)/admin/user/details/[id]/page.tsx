@@ -40,7 +40,7 @@ const Profile = ({ params }: IDProps) => {
                         <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                             {data?.name}
                         </h4>
-                        <p className="block bg-gradient-to-tr from-[#13357b] to-violet-400 bg-clip-text font-sans text-base font-medium leading-relaxed text-transparent antialiased uppercase">
+                        <p className="block bg-gradient-to-tr from-[#0f337a] to-violet-400 bg-clip-text font-sans text-base font-medium leading-relaxed text-transparent antialiased uppercase">
                             {data?.role}
                         </p>
                     </div>

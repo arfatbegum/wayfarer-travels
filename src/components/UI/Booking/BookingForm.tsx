@@ -24,7 +24,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ selectedDate, setSelectedDate
           onChange={(dateString: any) => setSelectedDate(dateString)}
         />
       </div>
-      <button className="bg-[#13357b] text-white py-2 px-36 rounded mt-8 font-semibold" type="submit">Book</button>
+      <button className="bg-[#0f337a] text-white py-2 px-36 rounded mt-8 font-semibold" type="submit">Book</button>
     </Form>
   );
 };

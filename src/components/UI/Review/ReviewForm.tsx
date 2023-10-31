@@ -67,7 +67,7 @@ const ReviewForm: React.FC<ReviewProps> = ({ newsId }) => {
                             />
                         </Col>
                     </Row>
-                    <button className="bg-[#13357b] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Submit Review</button>
+                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Submit Review</button>
                 </div>
             </Form>
         </div>

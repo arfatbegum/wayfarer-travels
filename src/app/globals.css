@@ -17,12 +17,12 @@
 }
 
 body {
-    background-color: #F9F9F7 !important;
+    background-color: white !important;
     font-family: "Playfair Display", serif;
 }
 
 .ant-layout-header{
- background-color: #13357b !important;
+ background-color: #0f337a !important;
 }
 
 .ant-layout-header a{
@@ -30,7 +30,7 @@ body {
 }
 
 .ant-input:focus{
-  border-color: #13357b !important;
+  border-color: #0f337a !important;
 }
 
 .ant-select  .ant-select-selector{
@@ -59,7 +59,7 @@ button[data-toggle-navbar][data-is-open="true"] #line-3 {
 
 .ant-tabs .ant-tabs-tab-active {
   color: #ffff !important;
-  background-color: #13357b !important;
+  background-color: #0f337a !important;
   text-shadow: 0 0 0.25px currentcolor;
 }
 .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn{
@@ -67,15 +67,15 @@ button[data-toggle-navbar][data-is-open="true"] #line-3 {
 }
 
 .ant-tabs .ant-tabs-tab-btn{
-  color: #13357b !important;
-  border: 1px solid #13357b !important;
+  color: #0f337a !important;
+  border: 0.25px solid #0f337a !important;
   padding: 7px 25px !important;
 }
 
 .ant-tabs .ant-tabs-tab {
   padding: 0px 0px !important;
   margin: 0px 0px  !important;
-  border: 0.5px solid #13357b !important;
+  border: 0.5px solid #0f337a !important;
   border-right: 0px !important;
 }
 

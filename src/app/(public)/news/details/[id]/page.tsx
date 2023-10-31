@@ -74,11 +74,11 @@ const ServiceDetails = ({ params }: IDProps) => {
                     <div className="flex gap-5 my-4">
                         <div className="flex items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><BiCategoryAlt /></span>
-                            <span className="text-md text-[#13357b]"> {data?.contentType}</span>
+                            <span className="text-md text-[#0f337a]"> {data?.contentType}</span>
                         </div>
                         <div className="flex items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><BiTimeFive /></span>
-                            <span className="text-md text-[#13357b]"> {formattedDate}</span>
+                            <span className="text-md text-[#0f337a]"> {formattedDate}</span>
                         </div>
                     </div>
                     <p className="leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: data?.content }}></p>

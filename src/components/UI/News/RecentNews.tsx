@@ -12,7 +12,7 @@ const RecentNews = () => {
     return (
         <div className="height:min-content px-8 pt-8 pb-5 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-sm">
             <h1 className="pb-1 text-lg font-bold">Recent News</h1>
-            <div className="w-20 h-1 rounded-full bg-[#13357b] inline-flex mb-6"></div>
+            <div className="w-20 h-1 rounded-full bg-[#0f337a] inline-flex mb-6"></div>
             <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-5">
                 {newses && newses.slice(-4).map((news: any) => (
                     <div key={news.id} className="flex mb-2 gap-3">
@@ -26,9 +26,9 @@ const RecentNews = () => {
                         <div>
                             <div className="flex items-center gap-1 mb-2">
                                 <span className="text-yellow-400 text-xl"><BiTimeFive /></span>
-                                <span className="text-md text-[#13357b]"> {dayjs(news?.date).format("MMM D, YYYY")}</span>
+                                <span className="text-md text-[#0f337a]"> {dayjs(news?.date).format("MMM D, YYYY")}</span>
                             </div>
-                            <Link href={`/news/details/${news?.id}`} className="text-gray-900 font-bold title-font text-xl mb-2 sm:mb-0 hover:underline hover:text-yellow-400 mt-2">{news?.title?.slice(0,27)}...</Link>
+                            <Link href={`/news/details/${news?.id}`} className="text-gray-900 font-bold title-font text-xl mb-2 sm:mb-0 hover:underline hover:text-yellow-400 mt-2">{news?.title?.slice(0, 27)}...</Link>
                             <span className="inline-flex items-center mt-2">
                                 <Image
                                     width={300}

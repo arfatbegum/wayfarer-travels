@@ -22,28 +22,28 @@ const About = () => {
                     <div className="flex justify-center">
                         <div className="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5">
                             <a>
-                                <span className="bg-indigo-100 text-[#13357b] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                <span className="bg-indigo-100 text-[#0f337a] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Passionate Travel Experts
                             </a>
                             <a>
-                                <span className="bg-indigo-100 text-[#13357b] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                <span className="bg-indigo-100 text-[#0f337a] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Worldwide Destinations
                             </a>
                             <a>
-                                <span className="bg-indigo-100 text-[#13357b] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                <span className="bg-indigo-100 text-[#0f337a] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Tailored Travel Experiences
                             </a>
                             <a>
-                                <span className="bg-indigo-100 text-[#13357b] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                <span className="bg-indigo-100 text-[#0f337a] w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>

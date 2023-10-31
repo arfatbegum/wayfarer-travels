@@ -9,10 +9,10 @@ const BookingConfirmation: React.FC = () => (
         subTitle="Check Your Booking Details In Booking History"
         extra={[
             <>
-                <Link href="/" className='bg-[#13357b] p-2 text-white font-semibold rounded'>
+                <Link href="/" className='bg-[#0f337a] p-2 text-white font-semibold rounded'>
                     Go Home
                 </Link>
-                <Link href={"/booking"} className='bg-[#13357b] p-2 text-white font-semibold rounded'>Check Booking</Link>
+                <Link href={"/booking"} className='bg-[#0f337a] p-2 text-white font-semibold rounded'>Check Booking</Link>
             </>,
         ]}
     />

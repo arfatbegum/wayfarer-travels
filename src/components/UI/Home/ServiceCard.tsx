@@ -37,7 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
     return (
         <div className="p-2 md:w-1/2 lg:w-1/4 flex flex-col">
-            <div className="relative flex w-full max-w-[26rem] flex-col rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
+            <div className="relative flex w-full max-w-[26rem] flex-col bg-white bg-clip-border text-gray-700 shadow-sm  border-2 border-gray-200 border-opacity-60 rounded-lg">
                 <div className="relative z-0 overflow-hidden rounded-xl rounded-b-none bg-blue-gray-500 bg-clip-border text-white shadow-md shadow-blue-gray-500/40">
                     <Image
                         width={500}
@@ -46,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                         alt="ui/ux review check"
                     />
                     <span
-                        className="!absolute top-4 left-4 bg-[#13357b] p-2 select-none rounded text-center align-middle font-sans text-xs font-medium uppercase text-white"
+                        className="!absolute top-4 left-4 bg-[#0f337a] p-2 select-none rounded text-center align-middle font-sans text-xs font-medium uppercase text-white"
                     ><span className="flex gap-1 items-center">
                             <HiOutlineLocationMarker className='text-lg' />{service?.location}</span>
                     </span>
@@ -88,15 +88,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                     <div className="flex flex-wrap sm:flex-row flex-col justify-between mt-3">
                         <div>
                             <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid From</h1>
-                            <span className="text-yellow-400"> {formattedValidFrom}</span>
+                            <span className="text-[#0f337a]"> {formattedValidFrom}</span>
                         </div>
                         <div>
                             <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid Till</h1>
-                            <span className="text-yellow-400"> {formattedValidTill}</span>
+                            <span className="text-[#0f337a]"> {formattedValidTill}</span>
                         </div>
                     </div>
                     <div className="flex items-cente pt-6">
-                        <Link href={`/service/details/${service?.id}`} className="w-full flex justify-center items-center rounded py-1.5 outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#13357b] border-transparent hover:border-yellow-400">
+                        <Link href={`/service/details/${service?.id}`} className="w-full flex justify-center items-center rounded py-1.5 outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#0f337a] border-transparent hover:border-yellow-400">
                             <span className="relative z-10 text-white font-bold flex items-center">
                                 Details
                                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">

@@ -94,12 +94,12 @@ const NewsPage = () => {
                 return (
                     <>
                         <Link href={`/news/details/${data.id}`}>
-                            <button className="bg-[#13357b] text-white font-bold py-1 px-2 rounded mr-2">
+                            <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
                                 <EyeOutlined />
                             </button>
                         </Link>
                         <Link href={`/admin/news/update/${data.id}`}>
-                            <button className="bg-[#13357b] text-white font-bold py-1 px-2 rounded mr-2">
+                            <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
                                 <EditOutlined />
                             </button>
                         </Link>
@@ -147,13 +147,13 @@ const NewsPage = () => {
                 {(!!sortBy || !!sortOrder || !!searchTerm) && (
                     <button
                         onClick={resetFilters}
-                        className="bg-[#13357b] px-4 py-2 ml-2 text-white rounded font-semibold float-right"
+                        className="bg-[#0f337a] px-4 py-2 ml-2 text-white rounded font-semibold float-right"
                     >
                         <ReloadOutlined />
                     </button>
                 )}
                 <Link href="/admin/news/create">
-                    <button className="bg-[#13357b] px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
+                    <button className="bg-[#0f337a] px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
                 </Link>
             </ActionBar>
             <DataTable

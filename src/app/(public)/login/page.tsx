@@ -49,7 +49,7 @@ const Login = () => {
                         <div className="mb-7">
                             <h3 className="font-semibold text-2xl text-gray-800">Login </h3>
                             <p className="text-gray-400">Dont have an account? <Link href={'/register'}
-                                className="text-sm text-[#13357b] hover:text-[#13357b]">Register</Link></p>
+                                className="text-sm text-[#0f337a] hover:text-[#0f337a]">Register</Link></p>
                         </div>
                         <div className="space-y-6">
                             <div className="">
@@ -65,7 +65,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="w-full flex justify-center bg-[#13357b] hover:bg-[#13357b] text-gray-100 p-3  rounded-lg tracking-wide font-semibold my-7 cursor-pointer transition ease-in duration-500">
+                            <button type="submit" className="w-full flex justify-center bg-[#0f337a] hover:bg-[#0f337a] text-gray-100 p-3  rounded-lg tracking-wide font-semibold my-7 cursor-pointer transition ease-in duration-500">
                                 Login
                             </button>
                         </div>

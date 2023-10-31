@@ -52,7 +52,7 @@ const FeedbackForm = () => {
                             />
                         </Col>
                     </Row>
-                    <button className="bg-[#13357b] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Submit Feedback</button>
+                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Submit Feedback</button>
                 </div>
             </Form>
         </div>

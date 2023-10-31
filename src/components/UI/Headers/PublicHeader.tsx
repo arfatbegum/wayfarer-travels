@@ -61,7 +61,7 @@ const PublicHeader = () => {
                             <div className="relative w-7 h-7 overflow-hidden flex rounded-xl">
                                 <span className="absolute w-4 h-4 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
                                 <span className="absolute w-4 h-4 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
-                                <span className="absolute w-4 h-4 -bottom-1 -left-1 bg-[#13357b] rounded-md rotate-45"></span>
+                                <span className="absolute w-4 h-4 -bottom-1 -left-1 bg-[#0f337a] rounded-md rotate-45"></span>
                                 <span
                                     className="absolute w-2 h-2 rounded-full bg-gray-900 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>
                             </div>
@@ -74,16 +74,16 @@ const PublicHeader = () => {
                     <div data-navbar className={`flex ${isNavOpen ? '' : 'invisible opacity-0 translate-y-10'} lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0`}>
                         <div
                             className="border-t border-gray-100  lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-gray-700 w-full lg:justify-center lg:items-center">
-                            <Link href="/" className="duration-300 font-medium ease-linear hover:text-[#13357b] py-3">
+                            <Link href="/" className="duration-300 font-medium ease-linear hover:text-[#0f337a] py-3">
                                 Home
                             </Link>
-                            <Link href="/service" className="duration-300 font-medium ease-linear hover:text-[#13357b] py-3">
+                            <Link href="/service" className="duration-300 font-medium ease-linear hover:text-[#0f337a] py-3">
                                 Packages
                             </Link>
-                            <Link href="/news" className="duration-300 font-medium ease-linear hover:text-[#13357b] py-3">
+                            <Link href="/news" className="duration-300 font-medium ease-linear hover:text-[#0f337a] py-3">
                                 News
                             </Link>
-                            <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-[#13357b] py-3">
+                            <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-[#0f337a] py-3">
                                 FAQ
                             </Link>
                         </div>
@@ -96,7 +96,7 @@ const PublicHeader = () => {
                             ) : (
                                 <div className="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-gray-100   lg:border-0 px-6 lg:px-0">
                                     <Link href="/login" className='mr-4 font-semibold'>Login</Link>
-                                    <Link href="/register" className="flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#13357b] border-transparent hover:border-yellow-400">
+                                    <Link href="/register" className="flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#0f337a] border-transparent hover:border-yellow-400">
                                         <span className="relative z-10 text-white font-bold">
                                             REGISTER
                                         </span>
