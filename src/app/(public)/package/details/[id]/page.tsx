@@ -11,10 +11,9 @@ import ReviewForm from "@/components/UI/Review/ReviewForm";
 import Reviews from "@/components/UI/Review/Reviews";
 
 
-const ServiceDetails = ({ params }: IDProps) => {
+const PackageDetails = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useServiceQuery(id);
-    console.log(data)
 
     const [open, setOpen] = useState(false);
 
@@ -125,7 +124,7 @@ const ServiceDetails = ({ params }: IDProps) => {
                                 </div>
                             </div>
                             <Reviews reviews={data?.reviews} />
-                            <ReviewForm serviceId={data?.id} />
+                            <ReviewForm packageId={data?.id} newsId={""} />
                         </div>
                     </div>
                 </div>
@@ -137,4 +136,4 @@ const ServiceDetails = ({ params }: IDProps) => {
     );
 };
 
-export default ServiceDetails;
+export default PackageDetails;

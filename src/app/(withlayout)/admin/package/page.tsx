@@ -17,7 +17,7 @@ import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
 import { useDeleteServiceMutation, useServicesQuery } from "@/redux/api/serviceApi";
 
-const Service = () => {
+const Package = () => {
     const query: Record<string, any> = {};
 
     const [page, setPage] = useState<number>(1);
@@ -111,12 +111,12 @@ const Service = () => {
             render: function (data: any) {
                 return (
                     <div className="flex">
-                        <Link href={`/service/details/${data.id}`}>
+                        <Link href={`/package/details/${data.id}`}>
                             <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
                                 <EyeOutlined />
                             </button>
                         </Link>
-                        <Link href={`/admin/service/update/${data.id}`}>
+                        <Link href={`/admin/package/update/${data.id}`}>
                             <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
                                 <EditOutlined />
                             </button>
@@ -154,10 +154,10 @@ const Service = () => {
                     },
                 ]}
             />
-            <ActionBar title="Tour Package Service List">
+            <ActionBar title="Tour Package List">
                 <Input
                     addonBefore={<SearchOutlined style={{ fontSize: '18px', color: "#4338ca" }} />}
-                    placeholder="Search Service ......"
+                    placeholder="Search ......"
                     onChange={(e) => {
                         setSearchTerm(e.target.value);
                     }}
@@ -170,7 +170,7 @@ const Service = () => {
                         <ReloadOutlined />
                     </button>
                 )}
-                <Link href="/admin/service/create">
+                <Link href="/admin/package/create">
                     <button className="bg-[#0f337a] px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
                 </Link>
             </ActionBar>
@@ -189,4 +189,4 @@ const Service = () => {
     );
 };
 
-export default Service;
+export default Package;

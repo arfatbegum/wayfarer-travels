@@ -86,7 +86,7 @@ const ServiceDetails = ({ params }: IDProps) => {
                 <div className="lg:w-1/3 md:w-1/2">
                     <RecentNews />
                     {data?.reviews === 0 ? <Reviews reviews={data?.reviews} /> : null}
-                    <ReviewForm newsId={data?.id} />
+                    <ReviewForm newsId={data?.id} packageId={""} />
                 </div>
             </div>
             <Footer />

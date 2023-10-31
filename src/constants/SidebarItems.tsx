@@ -32,8 +32,8 @@ export const sidebarItems = (userRole: string) => {
       icon: <AppstoreOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
     },
     {
-      label: <Link href={`/${userRole}/service`}>Service</Link>,
-      key: "service",
+      label: <Link href={`/${userRole}/package`}>Package</Link>,
+      key: "package",
       icon: <TableOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
     },
     {

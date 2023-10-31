@@ -11,7 +11,7 @@ import { useServiceQuery, useUpdateServiceMutation } from "@/redux/api/serviceAp
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
 
-const UpdateService = ({ params }: IDProps) => {
+const UpdatePackage = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = useServiceQuery(id);
     const [updateService] = useUpdateServiceMutation();
@@ -25,7 +25,7 @@ const UpdateService = ({ params }: IDProps) => {
         try {
             const res = await updateService({ id, body: values });
             if (res) {
-                message.success("Service updated successfully!");
+                message.success("Package updated successfully!");
             }
         } catch (error: any) {
             if (error.response) {
@@ -64,16 +64,16 @@ const UpdateService = ({ params }: IDProps) => {
                         link: "/admin",
                     },
                     {
-                        label: "Service",
-                        link: "/admin/service",
+                        label: "Package",
+                        link: "/admin/package",
                     },
                 ]}
             />
-            <h1 className="py-5 text-lg font-bold">Update Service</h1>
+            <h1 className="py-5 text-lg font-bold">Update Package</h1>
             <div>
                 <Form submitHandler={onSubmit} defaultValues={defaultValues}>
                     <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                        <h1 className="text-lg font-bold mb-5">Update Service Information</h1>
+                        <h1 className="text-lg font-bold mb-5">Update Package Information</h1>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col
                                 className="gutter-row mb-4"
@@ -211,11 +211,11 @@ const UpdateService = ({ params }: IDProps) => {
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Update Service</button>
+                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Update Package</button>
                 </Form>
             </div>
         </div>
     );
 };
 
-export default UpdateService;
+export default UpdatePackage;

@@ -1,12 +1,12 @@
 'use client'
 
-import ServiceCard from './ServiceCard';
 import { useServicesQuery } from '@/redux/api/serviceApi';
 import dayjs from "dayjs";
 import Loader from '@/components/UI/Shared/Loader';
 import Link from 'next/link';
+import PackageCard from './PackageCard';
 
-const AvailableService = () => {
+const AvailablePackages = () => {
     const query: Record<string, any> = {};
     const { data, isLoading } = useServicesQuery({ ...query });
     const services = data?.services;
@@ -17,10 +17,10 @@ const AvailableService = () => {
     }
 
     // Filter services based on valid_from and valid_to
-    const validServices = services?.filter((service: any) => {
-        const validFrom = new Date(dayjs(service?.validFrom).format("MMM D, YYYY hh:mm A"));
-        if (service?.validTill) {
-            const validTill = new Date(dayjs(service?.validTill).format("MMM D, YYYY hh:mm A"));
+    const availablePackages = services?.filter((tourPackage: any) => {
+        const validFrom = new Date(dayjs(tourPackage?.validFrom).format("MMM D, YYYY hh:mm A"));
+        if (tourPackage?.validTill) {
+            const validTill = new Date(dayjs(tourPackage?.validTill).format("MMM D, YYYY hh:mm A"));
             return currentDate >= validFrom && currentDate <= validTill;
         }
         return currentDate >= validFrom;
@@ -37,11 +37,11 @@ const AvailableService = () => {
                     </div>
                 </div>
                 <div className="flex flex-wrap sm:-m-4 -mx-4 lg:px-16 px-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-                    {validServices && validServices?.map((service: any) => (
-                        <ServiceCard key={service.id} service={service} />
+                    {availablePackages && availablePackages?.map((tourPackage: any) => (
+                        <PackageCard key={tourPackage.id} tourPackage={tourPackage} />
                     ))}
                 </div>
-                <Link href="/sevice" className="mx-auto mt-16 flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#0f337a] border-transparent hover:border-yellow-400">
+                <Link href="/package" className="mx-auto mt-16 flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#0f337a] border-transparent hover:border-yellow-400">
                     <span className="relative z-10 text-white font-bold flex items-center">
                         Explore All Packages
                         <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -55,4 +55,4 @@ const AvailableService = () => {
     );
 };
 
-export default AvailableService;
+export default AvailablePackages;

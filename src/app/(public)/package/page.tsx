@@ -3,13 +3,13 @@
 import React, { useState } from "react";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import Loader from "@/components/UI/Shared/Loader";
-import ServiceCard from "@/components/UI/Home/ServiceCard";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import { SearchOutlined, ReloadOutlined } from "@ant-design/icons";
 import { Input, Pagination } from "antd";
 import { useDebounced } from "@/redux/hooks";
 import Footer from "@/components/UI/Footer/Footer";
 import { useCategoriesQuery } from "@/redux/api/categoryApi";
+import PackageCard from "@/components/UI/Home/PackageCard";
 
 
 const Service = () => {
@@ -53,7 +53,7 @@ const Service = () => {
     }
 
     const { data, isLoading } = useServicesQuery(query);
-    const services = data?.services;
+    const packages = data?.services;
 
     if (isLoading) {
         return <Loader />;
@@ -67,7 +67,7 @@ const Service = () => {
 
     return (
         <div className="p-12">
-            <ActionBar title="Explore All Service">
+            <ActionBar title="Explore All Package">
                 <Input
                     addonBefore={<SearchOutlined style={{ fontSize: '18px', color: "#4338ca" }} />}
                     placeholder="Search ..."
@@ -106,9 +106,9 @@ const Service = () => {
                             </div>
                         </div>
                         <div className="lg:w-4/5">
-                            <div className="flex flex-wrap sm:-m-4 -mx-4 lg:px-16 px-4">
-                                {services && services?.map((service: any) => (
-                                    <ServiceCard key={service.id} service={service} />
+                            <div className="grid grid-cols-3">
+                                {packages && packages?.map((tourPackage: any) => (
+                                    <PackageCard key={tourPackage.id} tourPackage={tourPackage} />
                                 ))}
                             </div>
                         </div>

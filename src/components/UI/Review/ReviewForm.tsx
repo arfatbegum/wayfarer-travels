@@ -11,9 +11,10 @@ import { useState } from 'react';
 
 interface ReviewProps {
     newsId: string
+    packageId: string
 }
 
-const ReviewForm: React.FC<ReviewProps> = ({ newsId }) => {
+const ReviewForm: React.FC<ReviewProps> = ({ newsId, packageId }) => {
     const [star, setStar] = useState(0);
     const [addReview] = useAddReviewMutation();
     const userLoggedIn = isLoggedIn();
@@ -26,7 +27,7 @@ const ReviewForm: React.FC<ReviewProps> = ({ newsId }) => {
         const userInfo = getUserInfo() as any;
         const userId = userInfo?.userId;
         data.userId = userId;
-        data.serviceId = newsId;
+        data.packageId = packageId;
         data.rating = star
         try {
             const res = await addReview(data);

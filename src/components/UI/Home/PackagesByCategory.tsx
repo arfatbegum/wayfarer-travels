@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs } from 'antd';
 import { useServicesQuery } from '@/redux/api/serviceApi';
-import ServiceCard from '../ServiceCard';
+import ServiceCard from './PackageCard';
 import { useCategoriesQuery } from '@/redux/api/categoryApi';
 
-const ServiceByCategory = () => {
+const PackagesByCategory = () => {
     const query: Record<string, any> = {};
     const { data } = useServicesQuery({ ...query });
     const services = data?.services;
@@ -59,4 +59,4 @@ const ServiceByCategory = () => {
     );
 };
 
-export default ServiceByCategory;
+export default PackagesByCategory;
