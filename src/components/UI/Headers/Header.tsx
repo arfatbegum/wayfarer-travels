@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react';
 import DropDown from './DropDown';
 import { useGetProfileQuery } from '@/redux/api/userApi';
 import Loader from '@/components/UI/Shared/Loader';
+import Image from 'next/image';
+import logo from "@/assets/white-logo.png"
 
-const PublicHeader = () => {
+const Header = () => {
     const [isNavOpen, setNavOpen] = useState(false);
     const userLoggedIn = isLoggedIn();
     const { data, isLoading } = useGetProfileQuery({});
@@ -53,39 +55,24 @@ const PublicHeader = () => {
     }
 
     return (
-        <div className="absolute inset-x-0 top-0 z-50 py-6 lg:mb-20">
-            <div className="mx-auto l w-full px-5 sm:px-10 md:px-10 lg:px-12">
+        <div className="inset-x-0 top-0 bg-[#0f337a] lg:fixed z-50">
+            <div className="mx-auto w-full px-5 sm:px-10 md:px-10 lg:px-12">
                 <div className="w-full flex justify-between gap-6 relative">
                     <div className="min-w-max inline-flex relative">
-                        <Link href="/" className="relative flex items-center gap-3">
-                            <div className="relative w-7 h-7 overflow-hidden flex rounded-xl">
-                                <span className="absolute w-4 h-4 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
-                                <span className="absolute w-4 h-4 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
-                                <span className="absolute w-4 h-4 -bottom-1 -left-1 bg-[#0f337a] rounded-md rotate-45"></span>
-                                <span
-                                    className="absolute w-2 h-2 rounded-full bg-gray-900 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>
-                            </div>
-                            <div className="inline-flex text-lg font-semibold text-gray-900">
-                                Wayfarer Travels
-                            </div>
+                        <Link href={`/`} className="flex items-center text-xl text-white font-semibold mb-2 font-serif">
+                            <Image width={50} height={60} src={logo} alt="logo" className="m-1.5 p-1.5" />
+                            Wayfarer Travels
                         </Link>
                     </div>
                     <div data-nav-overlay aria-hidden="true" className={`fixed ${isNavOpen ? 'block' : 'hidden'} inset-0 lg:!hidden bg-gray-800/60 bg-opacity-50 backdrop-filter backdrop-blur-xl`}></div>
-                    <div data-navbar className={`flex ${isNavOpen ? '' : 'invisible opacity-0 translate-y-10'} lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0`}>
-                        <div
-                            className="border-t border-gray-100  lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-gray-700 w-full lg:justify-center lg:items-center">
-                            <Link href="/" className="duration-300 font-medium ease-linear hover:text-[#0f337a] py-3">
-                                Home
-                            </Link>
-                            <Link href="/service" className="duration-300 font-medium ease-linear hover:text-[#0f337a] py-3">
-                                Packages
-                            </Link>
-                            <Link href="/news" className="duration-300 font-medium ease-linear hover:text-[#0f337a] py-3">
-                                News
-                            </Link>
-                            <Link href="/faq" className="duration-100 font-medium ease-linear hover:text-[#0f337a] py-3">
-                                FAQ
-                            </Link>
+                    <div data-navbar className={`flex ${isNavOpen ? '' : 'invisible opacity-0 translate-y-10'} lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-end lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0`}>
+                        <div className="flex lg:flex-row flex-col text-center lg:mt-0 mt-4 z-50  gap-5 text-md font-semibold font-serif lg:text-white">
+                            <Link href={`/`}>Home</Link>
+                            <Link href={`/packages`}>Packages</Link>
+                            <Link href={`/about`}>About</Link>
+                            <Link href={`/news`}>News</Link>
+                            <Link href={`/faq`}>FAQ</Link>
+                            <Link href={`/contact`}>Contact</Link>
                         </div>
                         {
                             userLoggedIn ? (
@@ -95,10 +82,9 @@ const PublicHeader = () => {
                                 </div>
                             ) : (
                                 <div className="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-gray-100   lg:border-0 px-6 lg:px-0">
-                                    <Link href="/login" className='mr-4 font-semibold'>Login</Link>
-                                    <Link href="/register" className="flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-[#0f337a] border-transparent hover:border-yellow-400">
+                                    <Link href="/register" className="flex text-black ml-3 justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-yellow-400 border-transparent hover:border-white">
                                         <span className="relative z-10 text-white font-bold">
-                                            REGISTER
+                                            REGISTER / LOGIN
                                         </span>
                                     </Link>
                                 </div>
@@ -121,4 +107,4 @@ const PublicHeader = () => {
     );
 };
 
-export default PublicHeader;
+export default Header;

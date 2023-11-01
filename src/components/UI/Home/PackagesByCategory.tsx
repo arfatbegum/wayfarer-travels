@@ -7,13 +7,13 @@ import { useCategoriesQuery } from '@/redux/api/categoryApi';
 const PackagesByCategory = () => {
     const query: Record<string, any> = {};
     const { data } = useServicesQuery({ ...query });
-    const services = data?.services;
+    const packages = data?.services;
     const { data: categoryData } = useCategoriesQuery({ ...query });
     const categories = categoryData?.categories;
 
     // State variables to manage the active tab and filtered services
     const [activeTab, setActiveTab] = useState('');
-    const [filteredServices, setFilteredServices] = useState([]);
+    const [filteredPackages, setFilteredPackages] = useState([]);
 
     // Handle tab change
     const handleTabChange = (key: any) => {
@@ -29,9 +29,9 @@ const PackagesByCategory = () => {
 
     // Filter services based on the active tab/category
     useEffect(() => {
-        const filtered = services?.filter((service: any) => service.categorires?.name === activeTab);
-        setFilteredServices(filtered);
-    }, [activeTab, services]);
+        const filtered = packages?.filter((tourPackage: any) => tourPackage.categorires?.name === activeTab);
+        setFilteredPackages(filtered);
+    }, [activeTab, packages]);
 
     return (
         <>
@@ -47,9 +47,9 @@ const PackagesByCategory = () => {
             >
                 {categories?.map((category: any) => (
                     <Tabs.TabPane tab={category.name} key={category.name}>
-                        <div className="flex flex-wrap lg:px-16 px-4  md:space-y-0 space-y-6">
-                            {filteredServices?.map((service: any) => (
-                                <ServiceCard key={service.id} service={service} />
+                        <div className="grid grid-cols-4 px-16 md:space-y-0 space-y-6">
+                            {filteredPackages?.map((tourPackage: any) => (
+                                <ServiceCard key={tourPackage.id} tourPackage={tourPackage} />
                             ))}
                         </div>
                     </Tabs.TabPane>

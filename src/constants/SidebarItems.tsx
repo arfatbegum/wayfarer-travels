@@ -15,7 +15,7 @@ export const sidebarItems = (userRole: string) => {
     {
       label: <Link href={`/profile`}>Profile</Link>,
       key: "profile",
-      icon: <ProfileOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <ProfileOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
   ];
 
@@ -24,37 +24,37 @@ export const sidebarItems = (userRole: string) => {
     {
       label: <Link href={`/${userRole}/user`}>User</Link>,
       key: "user",
-      icon: <ContactsOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <ContactsOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
     {
       label: <Link href={`/${userRole}/category`}>Category</Link>,
       key: "category",
-      icon: <AppstoreOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <AppstoreOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
     {
       label: <Link href={`/${userRole}/package`}>Package</Link>,
       key: "package",
-      icon: <TableOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <TableOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
     {
       label: <Link href={`/${userRole}/booking`}>Booking</Link>,
       key: "booking",
-      icon: <SlackOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <SlackOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
     {
       label: <Link href={`/${userRole}/news`}>News</Link>,
       key: "news",
-      icon: <BookOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <BookOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
     {
       label: <Link href={`/${userRole}/faq`}>FAQ</Link>,
       key: "faq",
-      icon: <QuestionCircleOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <QuestionCircleOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
     {
       label: <Link href={`/${userRole}/feedback`}>Feedback</Link>,
       key: "feedback",
-      icon: <QuestionCircleOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <QuestionCircleOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
     },
   ];
 
@@ -62,7 +62,7 @@ export const sidebarItems = (userRole: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/${userRole}/admin`}>Admin</Link>,
-      icon: <TableOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <TableOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
       key: `/${userRole}/admin`,
     },
   ];
@@ -71,12 +71,12 @@ export const sidebarItems = (userRole: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/booking`}>Booking</Link>,
-      icon: <SlackOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <SlackOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
       key: `/booking`,
     },
     {
       label: <Link href={`/feedback`}>Feedback</Link>,
-      icon: <SlackOutlined style={{ fontSize: '20px', color: '#7c3aed' }}/>,
+      icon: <SlackOutlined style={{ fontSize: '20px', color: '#0f337a' }}/>,
       key: `/feedback`,
     },
   ];

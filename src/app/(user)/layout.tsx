@@ -1,12 +1,13 @@
 "use client";
+
 import Contents from "@/components/UI/Shared/Contents";
-import Headers from "@/components/UI/Headers/Headers";
 import SideBar from "@/constants/Sidebar";
 import Loader from "@/components/UI/Shared/Loader";
 import { isLoggedIn } from "@/services/auth.services";
 import { Layout } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Header from "@/components/UI/Headers/Header";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const userLoggedIn = isLoggedIn();
@@ -26,7 +27,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Layout>
-      <Headers />
+      <Header />
       <Layout>
         <SideBar />
         <Layout style={{ padding: '0 24px 24px' }}>

@@ -1,5 +1,4 @@
-import Headers from "@/components/UI/Headers/Headers";
-
+import Header from "@/components/UI/Headers/Header";
 
 export default function PublicLayout({
   children,
@@ -8,7 +7,7 @@ export default function PublicLayout({
 }) {
   return (
     <div>
-      <Headers />
+      <Header />
       <div className="min-h-[calc(100vh-64px)">{children}</div>
     </div>
   );

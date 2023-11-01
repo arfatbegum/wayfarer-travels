@@ -55,7 +55,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ tourPackage }) => {
                     <div className="flex justify-between items-center">
                         <div className="flex items-center gap-1">
                             <span className="text-yellow-400 text-xl"><BiDollarCircle /></span>
-                            <span className="text-xl font-bold text-black "> {tourPackage?.price}</span>
+                            <span className="text-xl font-bold text-black "> ${tourPackage?.price}</span>
                         </div>
                         <p className="flex items-center gap-1 float-right text-base font-normal pb-2 text-blue-gray-900 antialiased">
                             <ReactStars
@@ -68,9 +68,19 @@ const PackageCard: React.FC<PackageCardProps> = ({ tourPackage }) => {
                             <span className="text-md text-[#f3941e] font-semibold">{totalReviews}.0</span>
                         </p>
                     </div>
-                    <h5 className="block font-sans text-xl pb-2 font-bold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                    <h5 className="block font-sans text-xl py-2 font-bold leading-snug tracking-normal text-blue-gray-900 antialiased">
                         {tourPackage?.name}
                     </h5>
+                    <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-3 mt-2">
+                        <div>
+                            <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid From</h1>
+                            <span className="text-[#0f337a]"> {formattedValidFrom}</span>
+                        </div>
+                        <div>
+                            <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid Till</h1>
+                            <span className="text-[#0f337a]"> {formattedValidTill}</span>
+                        </div>
+                    </div>
                     <div className="flex items-center justify-between gap-6">
                         <div className="flex flex-col items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><BiUserCircle /></span>
@@ -83,16 +93,6 @@ const PackageCard: React.FC<PackageCardProps> = ({ tourPackage }) => {
                         <div className="flex flex-col items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><MdOutlineEventAvailable /></span>
                             <span className="text-md"> {tourPackage?.availableQunatity} available</span>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap sm:flex-row flex-col justify-between mt-3">
-                        <div>
-                            <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid From</h1>
-                            <span className="text-[#0f337a]"> {formattedValidFrom}</span>
-                        </div>
-                        <div>
-                            <h1 className="text-gray-900 font-bold title-font text-md mb-2 sm:mb-0">Valid Till</h1>
-                            <span className="text-[#0f337a]"> {formattedValidTill}</span>
                         </div>
                     </div>
                     <div className="flex items-cente pt-6">
