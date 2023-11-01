@@ -2,7 +2,7 @@ import { Breadcrumb } from "antd";
 import Link from "next/link";
 import { HomeOutlined } from "@ant-design/icons";
 
-const BreadCrumb = ({
+const UIBreadCrumb = ({
     items,
 }: {
     items: {
@@ -14,14 +14,14 @@ const BreadCrumb = ({
         {
             title: (
               <Link href="/">
-                <HomeOutlined style={{ fontSize: '18px', color: '#0f337a',}}/>
+                <HomeOutlined style={{ fontSize: '18px', color: 'white',}}/>
               </Link>
             ),
           },
           ...items.map((item) => {
             return {
               title: item.link ? (
-                <Link href={item.link}>{item.label}</Link>
+                <Link href={item.link} style={{ color: 'white', fontSize: '17px', fontFamily: "Playfair Display", }}>{item.label}</Link>
               ) : (
                 <span className="px-5">{item.label}</span>
               ),
@@ -32,4 +32,4 @@ const BreadCrumb = ({
     return <Breadcrumb items={breadCrumbItems} className="mt-5"></Breadcrumb>;
 };
 
-export default BreadCrumb;
+export default UIBreadCrumb;

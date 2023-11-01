@@ -52,7 +52,6 @@ button[data-toggle-navbar][data-is-open="true"] #line-3 {
 }
 
 .ant-tabs-nav-list{
-  background-color: #ffff !important;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   margin-bottom: 30px !important;
 }
@@ -75,7 +74,6 @@ button[data-toggle-navbar][data-is-open="true"] #line-3 {
 .ant-tabs .ant-tabs-tab {
   padding: 0px 0px !important;
   margin: 0px 0px  !important;
-  border: 0.5px solid #0f337a !important;
   border-right: 0px !important;
 }
 
