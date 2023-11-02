@@ -2,7 +2,6 @@
 
 import Gallery from '@/components/UI/Gallery/Gallery'
 import Overview from '@/components/UI/Overview/Overview'
-import About from '@/components/UI/About/About'
 import Feedback from '@/components/UI/Feedback/Feedback'
 import Footer from '@/components/UI/Footer/Footer'
 import News from '@/components/UI/News/News'
@@ -18,7 +17,6 @@ export default function Home() {
         <Hero />
         <AvailablePackages />
         <UpcomingPackages />
-        <About />
         <PackagesByCategory />
         <Overview />
         <Feedback />
