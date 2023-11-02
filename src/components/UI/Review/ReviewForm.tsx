@@ -42,7 +42,7 @@ const ReviewForm: React.FC<ReviewProps> = ({ newsId, packageId }) => {
     return (
         <div className='mt-5'>
             <Form submitHandler={onSubmit} >
-                <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-sm">
+                <div className="p-10 mb-5 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                     <h1 className="text-lg font-bold mb-5">Write a Review</h1>
                     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                         <Col

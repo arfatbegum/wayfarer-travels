@@ -10,7 +10,7 @@ const RecentNews = () => {
     const newses = data?.newses;
 
     return (
-        <div className="height:min-content px-8 pt-8 pb-5 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-sm">
+        <div className="height:min-content px-8 pt-8 pb-5 flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
             <h1 className="pb-1 text-lg font-bold">Recent News</h1>
             <div className="w-20 h-1 rounded-full bg-[#0f337a] inline-flex mb-6"></div>
             <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-5">

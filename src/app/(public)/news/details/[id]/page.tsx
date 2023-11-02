@@ -11,6 +11,8 @@ import { BiTimeFive, BiCategoryAlt } from 'react-icons/bi';
 import dayjs from "dayjs";
 import Footer from "@/components/UI/Footer/Footer";
 import RecentNews from "@/components/UI/News/RecentNews";
+import UIBreadCrumb from "@/components/UI/Shared/UIBreadcrumb";
+import banner from "@/assets/newsDetails-banner.jpg"
 
 const ServiceDetails = ({ params }: IDProps) => {
     const { id } = params;
@@ -34,8 +36,25 @@ const ServiceDetails = ({ params }: IDProps) => {
 
     return (
         <>
-            <div className="container pt-5 mx-auto flex sm:flex-nowrap flex-wrap gap-6 px-12 my-24">
-                <div className="lg:w-2/3 md:w-1/2 p-8 h-min height:min-content flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-sm">
+            <div className="relative bg-white">
+                <Image src={banner} alt="Hero image" width="2350" height="2359"
+                    className="absolute w-full object-cover h-76 opacity-90" />
+                <h1 className='text-3xl font-bold pb-2 text-center mb-2 relative pt-36 text-white'>{data?.title}</h1>
+                <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
+                    <div className="relative mx-auto">
+                        <UIBreadCrumb
+                            items={[
+                                {
+                                    label: "News Details",
+                                    link: `/news/details/${data.id}`,
+                                },
+                            ]}
+                        />
+                    </div>
+                </div>
+            </div>
+            <div className="container pt-5 mx-auto flex sm:flex-nowrap flex-wrap gap-6 px-12 mt-20">
+                <div className="lg:w-2/3 md:w-1/2 p-8 h-min height:min-content flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                     <div className="flex flex-wrap sm:flex-row flex-col justify-between">
                         <div>
                             <h1 className="text-gray-900 font-bold title-font text-2xl mb-2 sm:mb-0">{data?.title}</h1>
@@ -47,7 +66,7 @@ const ServiceDetails = ({ params }: IDProps) => {
                                     alt="ui/ux review check"
                                     className="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center" />
                                 <span className="flex-grow flex flex-col pl-3">
-                                    <span className="title-font font-medium text-gray-900">Alper Kamu</span>
+                                    <span className="title-font font-medium text-gray-900">{ data?.user?.name}</span>
                                 </span>
                             </span>
                         </div>
