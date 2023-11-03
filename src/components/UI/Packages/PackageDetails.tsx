@@ -9,8 +9,6 @@ import BookingDrawer from "@/components/UI/Booking/BookingDrawer";
 import Loader from "@/components/UI/Shared/Loader";
 import ReviewForm from "@/components/UI/Review/ReviewForm";
 import Reviews from "@/components/UI/Review/Reviews";
-import UIBreadCrumb from "@/components/UI/Shared/UIBreadcrumb";
-import banner from "@/assets/packageDetails-banner.jpg"
 
 
 const PackageDetails = ({ params }: IDProps) => {
@@ -44,27 +42,6 @@ const PackageDetails = ({ params }: IDProps) => {
 
     return (
         <>
-            <div className="relative bg-white">
-                <Image src={banner} alt="Hero image" width="2350" height="2359"
-                    className="absolute w-full object-cover h-76 opacity-90" />
-                <h1 className='text-3xl font-bold pb-2 text-center relative pt-36 text-white'>{data?.name}</h1>
-                <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
-                    <div className="relative mx-auto">
-                        <UIBreadCrumb
-                            items={[
-                                {
-                                    label: "Package",
-                                    link: `/package`,
-                                },
-                                {
-                                    label: "Package Details",
-                                    link: `/package/details/${data.id}`,
-                                },
-                            ]}
-                        />
-                    </div>
-                </div>
-            </div>
             <div className="my-12 px-12">
                 <div className="text-gray-900 body-font relative">
                     <div className="container pt-5 mx-auto flex sm:flex-nowrap flex-wrap gap-6 ">
@@ -151,6 +128,7 @@ const PackageDetails = ({ params }: IDProps) => {
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </>

@@ -66,9 +66,9 @@ const Header = () => {
                     </div>
                     <div data-nav-overlay aria-hidden="true" className={`fixed ${isNavOpen ? 'block' : 'hidden'} inset-0 lg:!hidden bg-gray-800/60 bg-opacity-50 backdrop-filter backdrop-blur-xl`}></div>
                     <div data-navbar className={`flex ${isNavOpen ? '' : 'invisible opacity-0 translate-y-10'} lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-end lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0`}>
-                        <div className="flex lg:flex-row flex-col text-center lg:mt-0 mt-4 z-50  gap-5 text-md font-semibold font-serif lg:text-white">
+                        <div className="flex lg:flex-row flex-col text-center lg:mt-0 mt-4 z-50  gap-5 text-md font-normal font-serif lg:text-white">
                             <Link href={`/`}>Home</Link>
-                            <Link href={`/packages`}>Packages</Link>
+                            <Link href={`/package`}>Packages</Link>
                             <Link href={`/about`}>About</Link>
                             <Link href={`/news`}>News</Link>
                             <Link href={`/faq`}>FAQ</Link>
