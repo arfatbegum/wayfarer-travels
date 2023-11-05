@@ -59,7 +59,7 @@ const FormInput = ({
                     )
                 }
             />
-            <p className="text-red-500 italic ">{errorMessage}</p>
+            <p className="text-red-500 italic mt-1">{errorMessage}</p>
         </>
     );
 };

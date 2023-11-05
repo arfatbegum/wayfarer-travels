@@ -7,6 +7,7 @@ import { SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAddUserMutation } from "@/redux/api/userApi";
+import Loader from "@/components/UI/Shared/Loader";
 
 type FormValues = {
     email: string;
@@ -17,6 +18,7 @@ const Register = () => {
     const [addUser] = useAddUserMutation();
     const router = useRouter();
     const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
+        message.loading(<Loader />)
         try {
             const res = await addUser(data).unwrap();
             if (res) {

@@ -77,7 +77,7 @@ const Header = () => {
                         {
                             userLoggedIn ? (
                                 <div className='flex mr-2 font-semibold items-center'>
-                                    <span className="mr-2 capitalize">{data?.name}</span>
+                                    <span className="mr-2 capitalize text-white lg:pl-72">{data?.name}</span>
                                     <DropDown />
                                 </div>
                             ) : (

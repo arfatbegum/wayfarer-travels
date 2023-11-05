@@ -23,13 +23,13 @@ const ReviewForm: React.FC<ReviewProps> = ({ newsId, packageId }) => {
         if (!userLoggedIn) {
             return message.error("You are not Authorized! Please Login");
         }
-        message.loading("Creating...");
-        const userInfo = getUserInfo() as any;
-        const userId = userInfo?.userId;
-        data.userId = userId;
-        data.packageId = packageId;
-        data.rating = star
         try {
+            message.loading("Creating...");
+            const userInfo = getUserInfo() as any;
+            const userId = userInfo?.userId;
+            data.userId = userId;
+            data.packageId = packageId;
+            data.rating = star
             const res = await addReview(data);
             if (res) {
                 return message.success("Review Sent Successfully!");

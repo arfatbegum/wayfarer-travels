@@ -3,19 +3,38 @@
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
 import FormTextArea from "@/components/Form/FormTextArea";
+import { useAddContactMutation } from "@/redux/api/contactApi";
+import { contactSchema } from "@/schema/contact";
+import { getUserInfo, isLoggedIn } from "@/services/auth.services";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Col, Row, message } from "antd";
 
 const ContactForm = () => {
+    const [addContact] = useAddContactMutation();
+    const userLoggedIn = isLoggedIn();
+
     const onSubmit = async (data: any) => {
+        if (!userLoggedIn) {
+            return message.error("You are not Authorized! Please Login");
+        }
         try {
             console.log(data)
+            message.loading("Sending...");
+            const userInfo = getUserInfo() as any;
+            const userId = userInfo?.userId;
+            data.userId = userId;
+            const res = await addContact(data);
+            if (res) {
+                message.success("Enquiry Send successfully!");
+            }
         } catch (err: any) {
             message.error(err.message);
         }
     };
+
     return (
         <div className="lg:col-span-3 col-span-1">
-            <Form submitHandler={onSubmit}>
+            <Form submitHandler={onSubmit} resolver={yupResolver(contactSchema)}>
                 <div className="p-8 bg-white mx-auto border-2 border-gray-200 border-opacity-60 rounded-lg shadow-sm">
                     <div className="mb-7">
                         <h3 className="font-semibold text-2xl text-gray-800">Contact</h3>
@@ -48,6 +67,7 @@ const ContactForm = () => {
                             span={24}
                         >
                             <FormInput
+                                type="text"
                                 name="contactNo"
                                 size="large"
                                 label="Contact No"
@@ -63,8 +83,6 @@ const ContactForm = () => {
                                 rows={3}
                             />
                         </Col>
-
-
                     </Row>
                     <div>
                         <button type="submit" className="w-full flex justify-center bg-[#0f337a] hover:bg-[#0f337a] text-gray-100 p-3  rounded-lg tracking-wide font-semibold mt-4 cursor-pointer transition ease-in duration-500">

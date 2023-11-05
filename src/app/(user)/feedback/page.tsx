@@ -4,7 +4,7 @@ import { Col, Row, message } from 'antd';
 import { getUserInfo } from '@/services/auth.services';
 import FormTextArea from '@/components/Form/FormTextArea';
 import Form from '@/components/Form/Form';
-import { useAddFeedbackMutation } from '@/redux/FeedbackApi';
+import { useAddFeedbackMutation } from '@/redux/api/FeedbackApi';
 
 
 const FeedbackForm = () => {

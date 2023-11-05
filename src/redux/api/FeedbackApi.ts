@@ -1,6 +1,6 @@
 import { IFeedback, IMeta } from "@/types";
-import { tagTypes } from "./tagTypes";
-import { baseApi } from "./api/baseApi";
+import { tagTypes } from "../tagTypes";
+import { baseApi } from "./baseApi";
 
 const Feedback_URL = "/feedback";
 
@@ -32,7 +32,4 @@ export const feedbackApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {
-  useAddFeedbackMutation,
-  useFeedbacksQuery,
-} = feedbackApi;
+export const { useAddFeedbackMutation, useFeedbacksQuery } = feedbackApi;

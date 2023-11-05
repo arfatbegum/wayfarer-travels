@@ -132,3 +132,14 @@ export interface IFeedback {
   updatedAt: string;
   __v: number;
 }
+
+export interface IContact {
+  id: string;
+  name: string;
+  email: string;
+  contactNo: string;
+  message: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

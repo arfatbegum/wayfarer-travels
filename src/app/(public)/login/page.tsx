@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { getUserInfo, storeUserInfo } from "@/services/auth.services";
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import Link from "next/link";
+import Loader from "@/components/UI/Shared/Loader";
 
 type FormValues = {
     email: string;
@@ -17,6 +18,7 @@ const Login = () => {
     const [userLogin] = useUserLoginMutation();
     const router = useRouter();
     const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
+        message.loading(<Loader />)
         try {
             const res = await userLogin({ ...data }).unwrap();
             if (res?.accessToken) {

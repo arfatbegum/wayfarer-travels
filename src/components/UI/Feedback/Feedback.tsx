@@ -1,6 +1,6 @@
 'use client'
 
-import { useFeedbacksQuery } from "@/redux/FeedbackApi";
+import { useFeedbacksQuery } from "@/redux/api/FeedbackApi";
 import FeedbackCard from "./FeedbackCard";
 import Loader from "../Shared/Loader";
 

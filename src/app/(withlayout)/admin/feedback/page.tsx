@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
-import { useFeedbacksQuery } from "@/redux/FeedbackApi";
+import { useFeedbacksQuery } from "@/redux/api/FeedbackApi";
 
 const Feedbacks = () => {
     const query: Record<string, any> = {};
