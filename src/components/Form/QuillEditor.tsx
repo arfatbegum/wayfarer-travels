@@ -1,3 +1,5 @@
+'use client'
+
 import dynamic from "next/dynamic";
 import { useFormContext, Controller } from "react-hook-form";
 import "react-quill/dist/quill.snow.css";

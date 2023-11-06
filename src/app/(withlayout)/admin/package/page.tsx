@@ -15,7 +15,7 @@ import dayjs from "dayjs";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
-import { useDeleteServiceMutation, useServicesQuery } from "@/redux/api/serviceApi";
+import { useDeletePackageMutation, usePackagesQuery } from "@/redux/api/packageApi";
 
 const Package = () => {
     const query: Record<string, any> = {};
@@ -25,7 +25,7 @@ const Package = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [deleteService] = useDeleteServiceMutation();
+    const [deletePackage] = useDeletePackageMutation();
 
     query["limit"] = size;
     query["page"] = page;
@@ -41,14 +41,14 @@ const Package = () => {
         query["searchTerm"] = debouncedSearchTerm;
     }
 
-    const { data, isLoading } = useServicesQuery({ ...query });
-    const services = data?.services;
+    const { data, isLoading } = usePackagesQuery({ ...query });
+    const packages = data?.packages;
     const meta = data?.meta;
 
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteService(id);
+            await deletePackage(id);
             message.success("Service Deleted successfully");
         } catch (err: any) {
             message.error(err.message);
@@ -177,7 +177,7 @@ const Package = () => {
             <DataTable
                 loading={isLoading}
                 columns={columns}
-                dataSource={services}
+                dataSource={packages}
                 pageSize={size}
                 totalPages={meta?.total}
                 showSizeChanger={true}

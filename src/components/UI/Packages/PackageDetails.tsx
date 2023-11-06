@@ -1,7 +1,6 @@
 "use client";
 //@ts-ignore
 import ReactStars from "react-rating-stars-component";
-import { useServiceQuery } from "@/redux/api/serviceApi";
 import { IDProps } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
@@ -9,11 +8,12 @@ import BookingDrawer from "@/components/UI/Booking/BookingDrawer";
 import Loader from "@/components/UI/Shared/Loader";
 import ReviewForm from "@/components/UI/Review/ReviewForm";
 import Reviews from "@/components/UI/Review/Reviews";
+import { usePackageQuery } from "@/redux/api/packageApi";
 
 
 const PackageDetails = ({ params }: IDProps) => {
     const { id } = params;
-    const { data, isLoading } = useServiceQuery(id);
+    const { data, isLoading } = usePackageQuery(id);
 
     const [open, setOpen] = useState(false);
 

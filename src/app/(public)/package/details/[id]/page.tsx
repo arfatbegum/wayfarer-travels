@@ -1,7 +1,6 @@
 "use client";
 //@ts-ignore
 import ReactStars from "react-rating-stars-component";
-import { useServiceQuery } from "@/redux/api/serviceApi";
 import { IDProps } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
@@ -11,11 +10,13 @@ import ReviewForm from "@/components/UI/Review/ReviewForm";
 import Reviews from "@/components/UI/Review/Reviews";
 import UIBreadCrumb from "@/components/UI/Shared/UIBreadcrumb";
 import banner from "@/assets/packageDetails-banner.jpg"
+import { usePackageQuery } from "@/redux/api/packageApi";
+import { HiOutlineLocationMarker } from 'react-icons/hi';
 
 
 const PackageDetails = ({ params }: IDProps) => {
     const { id } = params;
-    const { data, isLoading } = useServiceQuery(id);
+    const { data, isLoading } = usePackageQuery(id);
 
     const [open, setOpen] = useState(false);
 
@@ -44,10 +45,10 @@ const PackageDetails = ({ params }: IDProps) => {
 
     return (
         <>
-            <div className="relative bg-white">
+            <div className="relative">
                 <Image src={banner} alt="Hero image" width="2350" height="2359"
                     className="absolute w-full object-cover h-76 opacity-90" />
-                <h1 className='text-3xl font-bold pb-2 text-center relative pt-36 text-white'>{data?.name}</h1>
+                <h1 className='text-3xl font-bold text-center relative pt-36 text-white'>{data?.name}</h1>
                 <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
                     <div className="relative mx-auto">
                         <UIBreadCrumb
@@ -68,11 +69,11 @@ const PackageDetails = ({ params }: IDProps) => {
             <div className="my-12 px-12">
                 <div className="text-gray-900 body-font relative">
                     <div className="container pt-5 mx-auto flex sm:flex-nowrap flex-wrap gap-6 ">
-                        <div className="lg:w-2/3 md:w-1/2 p-8 h-min height:min-content flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                        <div className="lg:w-2/3 md:w-1/2 p-8 h-min height:min-content flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                             <div className="flex flex-wrap sm:flex-row flex-col justify-between">
                                 <div>
                                     <h1 className="text-gray-900 font-bold title-font text-2xl mb-2 sm:mb-0">{data?.name}</h1>
-                                    <span> {data?.location}</span>
+                                    <span className="flex gap-1 items-center mt-2"><HiOutlineLocationMarker className='text-lg text-yellow-400' /> {data?.country}</span>
                                 </div>
                                 <div className="flex flex-col font-sans text-base font-normal text-blue-gray-900 antialiased">
                                     <ReactStars
@@ -97,8 +98,8 @@ const PackageDetails = ({ params }: IDProps) => {
                                             <p className="leading-relaxed">{data?.categorires?.name}</p>
                                         </div>
                                         <div className="p-4 sm:w-1/4 w-1/2">
-                                            <h2 className="title-font font-bold text-md text-gray-900">Person</h2>
-                                            <p className="leading-relaxed">{data?.person}</p>
+                                            <h2 className="title-font font-bold text-md text-gray-900">People</h2>
+                                            <p className="leading-relaxed">{data?.people}</p>
                                         </div>
                                         <div className="p-4 sm:w-1/4 w-1/2">
                                             <h2 className="title-font font-bold text-md text-gray-900">Location</h2>
@@ -123,7 +124,7 @@ const PackageDetails = ({ params }: IDProps) => {
                             </div>
                         </div>
                         <div className="lg:w-1/3 md:w-1/2">
-                            <div className="height:min-content p-8 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                            <div className="height:min-content p-8 flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                                 <h1 className="pb-1 text-lg font-bold">Tour Details</h1>
                                 <div className="w-20 h-1 rounded-full bg-[#0f337a] inline-flex mb-6"></div>
                                 <div className="flex flex-wrap sm:flex-row flex-col justify-between mb-5">

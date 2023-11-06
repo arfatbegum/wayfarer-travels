@@ -7,14 +7,14 @@ import FormInput from "@/components/Form/FormInput";
 import QuillEditor from "@/components/Form/QuillEditor";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import Loader from "@/components/UI/Shared/Loader";
-import { useServiceQuery, useUpdateServiceMutation } from "@/redux/api/serviceApi";
+import { usePackageQuery, useUpdatePackageMutation } from "@/redux/api/packageApi";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
 
 const UpdatePackage = ({ params }: IDProps) => {
     const { id } = params;
-    const { data, isLoading } = useServiceQuery(id);
-    const [updateService] = useUpdateServiceMutation();
+    const { data, isLoading } = usePackageQuery(id);
+    const [updatePackage] = useUpdatePackageMutation();
 
     if (isLoading) {
         return <Loader />
@@ -23,7 +23,7 @@ const UpdatePackage = ({ params }: IDProps) => {
     const onSubmit = async (values: any) => {
         message.loading("Updating...");
         try {
-            const res = await updateService({ id, body: values });
+            const res = await updatePackage({ id, body: values });
             if (res) {
                 message.success("Package updated successfully!");
             }
@@ -44,9 +44,10 @@ const UpdatePackage = ({ params }: IDProps) => {
         validFrom: data?.validFrom || "",
         validTill: data?.validTill || "",
         location: data?.location || "",
+        country: data?.country || "",
         categoryId: data?.categoryId || "",
         price: data?.price || "",
-        person: data?.person || "",
+        people: data?.people || "",
         duration: data?.duration || "",
         availableQunatity: data?.availableQunatity || "",
         image: data?.image || "",
@@ -121,6 +122,17 @@ const UpdatePackage = ({ params }: IDProps) => {
                                 className="gutter-row mb-4"
                                 span={12}
                             >
+                                <FormInput
+                                    type="text"
+                                    name="country"
+                                    size="large"
+                                    label="Country"
+                                />
+                            </Col>
+                            <Col
+                                className="gutter-row mb-4"
+                                span={12}
+                            >
                                 <CategorySelectField
                                     name="categoryId"
                                     label="Category"
@@ -154,9 +166,9 @@ const UpdatePackage = ({ params }: IDProps) => {
                             >
                                 <FormInput
                                     type="number"
-                                    name="person"
+                                    name="people"
                                     size="large"
-                                    label="Person"
+                                    label="People"
                                 />
                             </Col>
                             <Col

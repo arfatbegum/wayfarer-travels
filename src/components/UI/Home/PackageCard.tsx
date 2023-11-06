@@ -38,17 +38,18 @@ const PackageCard: React.FC<PackageCardProps> = ({ tourPackage }) => {
     return (
         <div className="p-2 flex flex-col">
             <div className="relative flex w-full max-w-[26rem] flex-col bg-white bg-clip-border text-gray-700 shadow-sm  border-2 border-gray-200 border-opacity-60 rounded-lg">
-                <div className="relative z-0 overflow-hidden rounded-xl rounded-b-none bg-blue-gray-500 bg-clip-border text-white shadow-md shadow-blue-gray-500/40">
+                <div className="relative z-0 max-h-[200px] overflow-hidden rounded-lg rounded-b-none bg-blue-gray-500 bg-clip-border text-white shadow-sm shadow-blue-gray-500/40">
                     <Image
                         width={500}
-                        height={500}
+                        height={300}
                         src={typeof tourPackage?.image === 'string' ? tourPackage.image : 'https://i.ibb.co/ydNWgpK/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png'}
                         alt="ui/ux review check"
+                        className=""
                     />
                     <span
                         className="!absolute top-4 left-4 bg-[#0f337a] p-2 select-none rounded text-center align-middle font-sans text-xs font-medium uppercase text-white"
                     ><span className="flex gap-1 items-center">
-                            <HiOutlineLocationMarker className='text-lg' />{tourPackage?.location}</span>
+                            <HiOutlineLocationMarker className='text-lg' />{tourPackage?.country}</span>
                     </span>
                 </div>
                 <div className="px-6 pb-6 pt-2 relative z-0">
@@ -84,7 +85,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ tourPackage }) => {
                     <div className="flex items-center justify-between gap-6">
                         <div className="flex flex-col items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><BiUserCircle /></span>
-                            <span className="text-md"> {tourPackage?.person} persons</span>
+                            <span className="text-md"> {tourPackage?.people} People</span>
                         </div>
                         <div className="flex flex-col items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><BiTimeFive /></span>
@@ -92,7 +93,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ tourPackage }) => {
                         </div>
                         <div className="flex flex-col items-center gap-1 mt-1">
                             <span className="text-yellow-400 text-xl"><MdOutlineEventAvailable /></span>
-                            <span className="text-md"> {tourPackage?.availableQunatity} available</span>
+                            <span className="text-md"> {tourPackage?.availableQunatity} Available</span>
                         </div>
                     </div>
                     <div className="flex items-cente pt-6">

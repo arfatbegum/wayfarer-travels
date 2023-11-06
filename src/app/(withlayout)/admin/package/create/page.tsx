@@ -7,22 +7,23 @@ import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import QuillEditor from "@/components/Form/QuillEditor";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Col, Row, message } from "antd";
-import { useAddServiceMutation } from "@/redux/api/serviceApi";
 import { serviceSchema } from "@/schema/service";
 import CategorySelectField from "@/components/Form/CategorySelectField";
+import { useAddPackageMutation } from "@/redux/api/packageApi";
 
 
-const CreateService = () => {
-    const [addService] = useAddServiceMutation();
+const CreatePackage = () => {
+    const [addPackage] = useAddPackageMutation();
 
     const onSubmit = async (data: any) => {
         message.loading("Creating...");
         data.price = parseInt(data.price)
-        console.log(data)
+        data.people = parseInt(data.people)
+        data.availableQunatity = parseInt(data.availableQunatity)
         try {
-            const res = await addService(data);
+            const res = await addPackage(data);
             if (res) {
-                message.success("Service created successfully!");
+                message.success("Package created successfully!");
             }
         } catch (error: any) {
             message.error(error.message);
@@ -39,16 +40,16 @@ const CreateService = () => {
                         link: "/admin",
                     },
                     {
-                        label: "Service",
-                        link: "/admin/service",
+                        label: "Package",
+                        link: "/admin/package",
                     },
                 ]}
             />
-            <h1 className="py-5 text-lg font-bold">Create Service</h1>
+            <h1 className="py-5 text-lg font-bold">Create Package</h1>
             <div>
-                <Form submitHandler={onSubmit} resolver={yupResolver(serviceSchema)}>
+                <Form submitHandler={onSubmit} >
                     <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                        <h1 className="text-lg font-bold mb-5">Service Information</h1>
+                        <h1 className="text-lg font-bold mb-5">Package Information</h1>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col
                                 className="gutter-row mb-4"
@@ -96,6 +97,17 @@ const CreateService = () => {
                                 className="gutter-row mb-4"
                                 span={12}
                             >
+                                <FormInput
+                                    type="text"
+                                    name="country"
+                                    size="large"
+                                    label="Country"
+                                />
+                            </Col>
+                            <Col
+                                className="gutter-row mb-4"
+                                span={12}
+                            >
                                 <CategorySelectField
                                     name="categoryId"
                                     label="Category"
@@ -129,9 +141,9 @@ const CreateService = () => {
                             >
                                 <FormInput
                                     type="number"
-                                    name="person"
+                                    name="people"
                                     size="large"
-                                    label="Person"
+                                    label="People"
                                 />
                             </Col>
                             <Col
@@ -185,11 +197,11 @@ const CreateService = () => {
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Service</button>
+                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Package</button>
                 </Form>
             </div>
         </div>
     );
 };
 
-export default CreateService;
+export default CreatePackage;

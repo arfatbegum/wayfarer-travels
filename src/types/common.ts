@@ -59,7 +59,7 @@ export interface ICategory {
   __v: number;
 }
 
-export interface IService {
+export interface IPackage {
   [x: string]: any;
   id: string;
   name: string;

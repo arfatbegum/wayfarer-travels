@@ -1,18 +1,20 @@
+'use client'
+
 import React, { useState, useEffect } from 'react';
 import { Tabs } from 'antd';
-import { useServicesQuery } from '@/redux/api/serviceApi';
-import ServiceCard from './PackageCard';
+import PackageCard from './PackageCard';
 import { useCategoriesQuery } from '@/redux/api/categoryApi';
+import { usePackagesQuery } from '@/redux/api/packageApi';
 
 const PackagesByCategory = () => {
     const query: Record<string, any> = {};
-    const { data } = useServicesQuery({ ...query });
-    const packages = data?.services;
+    const { data } = usePackagesQuery({ ...query });
+    const packages = data?.packages;
     const { data: categoryData } = useCategoriesQuery({ ...query });
     const categories = categoryData?.categories;
 
     // State variables to manage the active tab and filtered services
-    const [activeTab, setActiveTab] = useState('');
+    const [activeTab, setActiveTab] = useState('Honeymoon');
     const [filteredPackages, setFilteredPackages] = useState([]);
 
     // Handle tab change
@@ -21,13 +23,14 @@ const PackagesByCategory = () => {
     };
 
     // Set initial tab when categories data is available
-    useEffect(() => {
-        if (categories && categories.length > 0) {
-            setActiveTab(categories[0].name);
-        }
-    }, [categories]);
+    // useEffect(() => {
+    //     if (categories && categories.length > 0) {
+    //         setActiveTab(categories[0].name);
+    //     }
+    // }, [categories]);
 
     // Filter services based on the active tab/category
+    console.log(packages)
     useEffect(() => {
         const filtered = packages?.filter((tourPackage: any) => tourPackage.categorires?.name === activeTab);
         setFilteredPackages(filtered);
@@ -40,16 +43,16 @@ const PackagesByCategory = () => {
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Our diverse range of tour services spans the globe, taking you to the most stunning destinations, from bustling cities to tranquil natural landscapes.</p>
             </div>
             <Tabs
-                defaultActiveKey={activeTab}
+                defaultActiveKey={"Honeymoon"}
                 centered
                 activeKey={activeTab}
                 onChange={handleTabChange}
             >
-                {categories?.map((category: any) => (
+                {categories?.slice(-6).map((category: any) => (
                     <Tabs.TabPane tab={category.name} key={category.name}>
-                        <div className="grid grid-cols-4 px-16 md:space-y-0 space-y-6">
+                        <div className="grid grid-cols-4 px-5 md:space-y-0 space-y-6">
                             {filteredPackages?.map((tourPackage: any) => (
-                                <ServiceCard key={tourPackage.id} tourPackage={tourPackage} />
+                                <PackageCard key={tourPackage.id} tourPackage={tourPackage} />
                             ))}
                         </div>
                     </Tabs.TabPane>

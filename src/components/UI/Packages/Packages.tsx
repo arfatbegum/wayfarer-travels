@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from "react";
-import { useServicesQuery } from "@/redux/api/serviceApi";
 import Loader from "@/components/UI/Shared/Loader";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import { SearchOutlined, ReloadOutlined } from "@ant-design/icons";
@@ -13,6 +12,7 @@ import PackageCard from "@/components/UI/Home/PackageCard";
 import UIBreadCrumb from "../Shared/UIBreadcrumb";
 import banner from "@/assets/package-banner.jpg"
 import Image from "next/image";
+import { usePackagesQuery } from "@/redux/api/packageApi";
 
 const Packages = () => {
     const [page, setPage] = useState<number>(1);
@@ -54,8 +54,8 @@ const Packages = () => {
         query["searchTerm"] = debouncedSearchTerm;
     }
 
-    const { data, isLoading } = useServicesQuery(query);
-    const packages = data?.services;
+    const { data, isLoading } = usePackagesQuery(query);
+    const packages = data?.packages;
 
     if (isLoading) {
         return <Loader />;
@@ -72,7 +72,7 @@ const Packages = () => {
             <div className="relative bg-white">
                 <Image src={banner} alt="Hero image" width="2350" height="2359"
                     className="absolute w-full object-cover h-76 opacity-90" />
-                       <h1 className='text-3xl text-white font-bold pt-36 pb-2 text-center mb-2'>Explore All Tour Packages</h1>
+                <h1 className='text-3xl text-white font-bold pt-36 pb-2 text-center mb-2'>Explore All Tour Packages</h1>
                 <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
                     <div className="relative mx-auto">
                         <UIBreadCrumb
@@ -140,7 +140,7 @@ const Packages = () => {
                     pageSize={size}
                     total={data?.meta?.total || 0}
                     onChange={handlePaginationChange}
-                    showSizeChanger
+                    showSizeChanger={true}
                     onShowSizeChange={handlePaginationChange}
                 />
             </div>
