@@ -69,7 +69,7 @@ const Packages = () => {
 
     return (
         <div>
-            <div className="relative bg-white">
+            <div className="relative">
                 <Image src={banner} alt="Hero image" width="2350" height="2359"
                     className="absolute w-full object-cover h-76 opacity-90" />
                 <h1 className='text-3xl text-white font-bold pt-36 pb-2 text-center mb-2'>Explore All Tour Packages</h1>

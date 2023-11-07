@@ -7,7 +7,6 @@ import {
     EditOutlined,
     SearchOutlined,
     ReloadOutlined,
-    EyeOutlined,
 } from "@ant-design/icons";
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
@@ -15,9 +14,9 @@ import dayjs from "dayjs";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
-import { useDeleteNewsMutation, useNewsesQuery } from "@/redux/api/newsApi";
+import { useDeleteTeamMutation, useTeamsQuery } from "@/redux/api/teamApi";
 
-const NewsPage = () => {
+const Category = () => {
     const query: Record<string, any> = {};
 
     const [page, setPage] = useState<number>(1);
@@ -25,7 +24,7 @@ const NewsPage = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [deleteNews] = useDeleteNewsMutation();
+    const [deleteTeam] = useDeleteTeamMutation();
 
     query["limit"] = size;
     query["page"] = page;
@@ -41,15 +40,15 @@ const NewsPage = () => {
         query["searchTerm"] = debouncedSearchTerm;
     }
 
-    const { data, isLoading } = useNewsesQuery({ ...query });
-    const newses = data?.newses;
+    const { data, isLoading } = useTeamsQuery({ ...query });
+    const teams = data?.teams;
     const meta = data?.meta;
 
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteNews(id);
-            message.success("News Deleted successfully");
+            await deleteTeam(id);
+            message.success("Category Deleted successfully");
         } catch (err: any) {
             message.error(err.message);
         }
@@ -57,32 +56,24 @@ const NewsPage = () => {
 
     const columns = [
         {
-            title: "Title",
-            dataIndex: "title",
+            title: "Name",
+            dataIndex: "name",
         },
         {
-            title: "Content Type",
-            dataIndex: "contentType",
+            title: "Designation",
+            dataIndex: "designation",
         },
         {
-            title: "Author",
-            dataIndex: "user",
-            render: function (data: Record<string, string>) {
-                const fullName = `${data?.name}`;
-                return <>{fullName}</>;
-            },
+            title: "Email",
+            dataIndex: "email",
         },
         {
-            title: "Author Email",
-            dataIndex: "user",
-            render: function (data: Record<string, string>) {
-                const email = `${data?.email}`;
-                return <>{email}</>;
-            },
+            title: "Contact No",
+            dataIndex: "contactNo",
         },
         {
-            title: "Date",
-            dataIndex: "date",
+            title: "Created at",
+            dataIndex: "createdAt",
             render: function (data: any) {
                 return data && dayjs(data).format("MMM D, YYYY hh:mm A");
             },
@@ -93,12 +84,7 @@ const NewsPage = () => {
             render: function (data: any) {
                 return (
                     <div className="flex">
-                        <Link href={`/news/details/${data.id}`}>
-                            <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
-                                <EyeOutlined />
-                            </button>
-                        </Link>
-                        <Link href={`/admin/news/update/${data.id}`}>
+                        <Link href={`/admin/team/update/${data.id}`}>
                             <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
                                 <EditOutlined />
                             </button>
@@ -136,10 +122,10 @@ const NewsPage = () => {
                     },
                 ]}
             />
-            <ActionBar title="News List">
+            <ActionBar title="Team Member List">
                 <Input
                     addonBefore={<SearchOutlined style={{ fontSize: '18px', color: "#4338ca" }} />}
-                    placeholder="Search ......"
+                    placeholder="Search member ......"
                     onChange={(e) => {
                         setSearchTerm(e.target.value);
                     }}
@@ -152,14 +138,14 @@ const NewsPage = () => {
                         <ReloadOutlined />
                     </button>
                 )}
-                <Link href="/admin/news/create">
+                <Link href="/admin/team/create">
                     <button className="bg-[#0f337a] px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
                 </Link>
             </ActionBar>
             <DataTable
                 loading={isLoading}
                 columns={columns}
-                dataSource={newses}
+                dataSource={teams}
                 pageSize={size}
                 totalPages={meta?.total}
                 showSizeChanger={true}
@@ -171,4 +157,4 @@ const NewsPage = () => {
     );
 };
 
-export default NewsPage;
+export default Category;

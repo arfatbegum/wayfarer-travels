@@ -30,8 +30,8 @@ const About = () => {
                 </div>
             </div>
             <Intro />
-            <WhyChooseUs />
             <Team />
+            <WhyChooseUs />
             <Partners/>
             <Footer/>
         </div>

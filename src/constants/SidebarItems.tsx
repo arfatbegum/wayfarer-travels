@@ -8,7 +8,8 @@ import {
   ReadOutlined,
   MessageOutlined,
   CheckCircleOutlined,
-  AppstoreOutlined
+  AppstoreOutlined,
+  UsergroupAddOutlined
 } from "@ant-design/icons";
 import Link from "next/link";
 
@@ -47,6 +48,11 @@ export const sidebarItems = (userRole: string) => {
       label: <Link href={`/${userRole}/news`}>News</Link>,
       key: "news",
       icon: <ReadOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
+    },
+    {
+      label: <Link href={`/${userRole}/team`}>Team</Link>,
+      key: "team",
+      icon: <UsergroupAddOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
     },
     {
       label: <Link href={`/${userRole}/faq`}>FAQ</Link>,
@@ -96,6 +102,11 @@ export const sidebarItems = (userRole: string) => {
       label: <Link href={`/${userRole}/news`}>News</Link>,
       key: "news",
       icon: <ReadOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
+    },
+    {
+      label: <Link href={`/${userRole}/team`}>Team</Link>,
+      key: "team",
+      icon: <UsergroupAddOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
     },
     {
       label: <Link href={`/${userRole}/faq`}>FAQ</Link>,

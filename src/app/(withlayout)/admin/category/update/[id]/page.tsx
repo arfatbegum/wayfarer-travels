@@ -2,7 +2,6 @@
 
 import Form from "@/components/Form/Form";
 import FormInput from "@/components/Form/FormInput";
-import FormTextArea from "@/components/Form/FormTextArea";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import Loader from "@/components/UI/Shared/Loader";
 import { useCategoryQuery, useUpdateCategoryMutation } from "@/redux/api/categoryApi";

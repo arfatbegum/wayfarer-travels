@@ -39,11 +39,15 @@ const ServiceDetails = ({ params }: IDProps) => {
             <div className="relative bg-white">
                 <Image src={banner} alt="Hero image" width="2350" height="2359"
                     className="absolute w-full object-cover h-76 opacity-90" />
-                <h1 className='text-3xl font-bold pb-2 text-center mb-2 relative pt-36 text-white'>{data?.title}</h1>
+                <h1 className='text-3xl font-bold text-center mb-2 relative pt-36 text-white'>{data?.title}</h1>
                 <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
                     <div className="relative mx-auto">
                         <UIBreadCrumb
                             items={[
+                                {
+                                    label: "News",
+                                    link: `/news`,
+                                },
                                 {
                                     label: "News Details",
                                     link: `/news/details/${data.id}`,

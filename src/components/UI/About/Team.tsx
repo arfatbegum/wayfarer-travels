@@ -1,7 +1,11 @@
+import { useTeamsQuery } from "@/redux/api/teamApi";
 import TeamCard from "./TeamCard";
 
 
 const Team = () => {
+    const query: Record<string, any> = {};
+    const { data, isLoading } = useTeamsQuery({ ...query });
+    const teams = data?.teams;
     return (
         <div className="py-12">
             <div className="container flex justify-center mx-auto">
@@ -12,8 +16,10 @@ const Team = () => {
             </div>
             <div className="w-full px-16">
                 <div className="container mx-auto">
-                    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
-                        <TeamCard />
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4" dir="rtl">
+                    {teams && teams?.slice(-4).map((team: any) => (
+                        <TeamCard key={team.id} team={team} />
+                    ))}
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@ const FAQ: React.FC = () => {
     const getItems = (panelStyle: any) => {
         return faqs.map((faq: any) => ({
             key: faq.id,
-            label: faq.question,
+            label: <p className='font-bold'>{faq.question}</p>,
             children: <p>{faq.answer}</p>,
             style: panelStyle,
         }));

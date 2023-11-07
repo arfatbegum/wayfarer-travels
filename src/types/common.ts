@@ -143,3 +143,16 @@ export interface IContact {
   updatedAt: string;
   __v: number;
 }
+
+export interface ITeam {
+  id: string;
+  name: string;
+  designation: string;
+  email: string;
+  linkedinUrl: string;
+  contactNo: string;
+  profileImg: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
