@@ -12,7 +12,7 @@ import { Select, message } from "antd";
 
 const ContactDetails = ({ params }: IDProps) => {
     const { id } = params;
-    const { data, isLoading } = useContactQuery(id);
+    const { data } = useContactQuery(id);
     const [updateContact] = useUpdateContactMutation();
 
     const updateStatus = async (id: string, newStatus: string) => {
@@ -45,7 +45,7 @@ const ContactDetails = ({ params }: IDProps) => {
                 ]}
             />
             <ActionBar title="Enquiry Details" />
-            <div className="py-10 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <div className="py-10 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                 <div className="flex justify-between px-8">
                     <div className="p-4">
                         <h1 className="text-lg font-bold mb-2">{data?.name}</h1>

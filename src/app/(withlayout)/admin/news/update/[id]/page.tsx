@@ -10,7 +10,6 @@ import { useNewsQuery, useUpdateNewsMutation } from "@/redux/api/newsApi";
 import { getUserInfo } from "@/services/auth.services";
 import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
-import { useState } from "react";
 
 const UpdateNews = ({ params }: IDProps) => {
     const { id } = params;
@@ -60,7 +59,7 @@ const UpdateNews = ({ params }: IDProps) => {
             <h1 className="py-5 text-lg font-bold">Update News</h1>
             <div>
                 <Form submitHandler={onSubmit} defaultValues={defaultValues}>
-                    <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                    <div className="p-10 mb-5 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                         <h1 className="text-lg font-bold mb-5">Update News Information</h1>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col

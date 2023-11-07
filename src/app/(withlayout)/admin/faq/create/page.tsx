@@ -39,7 +39,7 @@ const CreateFAQ = () => {
             <h1 className="py-5 text-lg font-bold">Create Faq</h1>
             <div>
                 <Form submitHandler={onSubmit} resolver={yupResolver(faqSchema)}>
-                    <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                    <div className="p-10 mb-5 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                         <h1 className="text-lg font-bold mb-5">  FAQ Information</h1>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col

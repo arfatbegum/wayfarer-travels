@@ -53,7 +53,7 @@ const updateProfile = () => {
             <ActionBar title="Update Profile" />
 
             <Form submitHandler={onSubmit} defaultValues={defaultValues}>
-                <div className="p-10 mb-5 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                <div className="p-10 mb-5 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white shadow-sm bg-clip-border text-gray-700">
                     <h1 className="text-lg font-bold mb-5"> Update Profile information</h1>
                     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                         <Col

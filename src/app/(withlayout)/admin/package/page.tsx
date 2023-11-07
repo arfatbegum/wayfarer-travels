@@ -91,20 +91,12 @@ const Package = () => {
             dataIndex: "location",
         },
         {
-            title: "Person",
-            dataIndex: "person",
+            title: "People",
+            dataIndex: "people",
         },
         {
             title: "Duration",
             dataIndex: "duration",
-        },
-        {
-            title: "Created at",
-            dataIndex: "createdAt",
-            render: function (data: any) {
-                return data && dayjs(data).format("MMM D, YYYY hh:mm A");
-            },
-            sorter: true,
         },
         {
             title: "Actions",

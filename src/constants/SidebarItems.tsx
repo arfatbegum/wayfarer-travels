@@ -23,7 +23,11 @@ export const sidebarItems = (userRole: string) => {
   ];
 
   const adminSidebarItems: MenuProps["items"] = [
-    ...defaultSidebarItems,
+    {
+      label: <Link href={`/${userRole}/profile`}>Profile</Link>,
+      key: "profile",
+      icon: <ProfileOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
+    },
     {
       label: <Link href={`/${userRole}/user`}>User</Link>,
       key: "user",
@@ -72,7 +76,11 @@ export const sidebarItems = (userRole: string) => {
   ];
 
   const superAdminSidebarItems: MenuProps["items"] = [
-    ...defaultSidebarItems,
+    {
+      label: <Link href={`/${userRole}/profile`}>Profile</Link>,
+      key: "profile",
+      icon: <ProfileOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
+    },
     {
       label: <Link href={`/${userRole}/admin`}>Admin</Link>,
       icon: <TableOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
@@ -126,7 +134,11 @@ export const sidebarItems = (userRole: string) => {
   ];
 
   const userSidebarItems: MenuProps["items"] = [
-    ...defaultSidebarItems,
+    {
+      label: <Link href={`/profile`}>Profile</Link>,
+      key: "profile",
+      icon: <ProfileOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,
+    },
     {
       label: <Link href={`/booking`}>Booking</Link>,
       icon: <SlackOutlined style={{ fontSize: '20px', color: '#0f337a' }} />,

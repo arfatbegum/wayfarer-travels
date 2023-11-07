@@ -30,7 +30,7 @@ const Profile = () => {
             />
             <ActionBar title="Profile" />
             <div className="flex gap-5">
-                <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                <div className="relative flex w-96 flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white shadow-sm bg-clip-border text-gray-700">
                     <div className="relative mx-4 mt-4 h-80 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
                         <Image width={350} height={350} src={data?.profileImg} alt="profile-picture" />
                     </div>
@@ -43,11 +43,11 @@ const Profile = () => {
                         </p>
                     </div>
                 </div>
-                <div className="py-10 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                <div className="py-10 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white shadow-sm bg-clip-border text-gray-700">
                     <div className="flex justify-between items-center px-8 mb-5">
                         <h1 className="text-lg font-bold">Profile information</h1>
-                        <Link href={`/super_admin/profile/update`}>
-                            <button className="flex items-center gap-2 bg-violet-700 text-white font-bold py-1 px-2 rounded mr-2">
+                        <Link href={`/admin/profile/update`}>
+                            <button className="flex items-center gap-2 bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
                                 Edit
                                 <EditOutlined />
                             </button>

@@ -98,11 +98,6 @@ const ContactList = () => {
                                 <EyeOutlined />
                             </button>
                         </Link>
-                        <Link href={`/admin/contact/update/${data.id}`}>
-                            <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
-                                <EditOutlined />
-                            </button>
-                        </Link>
                         <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
