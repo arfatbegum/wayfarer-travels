@@ -1,55 +1,83 @@
 "use client";
 
+import CategorySelectField from "@/components/Form/CategorySelectField";
 import Form from "@/components/Form/Form";
 import FormDatePicker from "@/components/Form/FormDatePicker";
 import FormInput from "@/components/Form/FormInput";
-import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import QuillEditor from "@/components/Form/QuillEditor";
-import { yupResolver } from "@hookform/resolvers/yup";
+import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
+import Loader from "@/components/UI/Shared/Loader";
+import { usePackageQuery, useUpdatePackageMutation } from "@/redux/api/packageApi";
+import { IDProps } from "@/types";
 import { Col, Row, message } from "antd";
-import { serviceSchema } from "@/schema/service";
-import CategorySelectField from "@/components/Form/CategorySelectField";
-import { useAddPackageMutation } from "@/redux/api/packageApi";
 
+const UpdatePackage = ({ params }: IDProps) => {
+    const { id } = params;
+    const { data, isLoading } = usePackageQuery(id);
+    const [updatePackage] = useUpdatePackageMutation();
 
-const CreatePackage = () => {
-    const [addPackage] = useAddPackageMutation();
+    if (isLoading) {
+        return <Loader />
+    }
 
-    const onSubmit = async (data: any) => {
-        message.loading("Creating...");
-        data.price = parseInt(data.price)
-        data.people = parseInt(data.people)
-        data.availableQunatity = parseInt(data.availableQunatity)
+    const onSubmit = async (values: any) => {
+        message.loading("Updating...");
+        values.price = parseInt(values.price)
+        values.people = parseInt(values.people)
+        values.availableQunatity = parseInt(values.availableQunatity)
         try {
-            const res = await addPackage(data);
+            const res = await updatePackage({ id, body: values });
             if (res) {
-                message.success("Package created successfully!");
+                message.success("Package updated successfully!");
             }
         } catch (error: any) {
-            message.error(error.message);
+            if (error.response) {
+                message.error('Request failed with status code: ' + error.response.status);
+            } else if (error.message) {
+                message.error(error.message);
+            } else {
+                message.error('An error occurred. Please try again later.');
+            }
         }
     };
 
+    // @ts-ignore
+    const defaultValues = {
+        name: data?.name || "",
+        validFrom: data?.validFrom || "",
+        validTill: data?.validTill || "",
+        location: data?.location || "",
+        country: data?.country || "",
+        categoryId: data?.categoryId || "",
+        price: data?.price || "",
+        people: data?.people || "",
+        duration: data?.duration || "",
+        availableQunatity: data?.availableQunatity || "",
+        image: data?.image || "",
+        description: data?.description || "",
+        facilities: data?.facilities || "",
+        whyChooseUs: data?.whyChooseUs || "",
+    };
 
     return (
         <div>
             <BreadCrumb
                 items={[
                     {
-                        label: "Admin",
-                        link: "/admin",
+                        label: "Super Admin",
+                        link: "/super_admin",
                     },
                     {
                         label: "Package",
-                        link: "/admin/package",
+                        link: "/super_admin/package",
                     },
                 ]}
             />
-            <h1 className="py-5 text-lg font-bold">Create Package</h1>
+            <h1 className="py-5 text-lg font-bold">Update Package</h1>
             <div>
-                <Form submitHandler={onSubmit} >
+                <Form submitHandler={onSubmit} defaultValues={defaultValues}>
                     <div className="p-10 mb-5 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
-                        <h1 className="text-lg font-bold mb-5">Package Information</h1>
+                        <h1 className="text-lg font-bold mb-5">Update Package Information</h1>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col
                                 className="gutter-row mb-4"
@@ -175,6 +203,7 @@ const CreatePackage = () => {
                                 <QuillEditor
                                     name="description"
                                     label="Description"
+
                                 />
                             </Col>
                             <Col
@@ -197,11 +226,11 @@ const CreatePackage = () => {
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Create Package</button>
+                    <button className="bg-[#0f337a] text-white p-2 bg-clip-border shadow-md rounded font-semibold" type="submit">Update Package</button>
                 </Form>
             </div>
         </div>
     );
 };
 
-export default CreatePackage;
+export default UpdatePackage;

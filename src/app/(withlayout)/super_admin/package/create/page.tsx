@@ -36,12 +36,12 @@ const CreatePackage = () => {
             <BreadCrumb
                 items={[
                     {
-                        label: "Admin",
-                        link: "/admin",
+                        label: "Super Admin",
+                        link: "/super_admin",
                     },
                     {
                         label: "Package",
-                        link: "/admin/package",
+                        link: "/super_admin/package",
                     },
                 ]}
             />

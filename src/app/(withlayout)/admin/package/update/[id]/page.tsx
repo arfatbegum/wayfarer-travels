@@ -187,7 +187,7 @@ const UpdatePackage = ({ params }: IDProps) => {
                             </Col>
                             <Col
                                 className="gutter-row mb-4"
-                                span={24}
+                                span={12}
                             >
                                 <FormInput
                                     type="text"

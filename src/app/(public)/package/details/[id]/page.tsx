@@ -111,13 +111,13 @@ const PackageDetails = ({ params }: IDProps) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="w-full h-50%">
+                                            <div className="w-full">
                                                 <Image
                                                     width={1000}
                                                     height={300}
                                                     src={typeof data?.image === 'string' ? data.image : 'https://i.ibb.co/ydNWgpK/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png'}
                                                     alt="ui/ux review check"
-                                                    className="rounded"
+                                                    className="rounded h-[400px]"
                                                 />
                                             </div>
                                             <div className="mt-6 ">
