@@ -55,11 +55,11 @@ const Header = () => {
     }
 
     return (
-        <div className="inset-x-0 top-0 bg-[#0f337a] lg:fixed z-50">
-            <div className="mx-auto w-full px-5 sm:px-10 md:px-10 lg:px-12">
+        <div className="lg:mb-20">
+            <div className="inset-x-0 bg-[#0f337a] lg:fixed z-50 mx-auto w-full">
                 <div className="w-full flex justify-between gap-6 relative">
                     <div className="min-w-max inline-flex relative">
-                        <Link href={`/`} className="flex items-center text-xl text-white font-semibold mb-2 font-serif">
+                        <Link href={`/`} className="flex items-center mb-1 text-xl text-white font-semibold font-serif">
                             <Image width={50} height={60} src={logo} alt="logo" className="m-1.5 p-1.5" />
                             Wayfarer Travels
                         </Link>
@@ -67,17 +67,17 @@ const Header = () => {
                     <div data-nav-overlay aria-hidden="true" className={`fixed ${isNavOpen ? 'block' : 'hidden'} inset-0 lg:!hidden bg-gray-800/60 bg-opacity-50 backdrop-filter backdrop-blur-xl`}></div>
                     <div data-navbar className={`flex ${isNavOpen ? '' : 'invisible opacity-0 translate-y-10'} lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-end lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0`}>
                         <div className="flex lg:flex-row flex-col text-center lg:mt-0 mt-4 z-50  gap-5 text-md font-normal font-serif lg:text-white">
-                            <Link href={`/`}>Home</Link>
-                            <Link href={`/package`}>Packages</Link>
-                            <Link href={`/about`}>About</Link>
-                            <Link href={`/news`}>News</Link>
-                            <Link href={`/faq`}>FAQ</Link>
-                            <Link href={`/contact`}>Contact</Link>
+                            <Link href={`/`} className='text-white text-medium'>Home</Link>
+                            <Link href={`/package`} className='text-white text-medium'>Packages</Link>
+                            <Link href={`/about`} className='text-white text-medium'>About</Link>
+                            <Link href={`/news`} className='text-white text-medium'>News</Link>
+                            <Link href={`/faq`} className='text-white text-medium'>FAQ</Link>
+                            <Link href={`/contact`} className='text-white text-medium'>Contact</Link>
                         </div>
                         {
                             userLoggedIn ? (
                                 <div className='flex mr-2 font-semibold items-center'>
-                                    <span className="mr-2 capitalize text-white lg:pl-72">{data?.name}</span>
+                                    <span className="mr-2 capitalize text-white lg:pl-72 font-serif">{data?.name}</span>
                                     <DropDown />
                                 </div>
                             ) : (
@@ -92,7 +92,6 @@ const Header = () => {
                         }
 
                     </div>
-
                     <div className="min-w-max flex items-center gap-x-3">
                         <button data-toggle-navbar data-is-open={isNavOpen ? 'true' : 'false'} className="lg:hidden lg:invisible outline-none w-7 h-auto flex flex-col relative" onClick={toggleNav}>
                             <span id="line-1" className={`w-6 h-0.5 rounded-full bg-gray-700 transition-all duration-300 ease-linear ${isNavOpen ? 'transform translateY(0.375rem) rotate(40deg)' : ''}`}></span>

@@ -30,8 +30,8 @@ const Profile = () => {
             />
             <ActionBar title="Profile" />
             <div className="flex gap-5">
-                <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                    <div className="relative mx-4 mt-4 h-80 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
+                <div className="relative flex w-96 flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
+                    <div className="relative mx-4 mt-4 h-80 overflow-hidden rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
                         <Image width={350} height={350} src={data?.profileImg || 'https://i.ibb.co/rGZtkFD/950-9501518-our-terms-working-with-you-professional-boy-image.jpg'} alt="profile-picture" />
                     </div>
                     <div className="p-6 text-center">
@@ -43,8 +43,8 @@ const Profile = () => {
                         </p>
                     </div>
                 </div>
-                <div className="py-10 relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                    <div className="flex justify-between items-center px-8 mb-5">
+                <div className="py-10 relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
+                    <div className="flex justify-between items-center px-8 mb-5 gap-4">
                         <h1 className="text-lg font-bold">Profile information</h1>
                         <Link href={`/super_admin/profile/update`}>
                             <button className="flex items-center gap-2 bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">

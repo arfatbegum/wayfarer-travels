@@ -1,7 +1,6 @@
 "use client";
 
 import { Input, Select, message } from "antd";
-import Link from "next/link";
 import {
     SearchOutlined,
     ReloadOutlined,
@@ -59,7 +58,7 @@ const Booking = () => {
 
     const columns = [
         {
-            title: "Service Name",
+            title: "Package Name",
             dataIndex: "service",
             render: function (data: Record<string, string>) {
                 const name = `${data?.name}`;
@@ -68,7 +67,7 @@ const Booking = () => {
         },
         {
             title: "Traveller",
-            dataIndex: "service",
+            dataIndex: "package",
             render: function (data: Record<string, string>) {
                 const person = `${data?.person}`;
                 return <>{person}</>;
@@ -76,7 +75,7 @@ const Booking = () => {
         },
         {
             title: "Amount",
-            dataIndex: "service",
+            dataIndex: "package",
             render: function (data: Record<string, string>) {
                 const price = `${data?.price}`;
                 return <>{price}</>;
@@ -157,8 +156,8 @@ const Booking = () => {
             <BreadCrumb
                 items={[
                     {
-                        label: "Admin",
-                        link: "/admin",
+                        label: "Booking",
+                        link: "/booking",
                     },
                 ]}
             />

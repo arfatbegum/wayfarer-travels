@@ -4,7 +4,6 @@ import { Input, message } from "antd";
 import Link from "next/link";
 import {
     DeleteOutlined,
-    EditOutlined,
     SearchOutlined,
     ReloadOutlined,
     EyeOutlined
@@ -15,8 +14,7 @@ import dayjs from "dayjs";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
-import { useDeleteCategoryMutation } from "@/redux/api/categoryApi";
-import { useContactsQuery } from "@/redux/api/contactApi";
+import { useContactsQuery, useDeleteContactMutation } from "@/redux/api/contactApi";
 
 const ContactList = () => {
     const query: Record<string, any> = {};
@@ -26,7 +24,7 @@ const ContactList = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [deleteCategory] = useDeleteCategoryMutation();
+    const [deleteContact] = useDeleteContactMutation();
 
     query["limit"] = size;
     query["page"] = page;
@@ -49,7 +47,7 @@ const ContactList = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteCategory(id);
+            await deleteContact(id);
             message.success("Enquiry Deleted successfully");
         } catch (err: any) {
             message.error(err.message);

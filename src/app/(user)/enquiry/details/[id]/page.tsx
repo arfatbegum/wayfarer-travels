@@ -1,46 +1,25 @@
 "use client"
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
-import { useContactQuery, useUpdateContactMutation } from "@/redux/api/contactApi";
 import { IDProps } from "@/types";
 import image from "@/assets/enquiry.png"
 import Image from "next/image";
 import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineMailOpen, HiStatusOnline } from 'react-icons/hi';
-import { Select, message } from "antd";
+import { useGetMySingleEnquiryQuery } from "@/redux/api/userApi";
 
 
 const ContactDetails = ({ params }: IDProps) => {
     const { id } = params;
-    const { data } = useContactQuery(id);
-    const [updateContact] = useUpdateContactMutation();
-
-    const updateStatus = async (id: string, newStatus: string) => {
-        message.loading("Updating.....");
-        try {
-            await updateContact({ id, body: { status: newStatus } });
-            message.success("Admin Role Updated successfully");
-        } catch (err: any) {
-            message.error(err.message);
-        }
-    };
-
-    const status = [
-        { label: 'pending', value: 'Pending' },
-        { label: 'contacted', value: 'Contacted' },
-    ];
+    const { data } = useGetMySingleEnquiryQuery(id);
 
     return (
         <>
             <BreadCrumb
                 items={[
                     {
-                        label: "Super Admin",
-                        link: "/super_admin",
-                    },
-                    {
                         label: "Enquiry",
-                        link: "/super_admin/contact",
+                        link: "/enquiry",
                     },
                 ]}
             />
@@ -57,15 +36,9 @@ const ContactDetails = ({ params }: IDProps) => {
                             <FiPhoneCall className="text-[#0f337a] text-lg" />
                             {data?.contactNo}
                         </p>
-                        <p className="flex gap-2 text-md font-medium items-center my-4">
-                            <HiStatusOnline className="text-[#0f337a] text-xl" />
-                            <Select
-                                defaultValue={data?.status}
-                                style={{ width: 120 }}
-                                options={status}
-                                onChange={(newStatus) => updateStatus(data?.id, newStatus)}
-
-                            />
+                        <p className="flex gap-2 text-md font-medium items-center my-4 capitalize">
+                        <HiStatusOnline className="text-[#0f337a] text-xl" />
+                            {data?.status}
                         </p>
                         <div className="mt-2">
                             <h4 className="text-md font-medium my-2">Message</h4>

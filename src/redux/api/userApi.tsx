@@ -74,7 +74,40 @@ export const userApi = baseApi.injectEndpoints({
             }),
             providesTags: [tagTypes.user],
         }),
+        getMyEnquiry: build.query({
+            query: () => ({
+                url: `${USER_URL}/my-enquiry`,
+                method: "GET",
+            }),
+            providesTags: [tagTypes.user],
+        }),
+        getMySingleEnquiry: build.query({
+            query: (id) => ({
+                url: `${USER_URL}/my-enquiry/${id}`,
+                method: "GET",
+            }),
+            providesTags: [tagTypes.user],
+        }),
+        getMyFeedback: build.query({
+            query: () => ({
+                url: `${USER_URL}/my-feedback`,
+                method: "GET",
+            }),
+            providesTags: [tagTypes.user],
+        }),
     }),
 });
 
-export const { useAddUserMutation, useUsersQuery, useUserQuery,useUpdateUserMutation, useDeleteUserMutation,useGetProfileQuery,useUpdateProfileMutation,useGetMyBookingQuery} = userApi;
+export const {
+    useAddUserMutation,
+    useUsersQuery,
+    useUserQuery,
+    useUpdateUserMutation,
+    useDeleteUserMutation,
+    useGetProfileQuery,
+    useUpdateProfileMutation,
+    useGetMyBookingQuery,
+    useGetMyEnquiryQuery,
+    useGetMySingleEnquiryQuery,
+    useGetMyFeedbackQuery
+} = userApi;

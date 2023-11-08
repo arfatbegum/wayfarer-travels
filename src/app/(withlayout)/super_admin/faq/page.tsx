@@ -109,7 +109,7 @@ const FAQList = () => {
             <BreadCrumb
                 items={[
                     {
-                        label: "super_admin",
+                        label: "Super Admin",
                         link: "/super_admin",
                     },
                 ]}

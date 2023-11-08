@@ -29,7 +29,29 @@ export const feedbackApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.feedback],
     }),
+    feedback: build.query({
+      query: (id) => ({
+        url: `${Feedback_URL}/${id}`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.feedback],
+    }),
+    updateFeedback: build.mutation({
+      query: (data) => ({
+        url: `${Feedback_URL}/${data.id}`,
+        method: "PATCH",
+        data: data.body,
+      }),
+      invalidatesTags: [tagTypes.feedback],
+    }),
+    deleteFeedback: build.mutation({
+      query: (id) => ({
+        url: `${Feedback_URL}/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: [tagTypes.feedback],
+    }),
   }),
 });
 
-export const { useAddFeedbackMutation, useFeedbacksQuery } = feedbackApi;
+export const { useAddFeedbackMutation, useFeedbacksQuery, useFeedbackQuery, useUpdateFeedbackMutation, useDeleteFeedbackMutation } = feedbackApi;
