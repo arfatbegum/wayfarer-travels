@@ -1,6 +1,7 @@
 "use client";
 
-import { Input, Select, message } from "antd";
+import { RiChatDeleteLine } from 'react-icons/ri';
+import { Input, message } from "antd";
 import {
     SearchOutlined,
     ReloadOutlined,
@@ -11,7 +12,7 @@ import dayjs from "dayjs";
 import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
-import { useUpdateBookingMutation } from "@/redux/api/bookingApi";
+import { useCancelBookingMutation } from "@/redux/api/bookingApi";
 import { useGetMyBookingQuery } from "@/redux/api/userApi";
 
 const Booking = () => {
@@ -22,7 +23,7 @@ const Booking = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [updateBooking] = useUpdateBookingMutation();
+    const [cancelBooking] = useCancelBookingMutation();
 
     query["limit"] = size;
     query["page"] = page;
@@ -42,15 +43,11 @@ const Booking = () => {
     const bookings = data;
     const meta = data?.meta;
 
-    const status = [
-        { label: 'Cancelled', value: 'Cancelled' }
-    ];
-
-    const updateBookingStatus = async (id: string, newStatus: string) => {
-        message.loading("Updating.....");
+    const updateBookingStatus = async (id: string) => {
+        message.loading("Cancelling.....");
         try {
-            await updateBooking({ id, body: { status: newStatus } });
-            message.success(`Your Booking ${newStatus} successfully`);
+            await cancelBooking({ id });
+            message.success(`Your Booking Cancelled successfully`);
         } catch (err: any) {
             message.error(err.message);
         }
@@ -59,19 +56,15 @@ const Booking = () => {
     const columns = [
         {
             title: "Package Name",
-            dataIndex: "service",
+            dataIndex: "package",
             render: function (data: Record<string, string>) {
                 const name = `${data?.name}`;
                 return <>{name}</>;
             },
         },
         {
-            title: "Traveller",
-            dataIndex: "package",
-            render: function (data: Record<string, string>) {
-                const person = `${data?.person}`;
-                return <>{person}</>;
-            },
+            title: "Adult",
+            dataIndex: "adult",
         },
         {
             title: "Amount",
@@ -79,30 +72,6 @@ const Booking = () => {
             render: function (data: Record<string, string>) {
                 const price = `${data?.price}`;
                 return <>{price}</>;
-            },
-        },
-        {
-            title: "Payment Method",
-            dataIndex: "paymentInfo",
-            render: function (data: Record<string, string>) {
-                const paymentMethod = `${data?.paymentMethod}`;
-                return <>{paymentMethod}</>;
-            },
-        },
-        {
-            title: "Payment Status",
-            dataIndex: "paymentInfo",
-            render: function (data: Record<string, string>) {
-                const paymentStatus = `${data?.paymentStatus}`;
-                return <>{paymentStatus}</>;
-            },
-        },
-        {
-            title: "Paypal Transaction Id",
-            dataIndex: "paymentInfo",
-            render: function (data: Record<string, string>) {
-                const paypalTransactionId = `${data?.paypalTransactionId}`;
-                return <>{paypalTransactionId}</>;
             },
         },
         {
@@ -122,16 +91,52 @@ const Booking = () => {
             sorter: true,
         },
         {
+            title: "Method",
+            dataIndex: "paymentInfo",
+            render: function (data: Record<string, string>) {
+                const paymentMethod = `${data?.paymentMethod}`;
+                return <p className="uppercase">{paymentMethod}</p>;
+            },
+        },
+        {
+            title: "Paypal Transaction Id",
+            dataIndex: "paymentInfo",
+            render: function (data: Record<string, string>) {
+                const paypalTransactionId = `${data?.paypalTransactionId}`;
+                return <>{paypalTransactionId}</>;
+            },
+        },
+        {
+            title: "Payment Status",
+            dataIndex: "paymentInfo",
+            render: function (data: Record<string, string>) {
+                const paymentStatus = `${data?.paymentStatus}`;
+                return <p className="bg-green-500 px-2.5 py-1.5 rounded text-white capitalize font-medium">{paymentStatus}</p>;
+            },
+        },
+        {
             title: "Status",
+            dataIndex: "status",
+            render: function (status: string) {
+                console.log(status)
+                if (status === "pending") {
+                    return <span className="bg-yellow-400 px-4 py-1.5 rounded text-white uppercase font-medium">{status}</span>
+                } else if (status === "cancelled") {
+                    return <span className="uppercase bg-red-500 px-2.5 py-1.5 rounded text-white font-medium">{status}</span>
+                } else if (status === "confirmed") {
+                    return <span className="bg-green-500 px-2.5 py-1.5 rounded text-white uppercase font-medium">{status}</span>
+                } else if (status === "completed") {
+                    return <span className="bg-green-500 px-2.5 py-1.5 rounded text-white uppercase font-medium">{status}</span>
+                }
+            },
+        },
+        {
+            title: "Actions",
             render: function (data: any) {
                 return (
-                    <Select
-                        defaultValue={data?.status}
-                        style={{ width: 120 }}
-                        options={status}
-                        onChange={(newStatus) => updateBookingStatus(data?.id, newStatus)}
-
-                    />
+                    <button onClick={() => updateBookingStatus(data?.id)} className="bg-red-500 text-white font-bold py-1.5 px-2 rounded text-xl">
+                        <RiChatDeleteLine />
+                    </button>
                 )
             }
         },

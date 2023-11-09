@@ -7,11 +7,12 @@ interface IInput {
     name: string;
     type?: string;
     size?: "large" | "small";
-    value?: string | string[] | undefined;
+    value?: string | string[] |number| undefined;
     id?: string;
     placeholder?: string;
     validation?: object;
     label?: string;
+    onChange?: (e: any) => void
 }
 
 const FormInput = ({

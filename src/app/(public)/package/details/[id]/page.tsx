@@ -12,13 +12,14 @@ import UIBreadCrumb from "@/components/UI/Shared/UIBreadcrumb";
 import banner from "@/assets/packageDetails-banner.jpg"
 import { usePackageQuery } from "@/redux/api/packageApi";
 import { HiOutlineLocationMarker } from 'react-icons/hi';
-
+import type { DrawerProps } from 'antd/es/drawer';
 
 const PackageDetails = ({ params }: IDProps) => {
     const { id } = params;
     const { data, isLoading } = usePackageQuery(id);
 
     const [open, setOpen] = useState(false);
+    const [size, setSize]:["default" | "large" | undefined, React.Dispatch<React.SetStateAction<"default" | "large" | undefined>>] = useState<DrawerProps['size']>("large");
 
     const totalReviews = Array.isArray(data?.reviews) ? data?.reviews.length : 0;
 
@@ -32,6 +33,7 @@ const PackageDetails = ({ params }: IDProps) => {
 
 
     const showDrawer = () => {
+        setSize('large');
         setOpen(true);
     };
 
@@ -147,7 +149,17 @@ const PackageDetails = ({ params }: IDProps) => {
                                                     <h1 className="pb-1 text-lg font-bold mt-5">Why choose us</h1>
                                                     <p className="leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: data?.whyChooseUs }}></p>
                                                     <button onClick={showDrawer} className="bg-[#0f337a] text-white py-2 rounded mt-8 font-semibold w-full">Book Now</button>
-                                                    <BookingDrawer onClose={onClose} availableQunatity={data?.availableQunatity} price={data?.price} validFrom={data?.validFrom} validTill={data?.validTill} open={open} myserviceId={data?.id} />
+                                                    <BookingDrawer
+                                                        size={size}
+                                                        onClose={onClose}
+                                                        availableQunatity={data?.availableQunatity}
+                                                        price={data?.price}
+                                                        validFrom={data?.validFrom}
+                                                        validTill={data?.validTill}
+                                                        open={open}
+                                                        packageId={data?.id}
+                                                        packageName={data?.name}
+                                                    />
                                                 </div>
                                             </div>
                                             {data?.reviews === 0 ? <Reviews reviews={data?.reviews} /> : null}
