@@ -3,15 +3,15 @@ import React from 'react';
 
 const Gallery = () => {
     return (
-        <div className="text-gray-600 body-font">
-            <div className="text-center">
+        <div className="container mx-auto p-10">
+            <div className="text-center mb-10">
                 <h1 className="sm:text-3xl text-2xl font-bold title-font mb-2 text-gray-900">Our Gallery</h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Our gallery showcases the mesmerizing beauty and diversity of destinations we curate for your unforgettable journeys. Each image in our gallery is a glimpse of the extraordinary adventures awaiting you!</p>
                 <div className="flex mt-6 justify-center">
                     <div className="w-16 h-1 rounded-full bg-[#0f337a] inline-flex"></div>
                 </div>
             </div>
-            <div className="container px-12 py-12 mx-auto flex flex-wrap">
+            <div className="flex flex-wrap">
                 <div className="flex flex-wrap md:-m-2 -m-1">
                     <div className="flex flex-wrap w-1/2">
                         <div className="md:p-2 p-1 w-1/2">

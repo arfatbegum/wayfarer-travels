@@ -25,7 +25,7 @@ const NewsCard: React.FC<NewsProps> = ({ news }) => {
     const averageRating = totalReviews > 0 ? sumOfRatings / totalReviews : 0;
 
     return (
-        <div className="p-4 md:w-1/3">
+        <div className="flex flex-col">
             <div className="relative h-full border-2 bg-white border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-sm">
                 <Image
                     width={500}

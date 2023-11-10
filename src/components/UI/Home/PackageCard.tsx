@@ -36,7 +36,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ tourPackage }) => {
     const averageRating = totalReviews > 0 ? sumOfRatings / totalReviews : 0;
 
     return (
-        <div className="p-2 flex flex-col">
+        <div className="flex flex-col">
             <div className="relative flex w-full max-w-[26rem] flex-col bg-white bg-clip-border text-gray-700 shadow-sm  border-2 border-gray-200 border-opacity-60 rounded-lg">
                 <div className="relative z-0 max-h-[200px] overflow-hidden rounded-lg rounded-b-none bg-blue-gray-500 bg-clip-border text-white shadow-sm shadow-blue-gray-500/40">
                     <Image

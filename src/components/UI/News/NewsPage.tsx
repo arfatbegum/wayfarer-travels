@@ -79,7 +79,7 @@ const NewsPage = () => {
                         >
                             {tabList.slice(-6).map((contentType) => (
                                 <Tabs.TabPane tab={contentType as string} key={contentType as string}>
-                                    <div className="flex flex-wrap lg:px-16 px-4 md:space-y-0 space-y-6">
+                                    <div className="grid grid-cols-3 lg:gap-4">
                                         {filteredNews?.map((news: any) => (
                                             <NewsCard key={news.id} news={news} />
                                         ))}

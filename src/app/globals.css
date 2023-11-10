@@ -38,6 +38,7 @@ body {
 
 .ant-layout-header a{
  color: white !important;
+ font-family: "Playfair Display", serif !important;
 }
 
 .ant-input:focus{
@@ -74,12 +75,14 @@ button[data-toggle-navbar][data-is-open="true"] #line-3 {
 }
 .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn{
   color: #ffff !important;
+  font-family: "Playfair Display", serif !important;
 }
 
 .ant-tabs .ant-tabs-tab-btn{
   color: #0f337a !important;
   border: 0.25px solid #0f337a !important;
   padding: 7px 25px !important;
+  font-family: "Playfair Display", serif !important;
 }
 
 .ant-tabs .ant-tabs-tab {
