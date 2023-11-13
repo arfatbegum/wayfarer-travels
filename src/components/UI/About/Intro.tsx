@@ -1,18 +1,18 @@
 import Image from "next/image";
-import image from "@/assets/about.png"
 import { FaFontAwesomeFlag, FaRegUser, FaRegAddressBook } from 'react-icons/fa';
 
 const Intro = () => {
     return (
-        <div className="text-gray-600 body-font lg:pr-16 my-12">
-            <div className="container mx-auto flex md:flex-row flex-col items-center pb-12">
-                <div className="lg:w-1/2 w-full mb-10 md:mb-0 lg:p-14 ">
+        <div className="p-10">
+            <div className="container mx-auto flex md:flex-row flex-col items-center py-10">
+                <div className="lg:w-1/2 w-full mb-10 md:mb-0">
                     <Image
                         width={500}
                         height={500}
+                        quality={100}
                         alt="gallery"
                         className="w-full object-cover h-full object-center block rounded"
-                        src={image}
+                        src="https://i.ibb.co/xD90sTZ/intro.png"
                     />
                 </div>
                 <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left items-center text-center">
@@ -56,48 +56,46 @@ const Intro = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:pl-16">
-                <div className="relative">
-                    <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
-                        <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
-                            <FaFontAwesomeFlag classNmae="text-3xl" />
-                        </div>
-                        <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
-                            <FaRegAddressBook classNmae="text-3xl" />
-                        </div>
-                        <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
-                            <FaRegUser classNmae="text-3xl" />
-                        </div>
-                    </div>
-                    <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
-                </div>
+            <div className="relative">
                 <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
-                    <div>
-                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Founded</p>
-                        <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
+                        <FaFontAwesomeFlag classNmae="text-3xl" />
                     </div>
-                    <div>
-                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">50M montly enrichments</p>
-                        <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
+                        <FaRegAddressBook classNmae="text-3xl" />
                     </div>
-                    <div className="sm:block hidden">
-                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">400k User</p>
-                        <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
+                        <FaRegUser classNmae="text-3xl" />
                     </div>
                 </div>
-                <div className="sm:hidden block relative mt-8">
-                    <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
-                        <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
-                            <FaRegUser />
-                        </div>
-                    </div>
-                    <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
+                <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
+            </div>
+            <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+                <div>
+                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Founded</p>
+                    <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                 </div>
-                <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
-                    <div>
-                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">400k User</p>
-                        <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                <div>
+                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">50M montly enrichments</p>
+                    <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+                <div className="sm:block hidden">
+                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">400k User</p>
+                    <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+            </div>
+            <div className="sm:hidden block relative mt-8">
+                <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+                    <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
+                        <FaRegUser />
                     </div>
+                </div>
+                <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
+            </div>
+            <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+                <div>
+                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">400k User</p>
+                    <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                 </div>
             </div>
         </div>

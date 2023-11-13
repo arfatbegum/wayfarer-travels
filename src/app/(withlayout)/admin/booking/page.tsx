@@ -13,6 +13,7 @@ import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
 import { useBookingsQuery, useDeleteBookingMutation, useUpdateBookingMutation } from "@/redux/api/bookingApi";
+import CustomModal from "@/components/Modal/CustomModal";
 
 const Booking = () => {
     const query: Record<string, any> = {};
@@ -22,6 +23,8 @@ const Booking = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
+    const [bookingId, setBookingId] = useState<string>("");
     const [deleteBooking] = useDeleteBookingMutation();
     const [updateBooking] = useUpdateBookingMutation();
 
@@ -48,8 +51,11 @@ const Booking = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteBooking(id);
-            message.success("Booking Deleted successfully");
+            const res = await deleteBooking(id);
+            if (res) {
+                message.success("Booking Deleted successfully");
+                setOpen(false);
+            }
         } catch (err: any) {
             message.error(err.message);
         }
@@ -157,7 +163,12 @@ const Booking = () => {
             render: function (data: any) {
                 return (
                     <div className="flex">
-                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button
+                            onClick={() => {
+                                setOpen(true);
+                                setBookingId(data.id);
+                            }}
+                            className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </div>
@@ -218,6 +229,14 @@ const Booking = () => {
                 onTableChange={onTableChange}
                 showPagination={true}
             />
+            <CustomModal
+                title="Remove Booking"
+                isOpen={open}
+                closeModal={() => setOpen(false)}
+                handleOk={() => deleteHandler(bookingId)}
+            >
+                <p className="my-5">Do you want to remove this Booking?</p>
+            </CustomModal>
         </div>
     );
 };

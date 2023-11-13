@@ -53,11 +53,11 @@ const FAQ: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="text-center mb-10 my-24">
+            <div className="text-center mt-20">
                 <h1 className="sm:text-3xl text-2xl font-bold title-font text-gray-900 mb-4">Explore Our Frequently Asked Questions</h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Discover quick answers to common queries about our tour agency`s services. From booking tours to travel tips, our FAQs cover everything you need to know to make your journey unforgettable!</p>
             </div>
-            <div className="w-full md:mt-0 sm:mt-14 my-10 px-16 ">
+            <div className="w-full md:mt-0 sm:mt-14 p-10 ">
                 <Collapse
                     bordered={false}
                     defaultActiveKey={['1']}

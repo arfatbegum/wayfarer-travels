@@ -16,6 +16,7 @@ import { useDebounced } from "@/redux/hooks";
 import { Input, message } from "antd";
 import Link from "next/link";
 import { useGetMyFeedbackQuery } from "@/redux/api/userApi";
+import CustomModal from "@/components/Modal/CustomModal";
 
 const Feedbacks = () => {
     const query: Record<string, any> = {};
@@ -25,6 +26,8 @@ const Feedbacks = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
+    const [feedbackId, setFeedbackId] = useState<string>("");
     const [deleteFeedback] = useDeleteFeedbackMutation();
 
     query["limit"] = size;
@@ -48,8 +51,11 @@ const Feedbacks = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteFeedback(id);
-            message.success("Feedback Deleted successfully");
+            const res = await deleteFeedback(id);
+            if (res) {
+                message.success("Feedback Deleted successfully");
+                setOpen(false);
+            }
         } catch (err: any) {
             message.error(err.message);
         }
@@ -90,7 +96,10 @@ const Feedbacks = () => {
                                 <EditOutlined />
                             </button>
                         </Link>
-                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button onClick={() => {
+                            setOpen(true);
+                            setFeedbackId(data.id);
+                        }} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </div>
@@ -156,6 +165,14 @@ const Feedbacks = () => {
                 onTableChange={onTableChange}
                 showPagination={true}
             />
+            <CustomModal
+                title="Remove Feedback"
+                isOpen={open}
+                closeModal={() => setOpen(false)}
+                handleOk={() => deleteHandler(feedbackId)}
+            >
+                <p className="my-5">Do you want to remove this Feedback?</p>
+            </CustomModal>
         </div>
     );
 };

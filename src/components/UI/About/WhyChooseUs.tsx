@@ -8,8 +8,7 @@ import Image from 'next/image';
 
 const WhyChooseUs = () => {
     return (
-        <div className='overflow-y-hidden'>
-            <div className="container lg:px-16 px-4 py-12">
+            <div className="container lg:p-10">
                 <div className="lg:flex items-center justify-center lg:space-x-12 2xl:space-x-6">
                     <div className='w-1/2'>
                         <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-gray-800">Why choose us</p>
@@ -66,7 +65,6 @@ const WhyChooseUs = () => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

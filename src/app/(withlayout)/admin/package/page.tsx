@@ -16,6 +16,7 @@ import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
 import { useDeletePackageMutation, usePackagesQuery } from "@/redux/api/packageApi";
+import CustomModal from "@/components/Modal/CustomModal";
 
 const Package = () => {
     const query: Record<string, any> = {};
@@ -25,6 +26,8 @@ const Package = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
+    const [packageId, setPackageId] = useState<string>("");
     const [deletePackage] = useDeletePackageMutation();
 
     query["limit"] = size;
@@ -48,8 +51,11 @@ const Package = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deletePackage(id);
-            message.success("Service Deleted successfully");
+            const res = await deletePackage(id);
+            if (res) {
+                message.success("Package Deleted successfully");
+                setOpen(false);
+            }
         } catch (err: any) {
             message.error(err.message);
         }
@@ -113,7 +119,10 @@ const Package = () => {
                                 <EditOutlined />
                             </button>
                         </Link>
-                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button onClick={() => {
+                            setOpen(true);
+                            setPackageId(data.id);
+                        }} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </div>
@@ -177,6 +186,14 @@ const Package = () => {
                 onTableChange={onTableChange}
                 showPagination={true}
             />
+            <CustomModal
+                title="Remove Package"
+                isOpen={open}
+                closeModal={() => setOpen(false)}
+                handleOk={() => deleteHandler(packageId)}
+            >
+                <p className="my-5">Do you want to remove this Package?</p>
+            </CustomModal>
         </div>
     );
 };

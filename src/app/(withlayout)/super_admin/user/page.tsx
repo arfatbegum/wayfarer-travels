@@ -16,6 +16,7 @@ import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
 import { useDeleteUserMutation, useUsersQuery } from "@/redux/api/userApi";
+import CustomModal from "@/components/Modal/CustomModal";
 
 const UserList = () => {
     const query: Record<string, any> = {};
@@ -25,6 +26,8 @@ const UserList = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
+    const [userId, setUserId] = useState<string>("");
     const [deleteUser] = useDeleteUserMutation();
 
     query["limit"] = size;
@@ -48,8 +51,11 @@ const UserList = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteUser(id);
-            message.success("User Deleted successfully");
+            const res = await deleteUser(id);
+            if (res) {
+                message.success("User Deleted successfully");
+                setOpen(false);
+            }
         } catch (err: any) {
             message.error(err.message);
         }
@@ -99,7 +105,10 @@ const UserList = () => {
                                 <EditOutlined />
                             </button>
                         </Link>
-                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button onClick={() => {
+                            setOpen(true);
+                            setUserId(data.id);
+                        }} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </>
@@ -163,6 +172,14 @@ const UserList = () => {
                 onTableChange={onTableChange}
                 showPagination={true}
             />
+            <CustomModal
+                title="Remove User"
+                isOpen={open}
+                closeModal={() => setOpen(false)}
+                handleOk={() => deleteHandler(userId)}
+            >
+                <p className="my-5">Do you want to remove this User?</p>
+            </CustomModal>
         </div>
     );
 };

@@ -17,6 +17,7 @@ import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
 import { useDeleteCategoryMutation } from "@/redux/api/categoryApi";
 import { useContactsQuery } from "@/redux/api/contactApi";
+import CustomModal from "@/components/Modal/CustomModal";
 
 const ContactList = () => {
     const query: Record<string, any> = {};
@@ -26,6 +27,8 @@ const ContactList = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
+    const [contactId, setContactId] = useState<string>("");
     const [deleteCategory] = useDeleteCategoryMutation();
 
     query["limit"] = size;
@@ -49,8 +52,11 @@ const ContactList = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteCategory(id);
-            message.success("Enquiry Deleted successfully");
+            const res = await deleteCategory(id);
+            if (res) {
+                message.success("Enquiry Deleted successfully");
+                setOpen(false);
+            }
         } catch (err: any) {
             message.error(err.message);
         }
@@ -98,7 +104,10 @@ const ContactList = () => {
                                 <EyeOutlined />
                             </button>
                         </Link>
-                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button onClick={() => {
+                            setOpen(true);
+                            setContactId(data.id);
+                        }} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </div>
@@ -159,6 +168,14 @@ const ContactList = () => {
                 onTableChange={onTableChange}
                 showPagination={true}
             />
+            <CustomModal
+                title="Remove Enquiry"
+                isOpen={open}
+                closeModal={() => setOpen(false)}
+                handleOk={() => deleteHandler(contactId)}
+            >
+                <p className="my-5">Do you want to remove this Enquiry?</p>
+            </CustomModal>
         </div>
     );
 };

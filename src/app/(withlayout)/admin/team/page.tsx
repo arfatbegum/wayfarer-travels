@@ -15,6 +15,7 @@ import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
 import { useDeleteTeamMutation, useTeamsQuery } from "@/redux/api/teamApi";
+import CustomModal from "@/components/Modal/CustomModal";
 
 const Category = () => {
     const query: Record<string, any> = {};
@@ -24,6 +25,8 @@ const Category = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
+    const [teamId, setTeamId] = useState<string>("");
     const [deleteTeam] = useDeleteTeamMutation();
 
     query["limit"] = size;
@@ -47,8 +50,11 @@ const Category = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteTeam(id);
-            message.success("Category Deleted successfully");
+            const res = await deleteTeam(id);
+            if (res) {
+                message.success("Category Deleted successfully");
+                setOpen(false);
+            }
         } catch (err: any) {
             message.error(err.message);
         }
@@ -89,7 +95,10 @@ const Category = () => {
                                 <EditOutlined />
                             </button>
                         </Link>
-                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button onClick={() => {
+                            setOpen(true);
+                            setTeamId(data.id);
+                        }} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </div>
@@ -153,6 +162,14 @@ const Category = () => {
                 onTableChange={onTableChange}
                 showPagination={true}
             />
+            <CustomModal
+                title="Remove Team Member"
+                isOpen={open}
+                closeModal={() => setOpen(false)}
+                handleOk={() => deleteHandler(teamId)}
+            >
+                <p className="my-5">Do you want to remove this Team Member?</p>
+            </CustomModal>
         </div>
     );
 };

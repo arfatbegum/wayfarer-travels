@@ -16,6 +16,7 @@ import BreadCrumb from "@/components/UI/Shared/BreadCrumb";
 import ActionBar from "@/components/UI/Shared/ActionBar";
 import DataTable from "@/components/UI/Shared/DataTable";
 import { useDeleteNewsMutation, useNewsesQuery } from "@/redux/api/newsApi";
+import CustomModal from "@/components/Modal/CustomModal";
 
 const NewsPage = () => {
     const query: Record<string, any> = {};
@@ -25,6 +26,8 @@ const NewsPage = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
+    const [newsId, setNewsId] = useState<string>("");
     const [deleteNews] = useDeleteNewsMutation();
 
     query["limit"] = size;
@@ -48,8 +51,11 @@ const NewsPage = () => {
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteNews(id);
-            message.success("News Deleted successfully");
+            const res = await deleteNews(id);
+            if (res) {
+                message.success("News Deleted successfully");
+                setOpen(false);
+            }
         } catch (err: any) {
             message.error(err.message);
         }
@@ -103,7 +109,10 @@ const NewsPage = () => {
                                 <EditOutlined />
                             </button>
                         </Link>
-                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button onClick={() => {
+                            setOpen(true);
+                            setNewsId(data.id);
+                        }} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </div>
@@ -167,6 +176,14 @@ const NewsPage = () => {
                 onTableChange={onTableChange}
                 showPagination={true}
             />
+            <CustomModal
+                title="Remove News"
+                isOpen={open}
+                closeModal={() => setOpen(false)}
+                handleOk={() => deleteHandler(newsId)}
+            >
+                <p className="my-5">Do you want to remove this News?</p>
+            </CustomModal>
         </div>
     );
 };

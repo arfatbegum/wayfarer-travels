@@ -23,7 +23,7 @@ const News = () => {
                     <div className="w-16 h-1 rounded-full bg-[#0f337a] inline-flex"></div>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 md:space-y-0 space-y-6">
+            <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-4 md:space-y-0 space-y-6">
                 {newses && newses?.slice(-3).map((news: any) => (
                     <NewsCard key={news.id} news={news} />
                 ))}
