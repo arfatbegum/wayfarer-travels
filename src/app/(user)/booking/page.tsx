@@ -119,8 +119,8 @@ const Booking = () => {
             dataIndex: "status",
             render: function (status: string) {
                 console.log(status)
-                if (status === "pending") {
-                    return <span className="bg-yellow-400 px-4 py-1.5 rounded text-white uppercase font-medium">{status}</span>
+                if (status === "processing") {
+                    return <span className="bg-yellow-400 px-2 py-1.5 rounded text-white uppercase font-medium">{status}</span>
                 } else if (status === "cancelled") {
                     return <span className="uppercase bg-red-500 px-2.5 py-1.5 rounded text-white font-medium">{status}</span>
                 } else if (status === "confirmed") {

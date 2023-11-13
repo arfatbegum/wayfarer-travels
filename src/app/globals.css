@@ -24,6 +24,51 @@ body {
   font-family: "Playfair Display", serif;
 }
 
+.ant-layout-sider{
+  top: 80px !important;
+}
+:where(.css-dev-only-do-not-override-xu9wm8).ant-layout-content{
+  margin-top: 85px !important;
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-pagination {
+  box-sizing: border-box;
+  padding: 0 2.5rem  !important;
+  color: #ffff !important;
+  font-family: "Playfair Display", serif !important;
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-pagination .ant-pagination-item-active{
+  border: none !important;
+  background-color: #0f337a !important;
+  border-radius: 0.25rem
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-pagination .ant-pagination-item-active a{
+  color: #ffff !important;
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-pagination .ant-pagination-item-active:hover a {
+  color: #fff !important;
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-pagination .ant-pagination-item a {
+  display: block;
+  padding: 0 6px;
+  color: #0f337a;
+  border: 1px solid #0f337a !important;
+  border-radius: 0.25rem
+  
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-pagination .ant-pagination-prev, :where(.css-dev-only-do-not-override-xu9wm8).ant-pagination .ant-pagination-next {
+  font-family: "Playfair Display", serif !important;
+  padding: 0 6px;
+  color: #0f337a !important;
+  border: 1px solid #0f337a !important;
+  border-radius: 0.25rem
+}
+
 .ant-steps .ant-steps-item-icon {
   margin-top: 5px !important;
 }

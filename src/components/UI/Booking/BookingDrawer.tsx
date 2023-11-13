@@ -5,11 +5,11 @@ import { SmileOutlined } from '@ant-design/icons';
 import { useAddBookingMutation } from '@/redux/api/bookingApi';
 import { Drawer, Space, Steps, message } from 'antd';
 import { getUserInfo, isLoggedIn } from '@/services/auth.services';
-import BookingConfirmation from '@/app/(user)/booking-confirmation/page';
 import { PiPaypalLogoLight } from 'react-icons/pi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { RiVerifiedBadgeLine } from 'react-icons/ri';
 import Summery from './Summery';
+import BookingConfirmation from './BookingConfirmation';
 
 interface BookingFormProps {
     open: boolean;

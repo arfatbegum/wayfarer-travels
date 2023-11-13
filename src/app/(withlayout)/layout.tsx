@@ -29,7 +29,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <SuperAdminAndAdminHeader />
       <Layout>
         <SideBar />
-        <Layout style={{ padding: '0 24px 24px' }}>
+        <Layout style={{ padding: '24px 24px 24px 24px' }}>
           <Contents>{children}</Contents>
         </Layout>
       </Layout>

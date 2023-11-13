@@ -22,15 +22,6 @@ const PackagesByCategory = () => {
         setActiveTab(key);
     };
 
-    // Set initial tab when categories data is available
-    // useEffect(() => {
-    //     if (categories && categories.length > 0) {
-    //         setActiveTab(categories[0].name);
-    //     }
-    // }, [categories]);
-
-    // Filter services based on the active tab/category
-    console.log(packages)
     useEffect(() => {
         const filtered = packages?.filter((tourPackage: any) => tourPackage.categorires?.name === activeTab);
         setFilteredPackages(filtered);

@@ -6,10 +6,12 @@ import FormTextArea from '@/components/Form/FormTextArea';
 import Form from '@/components/Form/Form';
 import BreadCrumb from '@/components/UI/Shared/BreadCrumb';
 import { useFeedbackQuery, useUpdateFeedbackMutation } from '@/redux/api/FeedbackApi';
+import { IDProps } from '@/types';
 
 
-const FeedbackForm = () => {
-    const { data, isLoading } = useFeedbackQuery({});
+const FeedbackForm = ({ params }: IDProps) => {
+    const { id } = params;
+    const { data, isLoading } = useFeedbackQuery(id);
     const [updateFeedback] = useUpdateFeedbackMutation();
 
     const onSubmit = async (data: any) => {
@@ -18,7 +20,7 @@ const FeedbackForm = () => {
         const userId = userInfo?.userId;
         data.userId = userId;
         try {
-            const res = await updateFeedback(data);
+            const res = await updateFeedback({ id, body: data });
             if (res) {
                 message.success("Feedback Update Successfully!");
             }
@@ -27,8 +29,8 @@ const FeedbackForm = () => {
         }
     }
 
-     //@ts-ignore
-     const defaultValues = {
+    //@ts-ignore
+    const defaultValues = {
         comment: data?.comment || "",
         suggestions: data?.suggestions || "",
     };

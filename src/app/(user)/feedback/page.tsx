@@ -85,7 +85,7 @@ const Feedbacks = () => {
             render: function (data: any) {
                 return (
                     <div className="flex">
-                        <Link href={`/admin/package/update/${data.id}`}>
+                        <Link href={`/feedback/update/${data.id}`}>
                             <button className="bg-[#0f337a] text-white font-bold py-1 px-2 rounded mr-2">
                                 <EditOutlined />
                             </button>
