@@ -117,16 +117,16 @@ const Packages = () => {
 
     return (
         <div>
-            <div className="relative">
+                <div className="relative bg-white">
                 <Image src={banner} alt="Hero image" width="2350" height="2359"
-                    className="absolute w-full object-cover h-76 opacity-90" />
-                <h1 className='text-3xl text-white font-bold z-50 pt-36 pb-2 text-center mb-2'>Explore All Tour Packages</h1>
+                    className="absolute w-full object-cover lg:h-76 opacity-90" />
+                  <h1 className='text-3xl font-bold text-center relative lg:pt-36 pt-4 text-white'>Explore All Packages</h1>
                 <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
                     <div className="relative mx-auto">
                         <UIBreadCrumb
                             items={[
                                 {
-                                    label: "Packages",
+                                    label: "Package",
                                     link: "/package",
                                 },
                             ]}
@@ -190,7 +190,6 @@ const Packages = () => {
                     onShowSizeChange={handlePaginationChange}
                 />
             </div>
-            <Footer />
         </div>
     );
 };

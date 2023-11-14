@@ -1,6 +1,6 @@
 import { useNewsesQuery } from "@/redux/api/newsApi";
 import Image from "next/image";
-import { BiTimeFive, BiCategoryAlt } from 'react-icons/bi';
+import { BiTimeFive } from 'react-icons/bi';
 import dayjs from "dayjs";
 import Link from "next/link";
 

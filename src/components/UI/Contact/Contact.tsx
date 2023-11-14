@@ -25,11 +25,11 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <div className="text-center lg:mt-20">
+            <div className="text-center lg:mt-20 mb-10">
                 <h1 className="sm:text-3xl text-2xl font-bold title-font text-gray-900 mb-4">Contact With Us</h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Contact Us for Your Unforgettable Journey! Whether you have questions, need assistance, or are ready to book your dream vacation, our tour agency is here to help. Get in touch with our friendly team to start planning your next adventure today!</p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-5 col gap-6 lg:p-10 px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-5 col gap-6 lg:px-10 px-4">
             <Info />
             <ContactForm />
           </div>

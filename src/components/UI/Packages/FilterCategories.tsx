@@ -22,7 +22,7 @@ const FilterCategories: React.FC<filteredCategoriesProps> = ({ selectedCategory,
             <h1 className="my-2 font-semibold text-lg">Filter by category</h1>
             <p
                 onClick={() => handleCategoryClick('All')}
-                className={selectedCategory === 'All' ? "text-violet-500 cursor-pointer my-2" : "cursor-pointer my-2"}
+                className={selectedCategory === 'All' ? "text-[#0f337a] cursor-pointer my-2" : "cursor-pointer my-2"}
             >
                 All
             </p>

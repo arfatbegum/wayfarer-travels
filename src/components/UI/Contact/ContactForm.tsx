@@ -18,7 +18,6 @@ const ContactForm = () => {
             return message.error("You are not Authorized! Please Login");
         }
         try {
-            console.log(data)
             message.loading("Sending...");
             const userInfo = getUserInfo() as any;
             const userId = userInfo?.userId;
@@ -36,7 +35,7 @@ const ContactForm = () => {
         <div className="lg:col-span-3 col-span-1">
             <Form submitHandler={onSubmit} resolver={yupResolver(contactSchema)}>
                 <div className="p-8 bg-white mx-auto border-2 border-gray-200 border-opacity-60 rounded-lg shadow-sm">
-                    <div className="mb-7">
+                    <div className="mb-4">
                         <h3 className="font-semibold text-2xl text-gray-800">Contact</h3>
                     </div>
                     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
@@ -80,12 +79,12 @@ const ContactForm = () => {
                             <FormTextArea
                                 name="message"
                                 label="Message"
-                                rows={3}
+                                rows={2}
                             />
                         </Col>
                     </Row>
                     <div>
-                        <button type="submit" className="w-full flex justify-center bg-[#0f337a] hover:bg-[#0f337a] text-gray-100 p-3  rounded-lg tracking-wide font-semibold mt-4 cursor-pointer transition ease-in duration-500">
+                        <button type="submit" className="w-full flex justify-center bg-[#0f337a] hover:bg-[#0f337a] text-gray-100 px-3 py-2  rounded-lg tracking-wide font-semibold mt-2 cursor-pointer transition ease-in duration-500">
                             Submit
                         </button>
                     </div>

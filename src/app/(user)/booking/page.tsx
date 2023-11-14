@@ -118,7 +118,6 @@ const Booking = () => {
             title: "Status",
             dataIndex: "status",
             render: function (status: string) {
-                console.log(status)
                 if (status === "processing") {
                     return <span className="bg-yellow-400 px-2 py-1.5 rounded text-white uppercase font-medium">{status}</span>
                 } else if (status === "cancelled") {
@@ -141,10 +140,12 @@ const Booking = () => {
             }
         },
     ];
+
     const onPaginationChange = (page: number, pageSize: number) => {
         setPage(page);
         setSize(pageSize);
     };
+
     const onTableChange = (pagination: any, filter: any, sorter: any) => {
         const { order, field } = sorter;
         setSortBy(field as string);
@@ -156,6 +157,7 @@ const Booking = () => {
         setSortOrder("");
         setSearchTerm("");
     };
+    
     return (
         <div>
             <BreadCrumb
