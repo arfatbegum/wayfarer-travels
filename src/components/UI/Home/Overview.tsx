@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const Overview = () => {
     return (
-        <div className="container mx-auto p-10">
+        <div className="container mx-auto lg:p-10 p-4">
             <div className="text-center mb-10">
                 <h1 className="sm:text-3xl text-2xl font-bold title-font mb-2 text-gray-900">Overview Of Wayfarer Travels</h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Embark on a journey through the comprehensive overview of Wayfarer Travels, your gateway to a world of remarkable adventures</p>

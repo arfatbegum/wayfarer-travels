@@ -15,7 +15,7 @@ const News = () => {
     }
 
     return (
-        <div className="container p-10 mx-auto">
+        <div className="container lg:p-10 p-4 mx-auto">
             <div className="text-center mb-10">
                 <h1 className="sm:text-3xl text-2xl font-bold title-font mb-2 text-gray-900">Latest Travel News</h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">In our Latest Travel News section, we keep you in the loop with the most current and relevant updates from the world of travel</p>

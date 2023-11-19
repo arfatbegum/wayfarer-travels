@@ -27,6 +27,13 @@ body {
 .ant-layout-sider{
   top: 80px !important;
 }
+
+
+:where(.css-xu9wm8).ant-layout.ant-layout-has-sider {
+  flex-direction: row;
+  padding: 85px 0px !important;
+}
+
 :where(.css-dev-only-do-not-override-xu9wm8).ant-layout-content{
   margin-top: 85px !important;
 }

@@ -80,8 +80,8 @@ const Booking = () => {
 
     const columns = [
         {
-            title: "Service Name",
-            dataIndex: "service",
+            title: "Package",
+            dataIndex: "package",
             render: function (data: Record<string, string>) {
                 const name = `${data?.name}`;
                 return <>{name}</>;
@@ -89,34 +89,34 @@ const Booking = () => {
         },
         {
             title: "Traveller",
-            dataIndex: "service",
+            dataIndex: "adult",
             render: function (data: Record<string, string>) {
-                const person = `${data?.person}`;
-                return <>{person}</>;
+                const person = `${data}`;
+                return <>{person} Adult</>;
             },
         },
         {
             title: "Amount",
-            dataIndex: "service",
+            dataIndex: "package",
             render: function (data: Record<string, string>) {
                 const price = `${data?.price}`;
-                return <>{price}</>;
+                return <p className="font-bold">${price}</p>;
             },
         },
         {
-            title: "paymentMethod",
+            title: "Method",
             dataIndex: "paymentInfo",
             render: function (data: Record<string, string>) {
                 const paymentMethod = `${data?.paymentMethod}`;
-                return <>{paymentMethod}</>;
+                return <p className="uppercase">{paymentMethod}</p>;
             },
         },
         {
-            title: "paymentStatus",
+            title: "Payment Status",
             dataIndex: "paymentInfo",
             render: function (data: Record<string, string>) {
                 const paymentStatus = `${data?.paymentStatus}`;
-                return <>{paymentStatus}</>;
+                return <p className="bg-green-500 px-2.5 py-1.5 rounded text-white capitalize font-medium">{paymentStatus}</p>;
             },
         },
         {

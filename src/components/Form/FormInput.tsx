@@ -46,7 +46,7 @@ const FormInput = ({
                             placeholder={placeholder}
                             {...field}
                             value={value ? value : field.value}
-                            className=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+                            className="w-full text-sm  px-4 py-3 border  border-gray-200 rounded-lg focus:outline-none focus:border-[#0f337a]"
                         />
                     ) : (
                         <Input
@@ -55,7 +55,7 @@ const FormInput = ({
                             placeholder={placeholder}
                             {...field}
                             value={value ? value : field.value}
-                            className=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+                            className=" w-full text-sm  px-4 py-3 rounded-lg focus:outline-none focus:border-[#0f337a]"
                         />
                     )
                 }

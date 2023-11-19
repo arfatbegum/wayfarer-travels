@@ -8,7 +8,7 @@ const FilterPackages: React.FC<filteredPackagesProps> = ({ filteredPackages }) =
     return (
         <div>
             {filteredPackages && filteredPackages?.length > 0 ? (
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-3">
                     {filteredPackages?.map((tourPackage: any) => (
                         <PackageCard key={tourPackage.id} tourPackage={tourPackage} />
                     ))}

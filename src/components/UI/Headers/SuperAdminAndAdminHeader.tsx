@@ -12,12 +12,11 @@ const SuperAdminAndAdminHeader = () => {
     return (
         <div className="inset-x-0 bg-[#0f337a] lg:fixed z-50 mx-auto w-full px-10 text-white">
             <div className="flex items-center justify-between"  >
-                <Link href={`/`} className="flex items-center text-xl font-semibold mb-2 font-serif text-white font-family">
-                    <Image width={50} height={60} src={logo} alt="logo" className="m-1.5 p-1.5" />
-                    Wayfarer Travels
+                <Link href={`/`} className="flex items-center text-xl font-semibold text-white font-family">
+                    <Image quality={100} width={200} height={60} src={logo} alt="logo" className="my-5" />
                 </Link>
                 <div>
-                    <span className="mr-2 text-md capitalize text-white font-bold font-family">{role}</span>
+                    <span className="mr-2 text-lg capitalize text-white font-family">{role}</span>
                     <DropDown />
                 </div>
             </div>

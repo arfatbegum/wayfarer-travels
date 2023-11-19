@@ -47,7 +47,7 @@ const Login = () => {
                 }}
             >
                 <Form submitHandler={onSubmit}>
-                    <div className="p-12 bg-white mx-auto rounded-3xl w-96 shadow-md">
+                    <div className="p-12 bg-white mx-auto rounded-lg w-96 shadow-md">
                         <div className="mb-7">
                             <h3 className="font-semibold text-2xl text-gray-800">Login </h3>
                             <p className="text-gray-400">Dont have an account? <Link href={'/register'}

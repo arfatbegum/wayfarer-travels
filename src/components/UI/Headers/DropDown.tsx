@@ -50,7 +50,7 @@ const DropDown = () => {
 
     return (
         <Dropdown menu={{ items }} >
-            <Space wrap size={16}>
+            <Space size={16}>
                 <Avatar size="large" icon={<UserOutlined />} />
             </Space>
         </Dropdown>

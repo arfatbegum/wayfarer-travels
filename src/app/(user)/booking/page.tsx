@@ -63,15 +63,19 @@ const Booking = () => {
             },
         },
         {
-            title: "Adult",
+            title: "Traveller",
             dataIndex: "adult",
+            render: function (data: Record<string, string>) {
+                const person = `${data}`;
+                return <>{person} Adult</>;
+            },
         },
         {
             title: "Amount",
             dataIndex: "package",
             render: function (data: Record<string, string>) {
                 const price = `${data?.price}`;
-                return <>{price}</>;
+                return <p className="font-bold">${price}</p>;
             },
         },
         {
@@ -122,9 +126,9 @@ const Booking = () => {
                     return <span className="bg-yellow-400 px-2 py-1.5 rounded text-white uppercase font-medium">{status}</span>
                 } else if (status === "cancelled") {
                     return <span className="uppercase bg-red-500 px-2.5 py-1.5 rounded text-white font-medium">{status}</span>
-                } else if (status === "confirmed") {
+                } else if (status === "Confirmed") {
                     return <span className="bg-green-500 px-2.5 py-1.5 rounded text-white uppercase font-medium">{status}</span>
-                } else if (status === "completed") {
+                } else if (status === "Completed") {
                     return <span className="bg-green-500 px-2.5 py-1.5 rounded text-white uppercase font-medium">{status}</span>
                 }
             },

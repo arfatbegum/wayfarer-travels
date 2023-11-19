@@ -7,9 +7,9 @@ import Image from 'next/image';
 
 const About = () => {
     return (
-        <div className="container mx-auto p-10">
+        <div className="container mx-auto lg:p-10 p-4">
             <div className="flex flex-wrap flex-row-reverse items-center">
-                <div className='lg:w-2/3 pl-12'>
+                <div className='lg:w-2/3 lg:pl-12 mb-12 lg:mb-0'>
                     <h1 className="font-md font-semibold mb-3 text-lg text-[#0f337a]">About Us</h1>
                     <p className="text-lg leading-7 text-gray-600 mt-4 w-full">We understand that the world is filled with travel options. But why should you choose us for your next adventure? The answer lies in our unwavering commitment to excellence and your satisfaction. </p>
                     <div className="mt-6 md:mt-10 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 lg:mt-6 2xl:mt-12">

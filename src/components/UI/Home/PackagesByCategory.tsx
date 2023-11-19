@@ -28,7 +28,7 @@ const PackagesByCategory = () => {
     }, [activeTab, packages]);
 
     return (
-        <div className='container p-10 mx-auto'>
+        <div className='container lg:p-10 p-4 mx-auto'>
             <div className="text-center mb-10">
                 <h1 className="sm:text-3xl text-2xl font-bold title-font text-gray-900 mb-4">Explore Our Tour Packages By Category</h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Our diverse range of tour services spans the globe, taking you to the most stunning destinations, from bustling cities to tranquil natural landscapes.</p>
