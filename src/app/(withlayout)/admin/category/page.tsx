@@ -28,7 +28,7 @@ const Category = () => {
     const [open, setOpen] = useState<boolean>(false);
     const [categoryId, setCategoryId] = useState<string>("");
     const [deleteCategory] = useDeleteCategoryMutation();
-
+   
     query["limit"] = size;
     query["page"] = page;
     query["sortBy"] = sortBy;

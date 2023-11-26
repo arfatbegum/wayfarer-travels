@@ -10,7 +10,7 @@ interface TeamProps {
 
 const TeamCard: React.FC<TeamProps> = ({ team }) => {
     return (
-        <div className="w-full relative mt-16">
+        <div className="w-full relative mt-16 lg:mb-0 mb-6">
             <div className="overflow-hidden shadow-sm bg-white border-2 border-gray-200 border-opacity-60 rounded-lg">
                 <div className="absolute -mt-20 w-full flex justify-center">
                     <div className="h-32 w-32">

@@ -1,11 +1,9 @@
-import { useTeamsQuery } from "@/redux/api/teamApi";
 import TeamCard from "./TeamCard";
+interface TeamProps {
+    teams: any
+}
 
-
-const Team = () => {
-    const query: Record<string, any> = {};
-    const { data, isLoading } = useTeamsQuery({ ...query });
-    const teams = data?.teams;
+const Team: React.FC<TeamProps> = ({teams}) => {
     return (
         <div className="p-10">
             <div className="container flex justify-center mx-auto">

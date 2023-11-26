@@ -29,7 +29,7 @@ const UIBreadCrumb = ({
         }),
     ];
 
-    return <Breadcrumb items={breadCrumbItems} className="mt-5"></Breadcrumb>;
+    return <Breadcrumb items={breadCrumbItems} className="lg:mt-5 mt-2"></Breadcrumb>;
 };
 
 export default UIBreadCrumb;

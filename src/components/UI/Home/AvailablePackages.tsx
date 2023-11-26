@@ -1,20 +1,15 @@
 'use client'
 
 import dayjs from "dayjs";
-import Loader from '@/components/UI/Shared/Loader';
 import Link from 'next/link';
 import PackageCard from './PackageCard';
-import { usePackagesQuery } from "@/redux/api/packageApi";
 
-const AvailablePackages = () => {
-    const query: Record<string, any> = {};
-    const { data, isLoading } = usePackagesQuery({ ...query });
-    const packages = data?.packages;
+interface PackagesProps {
+    packages: any
+}
+
+const AvailablePackages:React.FC<PackagesProps> = ({packages}) => {
     const currentDate = new Date();
-
-    if (isLoading) {
-        return <Loader />
-    }
 
     // Filter services based on valid_from and valid_to
     const availablePackages = packages?.filter((tourPackage: any) => {

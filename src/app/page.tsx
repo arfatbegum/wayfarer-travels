@@ -11,23 +11,34 @@ import PackagesByCategory from '@/components/UI/Home/PackagesByCategory'
 import Hero from '@/components/UI/Home/Hero'
 import Banner from '@/components/UI/Home/Banner'
 import About from '@/components/UI/Home/About'
+import { usePackagesQuery } from '@/redux/api/packageApi'
+import Loader from '@/components/UI/Shared/Loader'
 
 export default function Home() {
+  const query: Record<string, any> = {};
+  const { data, isLoading } = usePackagesQuery({ ...query });
+  const packages = data?.packages;
   return (
     <div>
-      <div className="min-h-[calc(100vh-64px)]">
-        <Hero />
-        <About/>
-        <AvailablePackages />
-        <UpcomingPackages />
-        <PackagesByCategory />
-        <Overview />
-        <Feedback />
-        <Banner/>
-        <News />
-        <Gallery />
-        <Footer />
-      </div>
+      {
+        isLoading ? (
+          <Loader />
+        ) : (
+          <div className="min-h-[calc(100vh-64px)]">
+            <Hero />
+            <About />
+            <AvailablePackages packages={packages} />
+            <UpcomingPackages />
+            <PackagesByCategory />
+            <Overview />
+            <Feedback />
+            <Banner />
+            <News />
+            <Gallery />
+            <Footer />
+          </div>
+        )
+      }
     </div>
   )
 }

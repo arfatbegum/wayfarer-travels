@@ -64,7 +64,7 @@ const Intro = () => {
                     <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
                         <FaRegAddressBook classNmae="text-3xl" />
                     </div>
-                    <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full flex justify-center items-center">
+                    <div className="z-20 w-12 h-12 bg-indigo-100 text-[#0f337a] rounded-full lg:flex hidden justify-center items-center">
                         <FaRegUser classNmae="text-3xl" />
                     </div>
                 </div>

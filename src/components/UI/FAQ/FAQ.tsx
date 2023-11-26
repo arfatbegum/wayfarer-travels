@@ -39,7 +39,7 @@ const FAQ: React.FC = () => {
             <div className="relative bg-white">
                 <Image src={banner} alt="Hero image" width="2350" height="2359"
                     className="absolute w-full object-cover h-76 opacity-90" />
-                  <h1 className='text-3xl font-bold pb-2 text-center mb-2 relative pt-36 text-white'>Frequently Asked Question</h1>
+                  <h1 className='lg:text-3xl text-xl font-bold lg:mb-3 mb-0  text-center relative lg:pt-36 pt-2 text-white'>Frequently Asked Question</h1>
                 <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
                     <div className="relative mx-auto">
                         <UIBreadCrumb
@@ -55,7 +55,7 @@ const FAQ: React.FC = () => {
             </div>
             <div className="text-center mt-20 mb-10">
                 <h1 className="sm:text-3xl text-2xl font-bold title-font text-gray-900 mb-4">Explore Our Frequently Asked Questions</h1>
-                <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Discover quick answers to common queries about our tour agency`s services. From booking tours to travel tips, our FAQs cover everything you need to know to make your journey unforgettable!</p>
+                <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500 lg:px-0 px-8">Discover quick answers to common queries about our tour agency`s services. From booking tours to travel tips, our FAQs cover everything you need to know to make your journey unforgettable!</p>
             </div>
             <div className="w-full md:mt-0 sm:mt-14 px-10 ">
                 <Collapse

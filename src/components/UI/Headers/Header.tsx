@@ -99,7 +99,7 @@ const Header = () => {
                                     </button>
                                 </div>
                             </div >
-                            <div className='lg:hidden min-w-max inline-flex relative'>
+                            <div className='lg:hidden w-full inline-flex relative'>
                                 <div data-nav-overlay aria-hidden="true" className={`fixed ${isNavOpen ? 'block' : 'hidden'} inset-0 lg:!hidden bg-gray-800/60 bg-opacity-50 z-50 lg:z-0 backdrop-filter backdrop-blur-xl`}></div>
                                 <div data-navbar className={`flex ${isNavOpen ? '' : 'invisible opacity-0 translate-y-10'} lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-end lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0`}>
                                     <div className="flex lg:hidden flex-col text-center lg:mt-0 mt-4 z-50  gap-5 text-md font-normal  lg:text-white">
@@ -116,13 +116,13 @@ const Header = () => {
                                                     <DropDown />
                                                 </div>
                                             ) : (
-                                                <div className="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-gray-100   lg:border-0 px-6 lg:px-0">
-                                                    <Link href="/register" className="flex text-black ml-3 justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-yellow-400 border-transparent hover:border-white">
-                                                        <span className="relative z-10 text-white font-bold">
-                                                            REGISTER / LOGIN
-                                                        </span>
-                                                    </Link>
-                                                </div>
+                                                <div className="lg:min-w-max flex items-center sm:w-max w-full   px-6 lg:px-0">
+                                                <Link href="/register" className="flex text-black ml-3 justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-yellow-400 hover:after:opacity-100 hover:after:scale-[2.5] bg-yellow-400 border-transparent hover:border-white">
+                                                    <span className="relative z-10 text-white font-bold">
+                                                        REGISTER / LOGIN
+                                                    </span>
+                                                </Link>
+                                            </div>
                                             )
                                         }
                                     </div>

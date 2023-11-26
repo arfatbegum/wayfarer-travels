@@ -52,10 +52,10 @@ const NewsPage = () => {
                     <>
                         <div className="relative">
                             <Image src={banner} alt="Hero image" width="2350" height="2359"
-                                className="absolute w-full object-cover h-76 opacity-90" />
+                                className="absolute w-full object-cover lg:h-76 opacity-90" />
+                            <h1 className='lg:text-3xl text-xl font-bold lg:mb-3 mb-0  text-center relative lg:pt-36 pt-2 text-white'>News</h1>
                             <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
-                                <div className="relative pt-36 mx-auto text-white">
-                                    <h1 className='text-3xl font-bold text-center mb-2'>News</h1>
+                                <div className="relative mx-auto">
                                     <UIBreadCrumb
                                         items={[
                                             {
@@ -69,7 +69,7 @@ const NewsPage = () => {
                         </div>
                         <div className="text-center mt-20 mb-5">
                             <h1 className="sm:text-3xl text-2xl font-bold title-font text-gray-900 mb-4">Explore Latest Travel News</h1>
-                            <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">In our Latest Travel News section, we keep you in the loop with the most current and relevant updates from the world of travel</p>
+                            <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500 px-4 lg:px-0">In our Latest Travel News section, we keep you in the loop with the most current and relevant updates from the world of travel</p>
                         </div>
                         <Tabs
                             defaultActiveKey="All"

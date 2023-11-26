@@ -39,7 +39,7 @@ const Register = () => {
                 }}
             >
                 <Form submitHandler={onSubmit}>
-                    <div className="p-8 bg-white m-auto rounded-lg w-[700px] shadow-md max-h-screen lg:mt-44">
+                    <div className="p-8 bg-white m-auto my-12 lg:my-0 rounded-lg w-96 lg:w-[700px] shadow-md lg:max-h-screen lg:mt-44">
                         <div className="mb-7">
                             <h3 className="font-semibold text-2xl text-gray-800">Register </h3>
                             <p className="text-gray-400">Already have an Account? <Link href={'/login'}
@@ -48,7 +48,7 @@ const Register = () => {
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col
                                 className="gutter-row mb-4"
-                                span={12}
+                                sm={24} lg={12}
                             >
                                 <FormInput
                                     name="name"
@@ -59,7 +59,7 @@ const Register = () => {
                             </Col>
                             <Col
                                 className="gutter-row mb-4"
-                                span={12}
+                                sm={24} lg={12}
                             >
                                 <FormInput
                                     name="email"
@@ -70,7 +70,7 @@ const Register = () => {
                             </Col>
                             <Col
                                 className="gutter-row mb-4"
-                                span={12}
+                                sm={24} lg={12}
                             >
                                 <FormInput
                                     name="password"
@@ -82,7 +82,7 @@ const Register = () => {
                             </Col>
                             <Col
                                 className="gutter-row mb-4"
-                                span={12}
+                                sm={24} lg={12}
                             >
                                 <FormInput
                                     name="contactNo"

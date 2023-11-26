@@ -13,11 +13,13 @@ interface BookingFormProps {
 const BookingForm: React.FC<BookingFormProps> = ({ onFormSubmit }) => {
 
   const handleSubmit = (value: any) => {
+    const isoDate = new Date(value.date).toISOString();
+    value.date = isoDate;
     value.adult = parseInt(value.adult)
     value.children = parseInt(value.children)
     onFormSubmit(value);
   };
-  
+
   return (
     <Form submitHandler={handleSubmit} resolver={yupResolver(bookingSchema)}>
       <div className="m-8 font-family">
@@ -44,7 +46,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ onFormSubmit }) => {
           label="Children"
           size="large"
         />
-        <button  className="w-full bg-[#0f337a] text-white py-2 px-36 rounded mt-8 font-semibold" type="submit">Continue Booking</button>
+        <button className="w-full bg-[#0f337a] text-white py-2 px-36 rounded mt-8 font-semibold" type="submit">Continue Booking</button>
       </div>
     </Form>
   );

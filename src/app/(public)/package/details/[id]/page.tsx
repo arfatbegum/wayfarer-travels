@@ -40,6 +40,7 @@ const PackageDetails = ({ params }: IDProps) => {
     const onClose = () => {
         setOpen(false);
     };
+    console.log(data?.reviews)
 
     return (
         <>
@@ -52,8 +53,8 @@ const PackageDetails = ({ params }: IDProps) => {
                         <>
                             <div className="relative">
                                 <Image src={banner} alt="Hero image" width="2350" height="2359"
-                                    className="absolute w-full object-cover h-76 opacity-90" />
-                                <h1 className='text-3xl font-bold text-center relative pt-36 text-white'>{data?.name}</h1>
+                                    className="absolute w-full object-cover lg:h-76 opacity-90" />
+                                <h1 className='lg:text-3xl text-xl font-bold text-center relative lg:pt-36 pt-2 text-white'>{data?.name}</h1>
                                 <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
                                     <div className="relative mx-auto">
                                         <UIBreadCrumb
@@ -71,7 +72,7 @@ const PackageDetails = ({ params }: IDProps) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="my-12 px-12">
+                            <div className="my-10 px-10">
                                 <div className="text-gray-900 body-font relative">
                                     <div className="container pt-5 mx-auto flex sm:flex-nowrap flex-wrap gap-6 ">
                                         <div className="lg:w-2/3 md:w-1/2 p-8 h-min height:min-content flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg bg-white bg-clip-border text-gray-700 shadow-sm">
@@ -162,7 +163,7 @@ const PackageDetails = ({ params }: IDProps) => {
                                                     />
                                                 </div>
                                             </div>
-                                            {data?.reviews === 0 ? <Reviews reviews={data?.reviews} /> : null}
+                                            {data?.reviews?.length > 0 ? <Reviews reviews={data?.reviews} /> : null}
                                             <ReviewForm packageId={data?.id} newsId={""} />
                                         </div>
                                     </div>

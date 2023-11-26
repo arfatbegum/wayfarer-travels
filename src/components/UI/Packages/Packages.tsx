@@ -6,7 +6,6 @@ import ActionBar from "@/components/UI/Shared/ActionBar";
 import { SearchOutlined, ReloadOutlined } from "@ant-design/icons";
 import { Input, Pagination } from "antd";
 import { useDebounced } from "@/redux/hooks";
-import Footer from "@/components/UI/Footer/Footer";
 import UIBreadCrumb from "../Shared/UIBreadcrumb";
 import banner from "@/assets/package-banner.jpg"
 import Image from "next/image";
@@ -17,6 +16,7 @@ import FilterByPrice from './FilterByPrice';
 import dayjs from "dayjs";
 import CheckAvailablity from './CheckAvailablity';
 import FilterByDestinations from './FilterByDestinations';
+import Footer from '../Footer/Footer';
 
 const Packages = () => {
     const [page, setPage] = useState<number>(1);
@@ -110,87 +110,93 @@ const Packages = () => {
 
     }, [selectedCategory, priceRange, selectedDestinations, packages, selectedValidFrom, selectedValidTill]);
 
-
-    if (isPackageLoading) {
-        return <Loader />;
-    }
-
     return (
-        <div>
-                <div className="relative bg-white">
-                <Image src={banner} alt="Hero image" width="2350" height="2359"
-                    className="absolute w-full object-cover lg:h-76 opacity-90" />
-                  <h1 className='text-3xl font-bold mb-1 text-center relative lg:pt-36 pt-4 text-white'>Explore All Packages</h1>
-                <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
-                    <div className="relative mx-auto">
-                        <UIBreadCrumb
-                            items={[
-                                {
-                                    label: "Package",
-                                    link: "/package",
-                                },
-                            ]}
-                        />
-                    </div>
-                </div>
-            </div>
-            <div className="p-10">
-                <ActionBar>
-                    <Input
-                        addonBefore={<SearchOutlined style={{ fontSize: '18px', color: "#4338ca" }} />}
-                        placeholder="Search ..."
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                    {(!!sortBy || !!sortOrder || !!searchTerm || !!selectedValidFrom || !!selectedValidTill) && (
-                        <button
-                            onClick={resetFilters}
-                            className="flex w-40 gap-2 items-center bg-[#0f337a] px-4 py-2 ml-2 text-white rounded font-semibold float-right"
-                        >
-                            Reset Filters<ReloadOutlined />
-                        </button>
-                    )}
-                </ActionBar>
-                <div className="text-gray-900 body-font relative">
-                    <div className="container pt-5 grid grid-cols-5 gap-4">
-                        <div className="col-span-1 flex flex-col">
-                            <CheckAvailablity
-                                packages={packages}
-                                setFilteredPackages={setFilteredPackages}
-                                selectedValidFrom={selectedValidFrom}
-                                selectedValidTill={selectedValidTill}
-                                setSelectedValidFrom={setSelectedValidFrom}
-                                setSelectedValidTill={setSelectedValidTill}
-                            />
-                            <FilterByPrice
-                                priceRange={priceRange}
-                                setPriceRange={setPriceRange}
-                            />
-                            <FilterByDestinations
-                                packages={packages}
-                                selectedDestinations={selectedDestinations}
-                                setSelectedDestinations={setSelectedDestinations}
-                            />
-                            <FilterCategories
-                                selectedCategory={selectedCategory}
-                                setSelectedCategory={setSelectedCategory}
-                            />
+        <>
+            {
+                isPackageLoading ? (
+                    <Loader />
+                ) : (
+                    <>
+                        <div>
+                            <div className="relative bg-white">
+                                <Image src={banner} alt="Hero image" width="2350" height="2359"
+                                    className="absolute w-full object-cover lg:h-76 opacity-90" />
+                                <h1 className='lg:text-3xl text-xl font-bold lg:mb-3 mb-0  text-center relative lg:pt-36 pt-2 text-white'>Explore All Packages</h1>
+                                <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 flex  lg:flex-row gap-10 lg:gap-12">
+                                    <div className="relative mx-auto">
+                                        <UIBreadCrumb
+                                            items={[
+                                                {
+                                                    label: "Package",
+                                                    link: "/package",
+                                                },
+                                            ]}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="p-10">
+                                <ActionBar>
+                                    <Input
+                                        addonBefore={<SearchOutlined style={{ fontSize: '18px', color: "#4338ca" }} />}
+                                        placeholder="Search ..."
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
+                                    {(!!sortBy || !!sortOrder || !!searchTerm || !!selectedValidFrom || !!selectedValidTill) && (
+                                        <button
+                                            onClick={resetFilters}
+                                            className="flex w-40 gap-2 items-center bg-[#0f337a] px-4 py-2 ml-2 text-white rounded font-semibold float-right"
+                                        >
+                                            Reset Filters<ReloadOutlined />
+                                        </button>
+                                    )}
+                                </ActionBar>
+                                <div className="text-gray-900 body-font relative">
+                                    <div className="container pt-5 lg:grid lg:grid-cols-5 lg:gap-4">
+                                        <div className="col-span-1 lg:flex flex-col hidden">
+                                            <CheckAvailablity
+                                                packages={packages}
+                                                setFilteredPackages={setFilteredPackages}
+                                                selectedValidFrom={selectedValidFrom}
+                                                selectedValidTill={selectedValidTill}
+                                                setSelectedValidFrom={setSelectedValidFrom}
+                                                setSelectedValidTill={setSelectedValidTill}
+                                            />
+                                            <FilterByPrice
+                                                priceRange={priceRange}
+                                                setPriceRange={setPriceRange}
+                                            />
+                                            <FilterByDestinations
+                                                packages={packages}
+                                                selectedDestinations={selectedDestinations}
+                                                setSelectedDestinations={setSelectedDestinations}
+                                            />
+                                            <FilterCategories
+                                                selectedCategory={selectedCategory}
+                                                setSelectedCategory={setSelectedCategory}
+                                            />
+                                        </div>
+                                        <div className="lg:col-span-4 w-full">
+                                            <FilterPackages filteredPackages={filteredPackages} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="float-right mb-20">
+                                <Pagination
+                                    current={page}
+                                    pageSize={size}
+                                    total={packageData?.meta?.total || 0}
+                                    onChange={handlePaginationChange}
+                                    onShowSizeChange={handlePaginationChange}
+                                />
+                            </div>
                         </div>
-                        <div className="col-span-4">
-                            <FilterPackages filteredPackages={filteredPackages} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="float-right mb-20">
-                <Pagination
-                    current={page}
-                    pageSize={size}
-                    total={packageData?.meta?.total || 0}
-                    onChange={handlePaginationChange}
-                    onShowSizeChange={handlePaginationChange}
-                />
-            </div>
-        </div>
+                        <Footer />
+                    </>
+                )
+            }
+        </>
     );
 };
 export default Packages;

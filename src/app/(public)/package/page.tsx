@@ -1,4 +1,3 @@
-import Footer from '@/components/UI/Footer/Footer';
 import Packages from '@/components/UI/Packages/Packages';
 import { Metadata } from 'next';
 
@@ -11,7 +10,6 @@ const PackagesPage = () => {
     return (
         <div>
             <Packages />
-            <Footer/>
         </div>
     );
 };

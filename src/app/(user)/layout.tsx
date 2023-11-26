@@ -21,18 +21,20 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     setIsLoading(true);
   }, [router, isLoading, userLoggedIn]);
 
-  if (!isLoading) {
-    return <Loader />
-  }
-
   return (
     <Layout>
       <Header />
       <Layout>
         <SideBar />
-        <Layout style={{ padding: '0 24px 24px' }}>
-          <Contents>{children}</Contents>
-        </Layout>
+        {
+          !isLoading ? (
+            <Loader />
+          ) : (
+            <Layout style={{ padding: '0 24px 24px' }}>
+              <Contents>{children}</Contents>
+            </Layout>
+          )
+        }
       </Layout>
     </Layout>
   );

@@ -46,8 +46,6 @@ const Booking = () => {
     const bookings = data?.bookings;
     const meta = data?.meta;
 
-    console.log(bookings)
-
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {

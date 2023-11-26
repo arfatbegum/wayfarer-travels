@@ -8,9 +8,9 @@ import Image from 'next/image';
 
 const WhyChooseUs = () => {
     return (
-            <div className="container lg:p-10">
+            <div className="container p-10">
                 <div className="lg:flex items-center justify-center lg:space-x-12 2xl:space-x-6">
-                    <div className='w-1/2'>
+                    <div className='lg:w-1/2 w-full'>
                         <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-gray-800">Why choose us</p>
                         <p className="text-lg leading-7 text-gray-600 mt-4 w-full">We understand that the world is filled with travel options. But why should you choose us for your next adventure? The answer lies in our unwavering commitment to excellence and your satisfaction. </p>
                         <div className="lg:hidden lg:w-3/5 xl:w-3/5 w-full lg:mt-0 mt-6">

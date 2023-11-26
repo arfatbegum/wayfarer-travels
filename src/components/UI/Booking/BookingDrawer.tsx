@@ -34,6 +34,7 @@ const BookingDrawer: React.FC<BookingFormProps> = ({ onClose, open, size, packag
         adult: 0,
         children: 0,
     });
+    console.log(formData)
     const adultTotal = formData?.adult * price;
     const childrenTotal = formData?.children ? formData?.children * price : 0;
     const total = adultTotal + childrenTotal;

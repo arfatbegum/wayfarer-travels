@@ -136,7 +136,7 @@ const Footer = () => {
                             </div>
                         </form>
                     </div>
-                    <div className="mb-6 lg:px-24 text-center">
+                    <div className="mb-6 lg:px-24 px-10 text-center">
                         <p>
                             As your premier travel partner, we are dedicated to crafting unforgettable journeys tailored to your desires. From exotic destinations to cultural adventures, our expert team is here to turn your travel dreams into reality. Explore a world of possibilities with our curated travel experiences, personalized service, and commitment to excellence. Your next adventure begins here. Trust Wayfarer Travel for exceptional travel, exceptional memories.
                         </p>
@@ -144,7 +144,7 @@ const Footer = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-5 px-10">
                         <div className="mb-6">
                             <h5 className="mb-2.5 font-bold uppercase justify-start">Contact Us</h5>
-                            <p className="mb-2 flex items-center justify-center md:justify-start">
+                            <p className="mb-2 flex items-center justify-start">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ const Footer = () => {
                                 </svg>
                                 Jeddah, Saudi Arabia
                             </p>
-                            <p className="mb-2 flex items-center justify-center md:justify-start">
+                            <p className="mb-2 flex items-center justify-start">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
@@ -170,7 +170,7 @@ const Footer = () => {
                                 </svg>
                                 arfatakter39@gmail.com
                             </p>
-                            <p className="mb-2 flex items-center justify-center md:justify-start">
+                            <p className="mb-2 flex items-center justify-start">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
